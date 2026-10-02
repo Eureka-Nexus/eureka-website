@@ -8,9 +8,32 @@
   function apply(lang){const d=T[lang]||T[fallbackLang[lang]]||T.pt;$$('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]??T.pt[el.dataset.i18n];if(v!=null)el.textContent=v});}
   addEventListener('eureka:language',e=>apply(e.detail.lang));apply(window.Eureka?.lang?.()||'pt');
 
-  const intro=$('#intro'), force=new URLSearchParams(location.search).get('intro')==='1', reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function endIntro(){if(!intro)return;intro.classList.add('opening');setTimeout(()=>intro.classList.add('hidden'),1120)}
-  if(intro){if(reduced&&!force)intro.classList.add('hidden');else{setTimeout(()=>intro.classList.add('pose-open'),2700);setTimeout(endIntro,3480);$('#skipIntro')?.addEventListener('click',endIntro)}}
+  const intro=$('#intro');
+  let introTimers=[], stepTimer=null, introPlaying=false;
+  const later=(fn,ms)=>{const id=setTimeout(fn,ms);introTimers.push(id);return id};
+  function clearIntroTimers(){introTimers.forEach(clearTimeout);introTimers=[];if(stepTimer){clearInterval(stepTimer);stepTimer=null}}
+  function finishIntro(immediate=false){
+    if(!intro)return;clearIntroTimers();
+    if(immediate){intro.classList.add('hidden');document.body.classList.remove('intro-active');introPlaying=false;return}
+    intro.classList.add('ripping');
+    later(()=>{intro.classList.add('hidden');document.body.classList.remove('intro-active');introPlaying=false},1550);
+  }
+  function playIntro(){
+    if(!intro)return;clearIntroTimers();introPlaying=true;
+    intro.className='intro';document.body.classList.add('intro-active');
+    const walker=$('#introWalker');if(walker)walker.classList.remove('step-right');
+    void intro.offsetWidth;
+    later(()=>intro.classList.add('walking'),50);
+    let right=false;
+    stepTimer=setInterval(()=>{right=!right;walker?.classList.toggle('step-right',right)},245);
+    later(()=>{if(stepTimer){clearInterval(stepTimer);stepTimer=null}walker?.classList.remove('step-right');intro.classList.add('pose-open')},4050);
+    later(()=>finishIntro(false),4870);
+  }
+  if(intro){
+    playIntro();
+    $('#skipIntro')?.addEventListener('click',()=>finishIntro(true));
+    addEventListener('pageshow',e=>{if(e.persisted&&!introPlaying)playIntro()});
+  }
 
   const contract=C.tokenContract||'';$('#tokenContract')&&( $('#tokenContract').textContent=contract );
   const bsc=$('#tokenBsc');if(bsc)bsc.href=C.bscScanToken;const mkt=$('#marketBsc');if(mkt)mkt.href=C.bscScanMarket;const fee=$('#feeBsc');if(fee)fee.href=C.bscScanFeeWallet;

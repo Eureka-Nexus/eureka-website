@@ -1,4 +1,5 @@
 Eureka Nexus Website Production
-Version: 2026.10.02
-Build type: static production / GitHub-ready
+Version: 2026.10.02-cinematic-v2
+Build type: static production / GitHub Pages
 Languages: Portuguese + English
+Intro: cinematic walk + screen tear, every page load
