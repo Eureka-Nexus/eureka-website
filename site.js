@@ -8,9 +8,9 @@
   function apply(lang){const d=T[lang]||T[fallbackLang[lang]]||T.pt;$$('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]??T.pt[el.dataset.i18n];if(v!=null)el.textContent=v});}
   addEventListener('eureka:language',e=>apply(e.detail.lang));apply(window.Eureka?.lang?.()||'pt');
 
-  const intro=$('#intro'), force=new URLSearchParams(location.search).get('intro')==='1', reduced=matchMedia('(prefers-reduced-motion: reduce)').matches, seen=sessionStorage.getItem('eureka-intro')==='1'&&!force;
-  function endIntro(){if(!intro)return;intro.classList.add('opening');setTimeout(()=>{intro.classList.add('hidden');sessionStorage.setItem('eureka-intro','1')},1120)}
-  if(intro){if(reduced||seen)intro.classList.add('hidden');else{setTimeout(()=>intro.classList.add('pose-open'),2700);setTimeout(endIntro,3480);$('#skipIntro')?.addEventListener('click',endIntro)}}
+  const intro=$('#intro'), force=new URLSearchParams(location.search).get('intro')==='1', reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function endIntro(){if(!intro)return;intro.classList.add('opening');setTimeout(()=>intro.classList.add('hidden'),1120)}
+  if(intro){if(reduced&&!force)intro.classList.add('hidden');else{setTimeout(()=>intro.classList.add('pose-open'),2700);setTimeout(endIntro,3480);$('#skipIntro')?.addEventListener('click',endIntro)}}
 
   const contract=C.tokenContract||'';$('#tokenContract')&&( $('#tokenContract').textContent=contract );
   const bsc=$('#tokenBsc');if(bsc)bsc.href=C.bscScanToken;const mkt=$('#marketBsc');if(mkt)mkt.href=C.bscScanMarket;const fee=$('#feeBsc');if(fee)fee.href=C.bscScanFeeWallet;
