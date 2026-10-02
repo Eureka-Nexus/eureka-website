@@ -1,1 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://eurekanexus.pt/</loc></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://eurekanexus.pt/</loc></url>
+  <url><loc>https://eurekanexus.pt/company.html</loc></url>
+  <url><loc>https://eurekanexus.pt/network.html</loc></url>
+  <url><loc>https://eurekanexus.pt/contracts.html</loc></url>
+  <url><loc>https://eurekanexus.pt/whitepaper.html</loc></url>
+  <url><loc>https://eurekanexus.pt/privacy.html</loc></url>
+  <url><loc>https://eurekanexus.pt/terms.html</loc></url>
+</urlset>

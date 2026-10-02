@@ -1,0 +1,4 @@
+Eureka Nexus Website Production
+Version: 2026.10.02
+Build type: static production / GitHub-ready
+Languages: Portuguese + English
