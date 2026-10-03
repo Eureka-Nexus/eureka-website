@@ -30,20 +30,20 @@ window.EUREKA_CONFIG = Object.freeze({
   networkUrl: "https://pool.eurekanexus.pt/v1/network",
   healthUrl: "https://pool.eurekanexus.pt/health",
   statsRefreshMs: 15000,
-  minerVersion: "1.0.0",
+  minerVersion: "1.1.0",
   minerLinuxStatus: "live",
   minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.0.0/Eureka-Nexus-Miner-Official-1.0-Linux-x86_64.tar.gz",
 
-  // Official contact aliases. Create/verify these inboxes or forwarding aliases before go-live.
-  contactEmail: "contact@eurekanexus.pt",
-  investorsEmail: "investors@eurekanexus.pt",
-  partnersEmail: "partners@eurekanexus.pt",
-  careersEmail: "careers@eurekanexus.pt",
-  pressEmail: "press@eurekanexus.pt",
+  // Official contact address for all project enquiries.
+  contactEmail: "eurekanexusofficial@gmail.com",
+  investorsEmail: "eurekanexusofficial@gmail.com",
+  partnersEmail: "eurekanexusofficial@gmail.com",
+  careersEmail: "eurekanexusofficial@gmail.com",
+  pressEmail: "eurekanexusofficial@gmail.com",
 
   // Downloads: only switch a status to "live" after publishing a verified official build.
   minerWindowsStatus: "live",
-  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.0.0/Eureka-Nexus-Miner-Official-1.0-Windows-x86_64.zip",
+  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.0/Eureka-Nexus-Miner-Setup-1.1.0.exe",
   minerAndroidStatus: "soon",
   minerAndroidUrl: "",
   agentDesktopStatus: "soon",
