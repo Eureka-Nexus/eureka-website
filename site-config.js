@@ -26,9 +26,13 @@ window.EUREKA_CONFIG = Object.freeze({
 
   // Live pool integration. Leave blank until a PUBLIC HTTPS endpoint/proxy exists.
   // Expected Eureka Mining Server endpoint: /v1/public/stats
-  publicStatsUrl: "",
-  networkUrl: "",
+  publicStatsUrl: "https://pool.eurekanexus.pt/v1/public/stats",
+  networkUrl: "https://pool.eurekanexus.pt/v1/network",
+  healthUrl: "https://pool.eurekanexus.pt/health",
   statsRefreshMs: 15000,
+  minerVersion: "1.0.0",
+  minerLinuxStatus: "live",
+  minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.0.0/Eureka-Nexus-Miner-Official-1.0-Linux-x86_64.tar.gz",
 
   // Official contact aliases. Create/verify these inboxes or forwarding aliases before go-live.
   contactEmail: "contact@eurekanexus.pt",
@@ -38,8 +42,8 @@ window.EUREKA_CONFIG = Object.freeze({
   pressEmail: "press@eurekanexus.pt",
 
   // Downloads: only switch a status to "live" after publishing a verified official build.
-  minerWindowsStatus: "soon",
-  minerWindowsUrl: "",
+  minerWindowsStatus: "live",
+  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.0.0/Eureka-Nexus-Miner-Official-1.0-Windows-x86_64.zip",
   minerAndroidStatus: "soon",
   minerAndroidUrl: "",
   agentDesktopStatus: "soon",

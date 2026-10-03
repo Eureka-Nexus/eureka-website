@@ -5,7 +5,7 @@ PARA SUBSTITUIR O SITE ATUAL
 2. Apaga/substitui os ficheiros públicos antigos.
 3. Coloca o CONTEÚDO deste pacote na raiz de eurekanexus.pt.
 4. Confirma que index.html está diretamente na raiz.
-5. Testa https://eurekanexus.pt/?intro=1
+5. Testa a entrada direta, navegação, idiomas e layout mobile em https://eurekanexus.pt/
 
 ANTES DE PUBLICAR
 - Criar/confirmar emails em site-config.js.
