@@ -112,20 +112,6 @@
       (announcedName + " " + rdns).toLowerCase();
 
     if (
-      combined.includes("metamask") ||
-      (
-        provider?.isMetaMask &&
-        !provider?.isRabby &&
-        !provider?.isBraveWallet
-      )
-    ) {
-      return {
-        type: "metamask",
-        label: "MetaMask"
-      };
-    }
-
-    if (
       combined.includes("trust") ||
       provider?.isTrust ||
       provider?.isTrustWallet
@@ -143,6 +129,28 @@
       return {
         type: "keplr",
         label: "Keplr"
+      };
+    }
+
+    if (
+      combined.includes("metamask")
+    ) {
+      return {
+        type: "metamask",
+        label: "MetaMask"
+      };
+    }
+
+    if (
+      provider?.isMetaMask &&
+      !provider?.isTrust &&
+      !provider?.isTrustWallet &&
+      !provider?.isRabby &&
+      !provider?.isBraveWallet
+    ) {
+      return {
+        type: "metamask",
+        label: "MetaMask"
       };
     }
 
