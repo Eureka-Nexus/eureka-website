@@ -5,6 +5,7 @@
 
   let connectedWallet = "";
   let activeWalletProvider = null;
+  let walletProviderLocked = false;
   const eip6963Providers = [];
 
   function registerEip6963Provider(event) {
@@ -94,6 +95,205 @@
     return unique.sort((a, b) => score(b) - score(a));
   }
 
+  function walletProviderIdentity(provider) {
+    const announced =
+      eip6963Providers.find(
+        item => item.provider === provider
+      );
+
+    const info = announced?.info || {};
+    const announcedName =
+      String(info.name || "").trim();
+
+    const rdns =
+      String(info.rdns || "").toLowerCase();
+
+    const combined =
+      (announcedName + " " + rdns).toLowerCase();
+
+    if (
+      combined.includes("metamask") ||
+      (
+        provider?.isMetaMask &&
+        !provider?.isRabby &&
+        !provider?.isBraveWallet
+      )
+    ) {
+      return {
+        type: "metamask",
+        label: "MetaMask"
+      };
+    }
+
+    if (
+      combined.includes("trust") ||
+      provider?.isTrust ||
+      provider?.isTrustWallet
+    ) {
+      return {
+        type: "trust",
+        label: "Trust Wallet"
+      };
+    }
+
+    if (
+      combined.includes("keplr") ||
+      provider?.isKeplr
+    ) {
+      return {
+        type: "keplr",
+        label: "Keplr"
+      };
+    }
+
+    return {
+      type: "other",
+      label:
+        announcedName ||
+        "Outra wallet disponível"
+    };
+  }
+
+  async function chooseWalletProvider() {
+    await refreshEip6963Providers();
+
+    const providers = walletProviders();
+
+    if (!providers.length) {
+      throw new Error(
+        "Não foi encontrada uma wallet EVM compatível neste navegador."
+      );
+    }
+
+    if (providers.length === 1) {
+      activeWalletProvider = providers[0];
+      walletProviderLocked = true;
+      return providers[0];
+    }
+
+    return await new Promise((resolve, reject) => {
+      const overlay = document.createElement("div");
+
+      overlay.style.cssText = [
+        "position:fixed",
+        "inset:0",
+        "z-index:999999",
+        "background:rgba(2,6,18,.82)",
+        "display:flex",
+        "align-items:center",
+        "justify-content:center",
+        "padding:20px",
+        "backdrop-filter:blur(8px)"
+      ].join(";");
+
+      const card = document.createElement("div");
+
+      card.style.cssText = [
+        "width:min(430px,100%)",
+        "background:#0b1220",
+        "border:1px solid rgba(255,255,255,.14)",
+        "border-radius:18px",
+        "padding:22px",
+        "box-shadow:0 25px 80px rgba(0,0,0,.45)",
+        "font-family:inherit",
+        "color:#fff"
+      ].join(";");
+
+      const title = document.createElement("div");
+      title.textContent = "Escolher wallet";
+      title.style.cssText =
+        "font-size:20px;font-weight:800;margin-bottom:7px";
+
+      const note = document.createElement("div");
+      note.textContent =
+        "Escolhe a carteira que queres ligar à Eureka Nexus.";
+      note.style.cssText =
+        "font-size:13px;color:#9ca9bd;margin-bottom:18px";
+
+      card.appendChild(title);
+      card.appendChild(note);
+
+      const seen = new Set();
+
+      for (const provider of providers) {
+        const identity =
+          walletProviderIdentity(provider);
+
+        let label = identity.label;
+
+        if (
+          identity.type === "other" &&
+          label !== "Outra wallet disponível"
+        ) {
+          label = "Outra wallet — " + label;
+        }
+
+        const key =
+          identity.type + ":" + label;
+
+        if (seen.has(key)) continue;
+        seen.add(key);
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+        button.textContent = label;
+
+        button.style.cssText = [
+          "display:block",
+          "width:100%",
+          "padding:13px 15px",
+          "margin:9px 0",
+          "border-radius:11px",
+          "border:1px solid rgba(255,255,255,.14)",
+          "background:#111c31",
+          "color:#fff",
+          "font-weight:700",
+          "cursor:pointer",
+          "text-align:left"
+        ].join(";");
+
+        button.onclick = () => {
+          activeWalletProvider = provider;
+          walletProviderLocked = true;
+          overlay.remove();
+          resolve(provider);
+        };
+
+        card.appendChild(button);
+      }
+
+      const cancel =
+        document.createElement("button");
+
+      cancel.type = "button";
+      cancel.textContent = "Cancelar";
+
+      cancel.style.cssText = [
+        "display:block",
+        "width:100%",
+        "padding:11px",
+        "margin-top:14px",
+        "border:0",
+        "background:transparent",
+        "color:#8fa0b8",
+        "cursor:pointer"
+      ].join(";");
+
+      cancel.onclick = () => {
+        overlay.remove();
+        reject(
+          new Error("Ligação à wallet cancelada.")
+        );
+      };
+
+      card.appendChild(cancel);
+      overlay.appendChild(card);
+      document.body.appendChild(overlay);
+    });
+  }
+
   function walletErrorText(err) {
     return String(
       err?.message ||
@@ -136,9 +336,11 @@
       ordered.push(activeWalletProvider);
     }
 
-    for (const provider of candidates) {
-      if (!ordered.includes(provider)) {
-        ordered.push(provider);
+    if (!walletProviderLocked) {
+      for (const provider of candidates) {
+        if (!ordered.includes(provider)) {
+          ordered.push(provider);
+        }
       }
     }
 
@@ -280,6 +482,11 @@
     try {
       btn.disabled = true;
       btn.textContent = "A LIGAR...";
+
+      activeWalletProvider =
+        await chooseWalletProvider();
+
+      walletProviderLocked = true;
 
       let accounts;
 
