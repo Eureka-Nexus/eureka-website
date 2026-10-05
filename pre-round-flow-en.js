@@ -5,6 +5,48 @@
 
   let connectedWallet = "";
   let activeWalletProvider = null;
+  const eip6963Providers = [];
+
+  function registerEip6963Provider(event) {
+    const detail = event?.detail;
+    const provider = detail?.provider;
+
+    if (
+      provider &&
+      typeof provider.request === "function" &&
+      !eip6963Providers.some(
+        item => item.provider === provider
+      )
+    ) {
+      eip6963Providers.push({
+        provider,
+        info: detail.info || {}
+      });
+    }
+  }
+
+  window.addEventListener(
+    "eip6963:announceProvider",
+    registerEip6963Provider
+  );
+
+  try {
+    window.dispatchEvent(
+      new Event("eip6963:requestProvider")
+    );
+  } catch (_) {}
+
+  async function refreshEip6963Providers() {
+    try {
+      window.dispatchEvent(
+        new Event("eip6963:requestProvider")
+      );
+    } catch (_) {}
+
+    await new Promise(resolve =>
+      setTimeout(resolve, 250)
+    );
+  }
 
   function walletProviders() {
     const root = window.ethereum;
@@ -17,6 +59,18 @@
         : [root];
 
     const unique = [];
+
+    for (const item of eip6963Providers) {
+      const provider = item.provider;
+
+      if (
+        provider &&
+        typeof provider.request === "function" &&
+        !unique.includes(provider)
+      ) {
+        unique.push(provider);
+      }
+    }
 
     for (const provider of raw) {
       if (
@@ -63,6 +117,8 @@
   }
 
   async function walletRequest(payload) {
+    await refreshEip6963Providers();
+
     const candidates = walletProviders();
 
     if (!candidates.length) {
