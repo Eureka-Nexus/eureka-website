@@ -101,11 +101,27 @@
       btn.disabled = true;
       btn.textContent = "A LIGAR...";
 
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts"
-      });
+      let accounts;
 
-      await ensureBsc();
+      try {
+        accounts = await window.ethereum.request({
+          method: "eth_requestAccounts"
+        });
+      } catch (err) {
+        throw new Error(
+          "WALLET_STAGE_REQUEST_ACCOUNTS: " +
+          (err?.message || String(err))
+        );
+      }
+
+      try {
+        await ensureBsc();
+      } catch (err) {
+        throw new Error(
+          "WALLET_STAGE_BSC_NETWORK: " +
+          (err?.message || String(err))
+        );
+      }
 
       if (!accounts || !accounts.length) {
         throw new Error("Nenhuma conta foi autorizada.");
