@@ -4,6 +4,130 @@
   const C = window.EUREKA_PREROUND;
 
   let connectedWallet = "";
+  let activeWalletProvider = null;
+
+  function walletProviders() {
+    const root = window.ethereum;
+
+    if (!root) return [];
+
+    const raw =
+      Array.isArray(root.providers) && root.providers.length
+        ? root.providers
+        : [root];
+
+    const unique = [];
+
+    for (const provider of raw) {
+      if (
+        provider &&
+        typeof provider.request === "function" &&
+        !unique.includes(provider)
+      ) {
+        unique.push(provider);
+      }
+    }
+
+    function score(provider) {
+      if (provider.isMetaMask && !provider.isBraveWallet) return 100;
+      if (provider.isTrust || provider.isTrustWallet) return 95;
+      if (provider.isRabby) return 90;
+      if (provider.isCoinbaseWallet) return 85;
+      if (provider.isBraveWallet) return 80;
+      return 10;
+    }
+
+    return unique.sort((a, b) => score(b) - score(a));
+  }
+
+  function walletErrorText(err) {
+    return String(
+      err?.message ||
+      err?.data?.message ||
+      err ||
+      ""
+    );
+  }
+
+  function providerCanFallback(err) {
+    const message =
+      walletErrorText(err).toLowerCase();
+
+    return (
+      message.includes("broadcast channel unavailable") ||
+      message.includes("provider disconnected") ||
+      message.includes("disconnected from chain") ||
+      err?.code === 4900 ||
+      err?.code === 4901
+    );
+  }
+
+  async function walletRequest(payload) {
+    const candidates = walletProviders();
+
+    if (!candidates.length) {
+      throw new Error(
+        "No EVM wallet was found in this browser."
+      );
+    }
+
+    const ordered = [];
+
+    if (
+      activeWalletProvider &&
+      candidates.includes(activeWalletProvider)
+    ) {
+      ordered.push(activeWalletProvider);
+    }
+
+    for (const provider of candidates) {
+      if (!ordered.includes(provider)) {
+        ordered.push(provider);
+      }
+    }
+
+    let lastError = null;
+
+    for (const provider of ordered) {
+      try {
+        const result =
+          await provider.request(payload);
+
+        activeWalletProvider = provider;
+
+        window.__EUREKA_WALLET_PROVIDER__ = provider;
+
+        return result;
+
+      } catch (err) {
+        lastError = err;
+
+        if (!providerCanFallback(err)) {
+          throw err;
+        }
+
+        if (activeWalletProvider === provider) {
+          activeWalletProvider = null;
+        }
+      }
+    }
+
+    const message = walletErrorText(lastError);
+
+    if (
+      message
+        .toLowerCase()
+        .includes("broadcast channel unavailable")
+    ) {
+      throw new Error(
+        "The wallet extension is unavailable in this browser. " +
+        "Unlock/reopen the wallet and try again."
+      );
+    }
+
+    throw lastError ||
+      new Error("Could not communicate with the wallet.");
+  }
 
   function el(id) {
     return document.getElementById(id);
@@ -32,7 +156,7 @@
       );
     }
 
-    const chainIdRaw = await window.ethereum.request({
+    const chainIdRaw = await walletRequest({
       method: "eth_chainId"
     });
 
@@ -50,13 +174,13 @@
     }
 
     try {
-      await window.ethereum.request({
+      await walletRequest({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: "0x38" }]
       });
     } catch (err) {
       if (err && err.code === 4902) {
-        await window.ethereum.request({
+        await walletRequest({
           method: "wallet_addEthereumChain",
           params: [{
             chainId: "0x38",
@@ -79,7 +203,7 @@
       }
     }
 
-    const afterRaw = await window.ethereum.request({
+    const afterRaw = await walletRequest({
       method: "eth_chainId"
     });
 
@@ -104,7 +228,7 @@
       let accounts;
 
       try {
-        accounts = await window.ethereum.request({
+        accounts = await walletRequest({
           method: "eth_requestAccounts"
         });
       } catch (err) {
@@ -159,7 +283,7 @@
   };
 
   async function currentWalletStillMatches() {
-    const accounts = await window.ethereum.request({
+    const accounts = await walletRequest({
       method: "eth_accounts"
     });
 
@@ -200,7 +324,7 @@
   }
 
   async function signChallenge(message) {
-    return await window.ethereum.request({
+    return await walletRequest({
       method: "personal_sign",
       params: [
         message,
@@ -471,7 +595,7 @@
         );
       }
 
-      const chainId = await window.ethereum.request({
+      const chainId = await walletRequest({
         method: "eth_chainId"
       });
 
@@ -481,7 +605,7 @@
         );
       }
 
-      const accounts = await window.ethereum.request({
+      const accounts = await walletRequest({
         method: "eth_accounts"
       });
 
@@ -505,7 +629,7 @@
         "Waiting for confirmation in your wallet...";
       status.style.color = "#ffc76b";
 
-      const txHash = await window.ethereum.request({
+      const txHash = await walletRequest({
         method: "eth_sendTransaction",
         params: [{
           from: payer,
