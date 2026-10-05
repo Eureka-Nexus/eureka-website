@@ -32,11 +32,20 @@
       );
     }
 
-    const chainId = await window.ethereum.request({
+    const chainIdRaw = await window.ethereum.request({
       method: "eth_chainId"
     });
 
-    if (chainId.toLowerCase() === "0x38") {
+    const chainId =
+      String(chainIdRaw || "").trim().toLowerCase();
+
+    if (!chainId) {
+      throw new Error(
+        "The wallet did not return the network identifier."
+      );
+    }
+
+    if (chainId === "0x38") {
       return;
     }
 
@@ -70,11 +79,14 @@
       }
     }
 
-    const after = await window.ethereum.request({
+    const afterRaw = await window.ethereum.request({
       method: "eth_chainId"
     });
 
-    if (after.toLowerCase() !== "0x38") {
+    const after =
+      String(afterRaw || "").trim().toLowerCase();
+
+    if (after !== "0x38") {
       throw new Error(
         "The wallet must be connected to BNB Smart Chain Mainnet."
       );
@@ -89,11 +101,11 @@
       btn.disabled = true;
       btn.textContent = "CONNECTING...";
 
-      await ensureBsc();
-
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts"
       });
+
+      await ensureBsc();
 
       if (!accounts || !accounts.length) {
         throw new Error("No account was authorised.");
