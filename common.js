@@ -22,4 +22,56 @@
   $$('[data-contract]').forEach(el=>el.textContent=C.tokenContract||'—');$$('[data-fee-wallet]').forEach(el=>el.textContent=C.founderRevenueWallet||'—');$$('[data-genesis-market]').forEach(el=>el.textContent=C.genesisMarket||'—');
   $$('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{const key=btn.dataset.copy;const value=C[key]||btn.dataset.copyValue||'';if(!value)return;try{await navigator.clipboard.writeText(value);const t=btn.textContent;btn.textContent='✓';setTimeout(()=>btn.textContent=t,1000)}catch{}}));
   $$('[data-link]').forEach(el=>{const u=C[el.dataset.link];if(u)el.href=u});
+
+  // EUREKA_SOCIAL_BAR_2026
+  const socialNetworks=[
+    {key:'socialGithub', name:'GitHub', icon:'assets/social/github.svg'},
+    {key:'socialX', name:'X', icon:'assets/social/x.svg'},
+    {key:'socialReddit', name:'Reddit', icon:'assets/social/reddit.svg'},
+    {key:'socialYoutube', name:'YouTube', icon:'assets/social/youtube.svg'},
+    {key:'socialDiscord', name:'Discord', icon:'assets/social/discord.svg'},
+    {key:'socialTelegram', name:'Telegram', icon:'assets/social/telegram.svg'},
+    {key:'socialTiktok', name:'TikTok', icon:'assets/social/tiktok.svg'},
+    {key:'socialLinkedin', name:'LinkedIn', icon:'assets/social/linkedin.svg'}
+  ];
+
+  const socialBlock=document.createElement('div');
+  socialBlock.className='shell social-hub';
+  socialBlock.innerHTML=
+    '<div class="social-hub-head">'+
+      '<div><span class="social-eyebrow">EUREKA NEXUS / SOCIAL</span>'+
+      '<strong>Follow the project</strong></div>'+
+      '<span class="social-soon-note">Official channels only</span>'+
+    '</div>'+
+    '<div class="social-links"></div>';
+
+  const socialLinks=socialBlock.querySelector('.social-links');
+
+  socialNetworks.forEach(n=>{
+    const status=C[n.key+'Status']||'soon';
+    const url=C[n.key+'Url']||'';
+
+    const item=document.createElement(status==='live'&&url?'a':'div');
+    item.className='social-link '+(status==='live'&&url?'live':'soon');
+
+    if(status==='live'&&url){
+      item.href=url;
+      item.target='_blank';
+      item.rel='noopener noreferrer';
+    }
+
+    item.innerHTML=
+      '<span class="social-mark"><img src="'+n.icon+'" alt="" loading="lazy"></span>'+
+      '<span class="social-copy"><b>'+n.name+'</b>'+
+      '<small>'+(status==='live'?'Official':'Brevemente')+'</small></span>';
+
+    socialLinks.appendChild(item);
+  });
+
+  const footer=document.querySelector('.footer');
+
+  if(footer){
+    footer.insertBefore(socialBlock, footer.firstChild);
+  }
+
 })();

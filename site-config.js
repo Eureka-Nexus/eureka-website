@@ -24,15 +24,41 @@ window.EUREKA_CONFIG = Object.freeze({
   bscScanFeeWallet: "https://bscscan.com/address/0x42F58c8a09Bce3A00Faf553AAC60B0daF320858b",
   github: "https://github.com/Eureka-Nexus",
 
+  // Official social channels.
+  // Keep status as "soon" until the real official account is created.
+  socialGithubStatus: "live",
+  socialGithubUrl: "https://github.com/Eureka-Nexus",
+
+  socialXStatus: "soon",
+  socialXUrl: "",
+
+  socialRedditStatus: "soon",
+  socialRedditUrl: "",
+
+  socialYoutubeStatus: "soon",
+  socialYoutubeUrl: "",
+
+  socialDiscordStatus: "soon",
+  socialDiscordUrl: "",
+
+  socialTelegramStatus: "soon",
+  socialTelegramUrl: "",
+
+  socialTiktokStatus: "soon",
+  socialTiktokUrl: "",
+
+  socialLinkedinStatus: "soon",
+  socialLinkedinUrl: "",
+
   // Live pool integration. Leave blank until a PUBLIC HTTPS endpoint/proxy exists.
   // Expected Eureka Mining Server endpoint: /v1/public/stats
   publicStatsUrl: "https://pool.eurekanexus.pt/v1/public/stats",
   networkUrl: "https://pool.eurekanexus.pt/v1/network",
   healthUrl: "https://pool.eurekanexus.pt/health",
   statsRefreshMs: 15000,
-  minerVersion: "1.1.0",
+  minerVersion: "1.1.2",
   minerLinuxStatus: "live",
-  minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.0.0/Eureka-Nexus-Miner-Official-1.0-Linux-x86_64.tar.gz",
+  minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.2/Eureka-Nexus-Miner-Official-1.1.2-Linux-x86_64.tar.gz",
 
   // Official contact address for all project enquiries.
   contactEmail: "eurekanexusofficial@gmail.com",
@@ -43,7 +69,7 @@ window.EUREKA_CONFIG = Object.freeze({
 
   // Downloads: only switch a status to "live" after publishing a verified official build.
   minerWindowsStatus: "live",
-  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.0/Eureka-Nexus-Miner-Setup-1.1.0.exe",
+  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.2/Eureka-Nexus-Miner-Setup-1.1.2.exe",
   minerAndroidStatus: "soon",
   minerAndroidUrl: "",
   agentDesktopStatus: "soon",
