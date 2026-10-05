@@ -29,8 +29,8 @@ window.EUREKA_CONFIG = Object.freeze({
   socialGithubStatus: "live",
   socialGithubUrl: "https://github.com/Eureka-Nexus",
 
-  socialXStatus: "soon",
-  socialXUrl: "",
+  socialXStatus: "live",
+  socialXUrl: "https://x.com/Eurekanexus",
 
   socialRedditStatus: "soon",
   socialRedditUrl: "",
@@ -61,11 +61,11 @@ window.EUREKA_CONFIG = Object.freeze({
   minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.2/Eureka-Nexus-Miner-Official-1.1.2-Linux-x86_64.tar.gz",
 
   // Official contact address for all project enquiries.
-  contactEmail: "eurekanexusofficial@gmail.com",
-  investorsEmail: "eurekanexusofficial@gmail.com",
-  partnersEmail: "eurekanexusofficial@gmail.com",
-  careersEmail: "eurekanexusofficial@gmail.com",
-  pressEmail: "eurekanexusofficial@gmail.com",
+  contactEmail: "official@eurekanexus.pt",
+  investorsEmail: "official@eurekanexus.pt",
+  partnersEmail: "official@eurekanexus.pt",
+  careersEmail: "official@eurekanexus.pt",
+  pressEmail: "official@eurekanexus.pt",
 
   // Downloads: only switch a status to "live" after publishing a verified official build.
   minerWindowsStatus: "live",
