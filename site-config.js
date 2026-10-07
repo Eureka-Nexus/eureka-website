@@ -62,6 +62,7 @@ window.EUREKA_CONFIG = Object.freeze({
 
   // Official contact address for all project enquiries.
   contactEmail: "official@eurekanexus.pt",
+  verificationEmail: "eurekanexusofficial@gmail.com",
   investorsEmail: "official@eurekanexus.pt",
   partnersEmail: "official@eurekanexus.pt",
   careersEmail: "official@eurekanexus.pt",
