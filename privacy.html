@@ -10,7 +10,7 @@
   <title>Eureka Nexus · Privacy</title>
 </head>
 
-<body>
+<body data-legal-doc="privacy">
 <canvas id="space"></canvas>
 
 <header class="topbar">
@@ -22,7 +22,7 @@
 
     <button id="menuBtn" class="menu-btn">☰</button>
 
-    <nav id="nav" class="navlinks">
+    <nav id="nav" class="navlinks"><a class="live-ai-nav" href="index.html#ai-experience" data-common="liveAi">● LIVE AI</a>
       <a href="index.html" data-common="home">Início</a>
       <a href="investidores.html">Founding Pre-Round</a>
       <a href="company.html#contact" data-common="contact">Contacto</a>
@@ -30,10 +30,7 @@
     </nav>
 
     <div class="nav-actions">
-      <select id="langSelect" class="lang">
-        <option value="pt">PT</option>
-        <option value="en">EN</option>
-      </select>
+      <select id="langSelect" class="lang"><option value="pt">PT 🇵🇹</option><option value="en">EN 🇬🇧</option></select>
     </div>
   </div>
 </header>
@@ -53,7 +50,7 @@
 <section class="section compact">
 <div class="shell">
 
-  <div class="card">
+  <div class="card" data-lang-panel="pt">
     <h2>Português</h2>
 
     <h3>Dados tratados na Founding Pre-Round</h3>
@@ -128,7 +125,7 @@
     </p>
   </div>
 
-  <div class="card" style="margin-top:14px">
+  <div class="card" style="margin-top:14px" data-lang-panel="en">
     <h2>English</h2>
 
     <h3>Data processed in the Founding Pre-Round</h3>
@@ -202,18 +199,188 @@
     </p>
   </div>
 
+  <div class="card" style="margin-top:14px" data-lang-panel="es">
+    <h2>Español</h2>
+
+    <h3>Datos tratados en la Founding Pre-Round</h3>
+    <p>
+      Cuando un usuario inicia o registra una participación en la Founding
+      Pre-Round, pueden tratarse datos como nombre, email, país, importe
+      indicativo en euros, dirección pública de la wallet BNB Smart Chain,
+      hash de transacción, activo transferido, referencia del registro e
+      información necesaria para verificar la operación.
+    </p>
+
+    <h3>Verificación de la wallet</h3>
+    <p>
+      El sistema puede solicitar una firma criptográfica de un mensaje de
+      verificación para demostrar el control de la wallet indicada.
+      Esta firma no mueve fondos y nunca debe requerir seed phrase, clave
+      privada ni contraseña de la wallet.
+    </p>
+
+    <p>
+      Eureka Nexus nunca debe solicitar seed phrases, claves privadas ni
+      códigos de recuperación de la wallet. Nunca proporciones esta
+      información mediante formulario, email, chat ni ningún otro medio.
+    </p>
+
+    <h3>Finalidad</h3>
+    <p>
+      Los datos se tratan para identificar al participante, verificar la
+      relación entre la wallet y la transferencia, evitar registros
+      duplicados o fraudulentos, emitir una referencia o comprobante y
+      permitir el análisis y eventual aceptación de la inversión.
+    </p>
+
+    <h3>Blockchain pública</h3>
+    <p>
+      Las direcciones de wallet, hashes de transacción, importes y otros
+      elementos registrados en una blockchain pública pueden permanecer
+      visibles de forma permanente mediante exploradores como BscScan.
+      Eureka Nexus no controla ni puede borrar información ya registrada
+      en la blockchain.
+    </p>
+
+    <h3>Almacenamiento y seguridad</h3>
+    <p>
+      Los datos asociados a la Pre-Round se almacenan en sistemas
+      controlados por el proyecto y solo deben ser accesibles por personas
+      o servicios autorizados. Los datos se conservan únicamente durante
+      el tiempo necesario para verificación, documentación, obligaciones
+      aplicables y defensa de intereses legítimos relacionados con la operación.
+    </p>
+
+    <h3>Servicios externos</h3>
+    <p>
+      El sitio puede enlazar con servicios externos como BscScan, GitHub o
+      proveedores de wallet. Al utilizar dichos servicios también se
+      aplican sus respectivas políticas de privacidad.
+    </p>
+
+    <h3>Derechos y contacto</h3>
+    <p>
+      Para solicitudes relativas a acceso, corrección, actualización u
+      otras cuestiones relacionadas con datos personales tratados
+      directamente por el proyecto, contacta con:
+      <a class="text-link"
+         href="mailto:official@eurekanexus.pt">official@eurekanexus.pt</a>.
+    </p>
+
+    <p>
+      Durante esta fase previa a la constitución, el tratamiento relacionado
+      con la Founding Pre-Round se realiza dentro del proyecto Eureka Nexus.
+      La documentación definitiva deberá reflejar la estructura jurídica
+      una vez constituida formalmente.
+    </p>
+  </div>
+
+  <div class="card" style="margin-top:14px" data-lang-panel="fr">
+    <h2>Français</h2>
+
+    <h3>Données traitées dans la Founding Pre-Round</h3>
+    <p>
+      Lorsqu'un utilisateur commence ou enregistre une participation à la
+      Founding Pre-Round, des données peuvent être traitées, notamment le
+      nom, l'adresse e-mail, le pays, le montant indicatif en euros,
+      l'adresse publique du wallet BNB Smart Chain, le hash de transaction,
+      l'actif transféré, la référence de l'enregistrement et les informations
+      nécessaires à la vérification de l'opération.
+    </p>
+
+    <h3>Vérification du wallet</h3>
+    <p>
+      Le système peut demander la signature cryptographique d'un message
+      de vérification afin de démontrer le contrôle du wallet indiqué.
+      Cette signature ne déplace aucun fonds et ne doit jamais nécessiter
+      de seed phrase, de clé privée ni de mot de passe du wallet.
+    </p>
+
+    <p>
+      Eureka Nexus ne doit jamais demander de seed phrases, de clés privées
+      ou de codes de récupération. Ne fournissez jamais ces informations
+      via un formulaire, un e-mail, un chat ou tout autre canal.
+    </p>
+
+    <h3>Finalité</h3>
+    <p>
+      Les données sont traitées afin d'identifier le participant, de
+      vérifier le lien entre le wallet et le transfert, d'éviter les
+      enregistrements en double ou frauduleux, d'émettre une référence ou
+      un justificatif et de permettre l'analyse et l'éventuelle acceptation
+      de l'investissement.
+    </p>
+
+    <h3>Blockchain publique</h3>
+    <p>
+      Les adresses de wallet, hashes de transaction, montants et autres
+      éléments enregistrés sur une blockchain publique peuvent rester
+      visibles de manière permanente via des explorateurs tels que BscScan.
+      Eureka Nexus ne contrôle pas et ne peut pas supprimer les informations
+      déjà enregistrées sur la blockchain.
+    </p>
+
+    <h3>Stockage et sécurité</h3>
+    <p>
+      Les données liées à la Pre-Round sont stockées dans des systèmes
+      contrôlés par le projet et ne doivent être accessibles qu'aux
+      personnes ou services autorisés. Elles sont conservées uniquement
+      pendant la durée nécessaire à la vérification, à la documentation,
+      aux obligations applicables et à la protection des intérêts légitimes
+      liés à l'opération.
+    </p>
+
+    <h3>Services externes</h3>
+    <p>
+      Le site peut renvoyer vers des services externes tels que BscScan,
+      GitHub ou des fournisseurs de wallet. Lorsque ces services sont
+      utilisés, leurs propres politiques de confidentialité s'appliquent également.
+    </p>
+
+    <h3>Droits et contact</h3>
+    <p>
+      Pour toute demande concernant l'accès, la rectification, la mise à
+      jour ou toute autre question relative aux données personnelles
+      traitées directement par le projet, contactez :
+      <a class="text-link"
+         href="mailto:official@eurekanexus.pt">official@eurekanexus.pt</a>.
+    </p>
+
+    <p>
+      Pendant cette phase préalable à la constitution, le traitement lié
+      à la Founding Pre-Round est effectué dans le cadre du projet Eureka
+      Nexus. La documentation définitive devra refléter la structure
+      juridique lorsqu'elle aura été formellement constituée.
+    </p>
+  </div>
+
 </div>
 </section>
 </main>
 
 <footer class="footer">
   <div class="shell footer-bottom">
-    <span>© 2026 Eureka Nexus</span>
+    <span>© 2026 Hélder Costa · Eureka Nexus</span>
     <span>Privacy version · PREROUND-PRIVACY-2026-10-05-v1</span>
   </div>
+
+<div class="footer-legal-complete">
+  <span>© 2026 Hélder Costa · Eureka Nexus</span>
+  <span class="footer-legal-links">
+    <a href="legal.html">Legal</a>
+    <span>·</span>
+    <a href="privacy.html">Privacy</a>
+    <span>·</span>
+    <a href="terms.html">Terms</a>
+    <span>·</span>
+    <a href="tokenomics.html">Tokenomics</a>
+  </span>
+</div>
+
 </footer>
 
 <script src="site-config.js"></script>
 <script src="common.js"></script>
+<script src="legal-docs.js"></script>
 </body>
 </html>

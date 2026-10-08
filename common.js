@@ -4,10 +4,10 @@
   const fmt=n=>new Intl.NumberFormat(document.documentElement.lang||'pt-PT').format(Number(n||0));
   const short=a=>a&&a.length>18?`${a.slice(0,8)}…${a.slice(-6)}`:(a||'—');
   const dict={
-    pt:{home:'Início',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Rede',company:'Investidores & Equipa',downloads:'Downloads',contracts:'Contratos',comingSoon:'Brevemente',learnMore:'Saber mais',contact:'Contacto',privacy:'Privacidade',terms:'Termos'},
-    en:{home:'Home',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Network',company:'Investors & Team',downloads:'Downloads',contracts:'Contracts',comingSoon:'Coming soon',learnMore:'Learn more',contact:'Contact',privacy:'Privacy',terms:'Terms'},
-    es:{home:'Inicio',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Red',company:'Inversores y Equipo',downloads:'Descargas',contracts:'Contratos',comingSoon:'Próximamente',learnMore:'Saber más',contact:'Contacto',privacy:'Privacidad',terms:'Términos'},
-    fr:{home:'Accueil',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Réseau',company:'Investisseurs & Équipe',downloads:'Téléchargements',contracts:'Contrats',comingSoon:'Bientôt',learnMore:'En savoir plus',contact:'Contact',privacy:'Confidentialité',terms:'Conditions'},
+    pt:{liveAi:'● LIVE AI',home:'Início',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Rede',company:'Investidores & Equipa',downloads:'Downloads',contracts:'Contratos',comingSoon:'Brevemente',learnMore:'Saber mais',contact:'Contacto',privacy:'Privacidade',terms:'Termos'},
+    en:{liveAi:'● LIVE AI',home:'Home',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Network',company:'Investors & Team',downloads:'Downloads',contracts:'Contracts',comingSoon:'Coming soon',learnMore:'Learn more',contact:'Contact',privacy:'Privacy',terms:'Terms'},
+    es:{liveAi:'● LIVE AI',home:'Inicio',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Red',company:'Inversores y Equipo',downloads:'Descargas',contracts:'Contratos',comingSoon:'Próximamente',learnMore:'Saber más',contact:'Contacto',privacy:'Privacidad',terms:'Términos'},
+    fr:{liveAi:'● LIVE AI',home:'Accueil',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Réseau',company:'Investisseurs & Équipe',downloads:'Téléchargements',contracts:'Contrats',comingSoon:'Bientôt',learnMore:'En savoir plus',contact:'Contact',privacy:'Confidentialité',terms:'Conditions'},
     de:{home:'Start',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Netzwerk',company:'Investoren & Team',downloads:'Downloads',contracts:'Verträge',comingSoon:'Demnächst',learnMore:'Mehr erfahren',contact:'Kontakt',privacy:'Datenschutz',terms:'Bedingungen'}
   };
   const supported=['pt','en'];
@@ -40,8 +40,8 @@
   socialBlock.innerHTML=
     '<div class="social-hub-head">'+
       '<div><span class="social-eyebrow">EUREKA NEXUS / SOCIAL</span>'+
-      '<strong>Follow the project</strong></div>'+
-      '<span class="social-soon-note">Official channels only</span>'+
+      '<strong data-social-follow>Follow the project</strong></div>'+
+      '<span class="social-soon-note" data-social-official>Official channels only</span>'+
     '</div>'+
     '<div class="social-links"></div>';
 
@@ -52,7 +52,7 @@
     const url=C[n.key+'Url']||'';
 
     const item=document.createElement(status==='live'&&url?'a':'div');
-    item.className='social-link '+(status==='live'&&url?'live':'soon');
+    item.className='social-link '+(status==='live'&&url?'live':'soon');item.dataset.socialStatus=status;
 
     if(status==='live'&&url){
       item.href=url;
@@ -68,7 +68,65 @@
     socialLinks.appendChild(item);
   });
 
-  const footer=document.querySelector('.footer');
+
+  // EUREKA_SOCIAL_TRANSLATIONS_2026
+  const socialUi={
+    pt:{
+      follow:'Segue o projeto',
+      officialOnly:'Apenas canais oficiais',
+      official:'Oficial',
+      soon:'Brevemente'
+    },
+    en:{
+      follow:'Follow the project',
+      officialOnly:'Official channels only',
+      official:'Official',
+      soon:'Coming soon'
+    },
+    es:{
+      follow:'Sigue el proyecto',
+      officialOnly:'Solo canales oficiales',
+      official:'Oficial',
+      soon:'Próximamente'
+    },
+    fr:{
+      follow:'Suivez le projet',
+      officialOnly:'Chaînes officielles uniquement',
+      official:'Officiel',
+      soon:'Bientôt'
+    }
+  };
+
+  function applySocialLanguage(lang){
+    const d=socialUi[lang]||socialUi.pt;
+
+    const title=document.querySelector('[data-social-follow]');
+    const note=document.querySelector('[data-social-official]');
+
+    if(title)title.textContent=d.follow;
+    if(note)note.textContent=d.officialOnly;
+
+    document.querySelectorAll('.social-link').forEach(el=>{
+      const small=el.querySelector('small');
+      if(!small)return;
+
+      small.textContent=
+        el.dataset.socialStatus==='live'
+          ? d.official
+          : d.soon;
+    });
+  }
+
+  addEventListener(
+    'eureka:language',
+    e=>applySocialLanguage(e.detail.lang)
+  );
+
+  applySocialLanguage(
+    localStorage.getItem('eureka-lang')||'pt'
+  );
+
+const footer=document.querySelector('.footer');
 
   if(footer){
     footer.insertBefore(socialBlock, footer.firstChild);

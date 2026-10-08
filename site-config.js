@@ -11,12 +11,15 @@ window.EUREKA_CONFIG = Object.freeze({
   miningFeePercent: 1,
   decimals: 18,
 
-  // Current deployed tokenomics / deployment framework.
+  // Canonical EKNX token framework.
   maxSupplyEknx: 100000000,
-  genesisAllocationEknx: 1000000,
+  marketReserveEknx: 1000000,
   miningCapacityEknx: 99000000,
-  curveSaleEknx: 650000,
-  permanentLiquidityEknx: 350000,
+
+  // Market is not public yet.
+  marketLaunchStatus: "coming-soon",
+  curveParametersStatus: "to-be-announced",
+  liquidityStructureStatus: "to-be-announced",
 
   bscScanToken: "https://bscscan.com/token/0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9",
   bscScanContract: "https://bscscan.com/address/0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9",
@@ -32,8 +35,8 @@ window.EUREKA_CONFIG = Object.freeze({
   socialXStatus: "live",
   socialXUrl: "https://x.com/Eurekanexus",
 
-  socialRedditStatus: "soon",
-  socialRedditUrl: "",
+  socialRedditStatus: "live",
+  socialRedditUrl: "https://www.reddit.com/user/eurekanexus/",
 
   socialYoutubeStatus: "soon",
   socialYoutubeUrl: "",
@@ -56,9 +59,9 @@ window.EUREKA_CONFIG = Object.freeze({
   networkUrl: "https://pool.eurekanexus.pt/v1/network",
   healthUrl: "https://pool.eurekanexus.pt/health",
   statsRefreshMs: 15000,
-  minerVersion: "1.1.2",
+  minerVersion: "2026.1.0",
   minerLinuxStatus: "live",
-  minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.2/Eureka-Nexus-Miner-Official-1.1.2-Linux-x86_64.tar.gz",
+  minerLinuxUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v2026.1.0/Eureka-Nexus-Miner-Official-2026.1.0-Linux-x86_64.tar.gz",
 
   // Official contact address for all project enquiries.
   contactEmail: "official@eurekanexus.pt",
@@ -70,7 +73,7 @@ window.EUREKA_CONFIG = Object.freeze({
 
   // Downloads: only switch a status to "live" after publishing a verified official build.
   minerWindowsStatus: "live",
-  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v1.1.2/Eureka-Nexus-Miner-Setup-1.1.2.exe",
+  minerWindowsUrl: "https://github.com/Eureka-Nexus/eureka-miner/releases/download/v2026.1.0/Eureka-Nexus-Miner-Setup-2026.1.0.exe",
   minerAndroidStatus: "soon",
   minerAndroidUrl: "",
   agentDesktopStatus: "soon",
