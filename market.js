@@ -1049,10 +1049,29 @@ const PREFERRED_WALLETS = [
   {
     id:"metamask",
     name:"MetaMask",
-    match:(info,p)=>
-      /metamask/i.test(info?.name || "") ||
-      /metamask/i.test(info?.rdns || "") ||
-      p?.isMetaMask === true
+    match:(info,p)=>{
+
+      const named =
+        /metamask/i.test(info?.name || "") ||
+        /metamask/i.test(info?.rdns || "");
+
+      const incompatible =
+        p?.isTrust === true ||
+        p?.isTrustWallet === true ||
+        p?.isCoinbaseWallet === true ||
+        p?.isBinance === true ||
+        p?.isOkxWallet === true ||
+        p?.isBraveWallet === true;
+
+      return (
+        named ||
+        (
+          p?.isMetaMask === true &&
+          !incompatible
+        )
+      );
+
+    }
   },
 
   {
@@ -1153,6 +1172,143 @@ function walletDisplayName(info, provider){
 }
 
 
+
+function strictWalletFamily(
+  info,
+  provider
+){
+
+  const name =
+    String(
+      info?.name || ""
+    ).toLowerCase();
+
+
+  const rdns =
+    String(
+      info?.rdns || ""
+    ).toLowerCase();
+
+
+  const identity =
+    name + " " + rdns;
+
+
+  /*
+    EIP-6963 identity is the strongest signal.
+  */
+
+  if(/trust/.test(identity)){
+    return "trust";
+  }
+
+  if(/binance/.test(identity)){
+    return "binance";
+  }
+
+  if(/okx|okex/.test(identity)){
+    return "okx";
+  }
+
+  if(/coinbase/.test(identity)){
+    return "coinbase";
+  }
+
+  if(/metamask/.test(identity)){
+    return "metamask";
+  }
+
+
+  /*
+    Wallet-specific flags come next.
+  */
+
+  if(
+    provider?.isTrust === true ||
+    provider?.isTrustWallet === true
+  ){
+    return "trust";
+  }
+
+
+  if(
+    provider?.isBinance === true ||
+    provider?.isBinanceWallet === true
+  ){
+    return "binance";
+  }
+
+
+  if(
+    provider?.isOkxWallet === true
+  ){
+    return "okx";
+  }
+
+
+  if(
+    provider?.isCoinbaseWallet === true
+  ){
+    return "coinbase";
+  }
+
+
+  /*
+    MetaMask MUST come last because other
+    wallets may expose isMetaMask=true for
+    compatibility.
+  */
+
+  if(
+    provider?.isMetaMask === true
+  ){
+    return "metamask";
+  }
+
+
+  return "other";
+
+}
+
+
+function walletSelectionScore(
+  wallet,
+  family
+){
+
+  if(
+    strictWalletFamily(
+      wallet?.info,
+      wallet?.provider
+    ) !== family
+  ){
+    return -10000;
+  }
+
+
+  let score = 0;
+
+
+  if(wallet?.info?.uuid){
+    score += 100;
+  }
+
+
+  if(wallet?.info?.rdns){
+    score += 80;
+  }
+
+
+  if(wallet?.info?.name){
+    score += 60;
+  }
+
+
+  return score;
+
+}
+
+
 function registerWallet(
   info,
   provider
@@ -1165,24 +1321,69 @@ function registerWallet(
     return;
   }
 
+
   const key =
     walletKey(
       info,
       provider
     );
 
-  if(
-    discoveredWallets.has(key)
-  ){
+
+  const existing =
+    discoveredWallets.get(
+      key
+    );
+
+
+  if(existing){
+
+    if(
+      !existing.providers
+        .includes(provider)
+    ){
+      existing.providers.push(
+        provider
+      );
+    }
+
+
+    if(
+      info &&
+      Object.keys(info).length
+    ){
+      existing.info = {
+        ...existing.info,
+        ...info
+      };
+    }
+
+
+    if(
+      info?.name
+    ){
+      existing.name =
+        info.name;
+    }
+
+
     return;
   }
+
 
   discoveredWallets.set(
     key,
     {
       key,
-      info:info || {},
+
+      info:
+        info || {},
+
       provider,
+
+      providers:[
+        provider
+      ],
+
       name:
         walletDisplayName(
           info,
@@ -1193,36 +1394,108 @@ function registerWallet(
 
 }
 
-
 function discoverLegacyWallets(){
 
   const injected =
     window.ethereum;
 
-  if(!injected){
-    return;
+
+  if(injected){
+
+    const providers =
+      Array.isArray(
+        injected.providers
+      )
+        ? injected.providers
+        : [injected];
+
+
+    providers.forEach(
+      provider=>{
+
+        registerWallet(
+          {},
+          provider
+        );
+
+      }
+    );
+
   }
 
-  const providers =
-    Array.isArray(
-      injected.providers
-    )
-      ? injected.providers
-      : [injected];
 
-  providers.forEach(
-    provider=>{
+  /*
+    Some extensions also expose a wallet-specific
+    provider outside window.ethereum.
 
-      registerWallet(
-        {},
-        provider
-      );
+    Registering these gives us a second transport
+    when the EIP-6963 proxy has a broken extension
+    channel in Chrome/Edge.
+  */
+
+  const explicit = [
+
+    {
+      info:{
+        name:"Trust Wallet",
+        rdns:"com.trustwallet"
+      },
+      provider:
+        window.trustwallet?.ethereum ||
+        window.trustwallet
+    },
+
+    {
+      info:{
+        name:"Binance Wallet",
+        rdns:"com.binance.wallet"
+      },
+      provider:
+        window.binancew3w?.ethereum ||
+        window.BinanceChain
+    },
+
+    {
+      info:{
+        name:"OKX Wallet",
+        rdns:"com.okex.wallet"
+      },
+      provider:
+        window.okxwallet
+    },
+
+    {
+      info:{
+        name:"Coinbase Wallet",
+        rdns:"com.coinbase.wallet"
+      },
+      provider:
+        window.coinbaseWalletExtension
+    }
+
+  ];
+
+
+  explicit.forEach(
+    entry=>{
+
+      if(
+        entry.provider &&
+        typeof entry.provider.request ===
+          "function"
+      ){
+
+        registerWallet(
+          entry.info,
+          entry.provider
+        );
+
+      }
 
     }
   );
 
 }
-
 
 function startWalletDiscovery(){
 
@@ -1643,24 +1916,26 @@ function renderWalletSelector(){
     preferred=>{
 
       const wallet =
-        all.find(
-          candidate=>{
-
-            try{
-
-              return preferred.match(
+        all
+          .filter(
+            candidate=>
+              strictWalletFamily(
                 candidate.info,
                 candidate.provider
-              );
-
-            }catch{
-
-              return false;
-
-            }
-
-          }
-        );
+              ) ===
+              preferred.id
+          )
+          .sort(
+            (a,b)=>
+              walletSelectionScore(
+                b,
+                preferred.id
+              ) -
+              walletSelectionScore(
+                a,
+                preferred.id
+              )
+          )[0];
 
 
       if(wallet){
@@ -1816,12 +2091,286 @@ function bindWalletEvents(
 
 }
 
+function walletPreferredType(
+  wallet
+){
+
+  return (
+    PREFERRED_WALLETS.find(
+      preferred=>{
+
+        try{
+
+          return preferred.match(
+            wallet?.info,
+            wallet?.provider
+          );
+
+        }catch{
+
+          return false;
+
+        }
+
+      }
+    ) || null
+  );
+
+}
+
+
+function walletProviderCandidates(
+  wallet,
+  selectedFamily = null
+){
+
+  const result =
+    [];
+
+
+  function add(
+    provider
+  ){
+
+    if(
+      !provider ||
+      typeof provider.request !==
+        "function" ||
+      result.includes(
+        provider
+      )
+    ){
+      return;
+    }
+
+
+    result.push(
+      provider
+    );
+
+  }
+
+
+  /*
+    Provider represented by the button selected
+    by the user is always first.
+  */
+
+  add(
+    wallet?.provider
+  );
+
+
+  /*
+    Additional fallback providers must belong
+    to EXACTLY the same wallet family.
+  */
+
+  if(selectedFamily){
+
+    discoveredWallets.forEach(
+      candidate=>{
+
+        if(
+          strictWalletFamily(
+            candidate.info,
+            candidate.provider
+          ) !== selectedFamily
+        ){
+          return;
+        }
+
+
+        add(
+          candidate.provider
+        );
+
+      }
+    );
+
+  }
+
+
+  console.info(
+    "[EKNX WALLET] strict selection:",
+    selectedFamily ||
+      wallet?.name ||
+      "other",
+    "candidates:",
+    result.length
+  );
+
+
+  return result;
+
+}
+
+function isWalletTransportError(
+  error
+){
+
+  const message =
+    String(
+      error?.message || ""
+    );
+
+
+  return (
+    /broadcast channel unavailable/i.test(
+      message
+    ) ||
+    /channel secret not available/i.test(
+      message
+    ) ||
+    /message port closed/i.test(
+      message
+    ) ||
+    /disconnected port/i.test(
+      message
+    ) ||
+    /could not establish connection/i.test(
+      message
+    ) ||
+    /receiving end does not exist/i.test(
+      message
+    ) ||
+    /connection closed/i.test(
+      message
+    ) ||
+    /provider disconnected/i.test(
+      message
+    )
+  );
+
+}
+
+
+async function requestWalletAccounts(
+  wallet
+){
+
+  const candidates =
+    walletProviderCandidates(
+      wallet
+    );
+
+
+  if(!candidates.length){
+
+    throw new Error(
+      tx().walletMissing
+    );
+
+  }
+
+
+  let lastError = null;
+
+
+  for(
+    let i=0;
+    i<candidates.length;
+    i++
+  ){
+
+    const provider =
+      candidates[i];
+
+
+    try{
+
+      const accounts =
+        await provider.request({
+          method:
+            "eth_requestAccounts"
+        });
+
+
+      if(
+        accounts?.length
+      ){
+
+        return {
+          provider,
+          accounts
+        };
+
+      }
+
+
+    }catch(error){
+
+      lastError =
+        error;
+
+
+      /*
+        Never try another provider when the
+        user rejected the request or another
+        wallet request is already pending.
+      */
+
+      if(
+        error?.code === 4001 ||
+        error?.code === -32002
+      ){
+        throw error;
+      }
+
+
+      /*
+        Fallback is deliberately limited to
+        extension transport/channel failures.
+
+        Authentication, permissions and other
+        wallet errors must remain visible.
+      */
+
+      if(
+        !isWalletTransportError(
+          error
+        )
+      ){
+        throw error;
+      }
+
+
+      console.warn(
+        "[EKNX WALLET] provider transport failed; trying alternate provider",
+        i + 1,
+        "/",
+        candidates.length
+      );
+
+    }
+
+  }
+
+
+  throw (
+    lastError ||
+    new Error(
+      tx().failed
+    )
+  );
+
+}
+
+
 async function connectSelectedWallet(
   wallet
 ){
 
+  /*
+    Do not keep a stale provider from a previous
+    failed connection attempt.
+  */
+
+  account =
+    null;
+
   walletProvider =
-    wallet.provider;
+    null;
 
 
   try{
@@ -1831,21 +2380,23 @@ async function connectSelectedWallet(
     );
 
 
+    const connection =
+      await requestWalletAccounts(
+        wallet
+      );
+
+
+    walletProvider =
+      connection.provider;
+
+
     const accounts =
-      await walletProvider.request({
-        method:
-          "eth_requestAccounts"
-      });
+      connection.accounts;
 
 
-    if(
-      !accounts?.length
-    ){
-      return;
-    }
-
-
-    await ensureBsc();
+    await ensureBsc(
+      walletProvider
+    );
 
 
     account =
@@ -1864,8 +2415,11 @@ async function connectSelectedWallet(
 
 
     connect.textContent =
-      (connectedWalletName || wallet.name) +
-      " · " +
+      (
+        connectedWalletName ||
+        wallet.name
+      )+
+      " · "+
       tx().connected;
 
 
@@ -1908,6 +2462,37 @@ async function connectSelectedWallet(
     );
 
 
+    account =
+      null;
+
+    walletProvider =
+      null;
+
+    connectedWalletName =
+      "";
+
+
+    const panel =
+      document.getElementById(
+        "walletPanel"
+      );
+
+    if(panel){
+      panel.hidden = true;
+    }
+
+
+    const connect =
+      document.getElementById(
+        "connectWalletBtn"
+      );
+
+    if(connect){
+      connect.textContent =
+        tx().connect;
+    }
+
+
     setStatus(
       walletErrorText(
         error
@@ -1918,10 +2503,11 @@ async function connectSelectedWallet(
   }
 
 
+  applyLanguage();
+
   updateBuyButton();
 
 }
-
 
 function detectWalletProvider(){
 
@@ -1999,13 +2585,13 @@ function walletErrorText(error){
 
 
   if(
-    /broadcast channel unavailable|channel secret not available/i.test(
-      message
+    isWalletTransportError(
+      error
     )
   ){
     return lang()==="pt"
-      ? "A comunicação com a extensão da carteira falhou. Fecha outras abas deste site, desbloqueia a carteira e desativa temporariamente outras extensões Web3. Se continuar, testa com MetaMask ou outra carteira compatível."
-      : "Communication with the wallet extension failed. Close other tabs of this site, unlock the wallet and temporarily disable other Web3 wallet extensions. If it continues, try MetaMask or another compatible wallet.";
+      ? "Não foi possível comunicar com a carteira escolhida. Desbloqueia a extensão e tenta novamente ou escolhe outra carteira."
+      : "Could not communicate with the selected wallet. Unlock the extension and try again or choose another wallet.";
   }
 
 
@@ -2042,10 +2628,12 @@ function walletErrorText(error){
 }
 
 
-async function ensureBsc(){
+async function ensureBsc(
+  provider = walletProvider
+){
 
   const ethereum =
-    walletProvider ||
+    provider ||
     detectWalletProvider();
 
   if(!ethereum){
@@ -2138,6 +2726,18 @@ async function ensureBsc(){
 
 
 async function connectWallet(){
+
+  /*
+    A previous wallet-extension error should not
+    remain visible while the user is choosing a
+    wallet for a new connection attempt.
+  */
+
+  setStatus(
+    "",
+    ""
+  );
+
 
   /*
     Refresh discovery each time because a wallet
