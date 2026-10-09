@@ -92,8 +92,8 @@ Object.assign(T.pt,{
   dl1:"Mineração CPU/GPU, wallet pública BSC, estado da pool, recompensas e pagamentos EKNX automáticos.",
 
   marketBannerComing:"LIVE ON-CHAIN",
-  marketBannerTitle:"LANÇAMENTO EKNX NO MERCADO",
-  marketBannerAllocation:"1.000.000 EKNX · ALOCAÇÃO MARKET",
+  marketBannerTitle:"EKNX GENESIS MARKET",
+  marketBannerAllocation:"650.000 EKNX · CURVE · 350.000 EKNX · LIQUIDEZ",
   marketBannerVision:"O TOKEN É APENAS O COMEÇO",
 
   footerTag:"Projeto português de inteligência digital persistente, computação e EKNX.",
@@ -139,8 +139,8 @@ Object.assign(T.en,{
   dl1:"CPU/GPU mining, public BSC wallet, pool status, rewards and automatic EKNX payouts.",
 
   marketBannerComing:"LIVE ON-CHAIN",
-  marketBannerTitle:"EKNX MARKET LAUNCH",
-  marketBannerAllocation:"1,000,000 EKNX · MARKET ALLOCATION",
+  marketBannerTitle:"EKNX GENESIS MARKET",
+  marketBannerAllocation:"650,000 EKNX · CURVE · 350,000 EKNX · LIQUIDITY",
   marketBannerVision:"THE TOKEN IS ONLY THE BEGINNING",
 
   footerTag:"Portuguese project building persistent digital intelligence, compute and EKNX.",
@@ -277,10 +277,10 @@ Object.assign(T.pt,{
   market1d:"1.000.000 EKNX no Genesis Market: 650.000 para a curve e 350.000 para liquidez.",
 
   market2:"2. Curve",
-  market2d:"Fórmula, limites e parâmetros finais serão publicados antes da ativação.",
+  market2d:"650.000 EKNX estão disponíveis através da bonding curve on-chain.",
 
   market3:"3. Liquidez",
-  market3d:"A estrutura final de liquidez será publicada com transparência antes do mercado entrar em funcionamento.",
+  market3d:"350.000 EKNX estão reservados para a liquidez utilizada na graduação.",
 
   market4:"4. Mercado",
   market4d:"Depois da ativação, o valor dependerá da mecânica de mercado, liquidez, procura e oferta.",
@@ -314,10 +314,10 @@ Object.assign(T.en,{
   market1d:"1,000,000 EKNX in the Genesis Market: 650,000 for the curve and 350,000 for liquidity.",
 
   market2:"2. Curve",
-  market2d:"Final formula, limits and parameters will be published before activation.",
+  market2d:"650,000 EKNX are available through the on-chain bonding curve.",
 
   market3:"3. Liquidity",
-  market3d:"The final liquidity structure will be published transparently before the market becomes active.",
+  market3d:"350,000 EKNX are reserved for the liquidity mechanism used at graduation.",
 
   market4:"4. Market",
   market4d:"After activation, value will depend on market mechanics, liquidity and supply and demand.",
