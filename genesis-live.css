@@ -1,0 +1,539 @@
+/* =========================================================
+   EKNX GENESIS LIVE · GLOBAL MARKET STRIP
+   Black / Gold · Eureka Nexus
+   ========================================================= */
+
+:root{
+  --egl-black:#050505;
+  --egl-black-2:#0b0a08;
+  --egl-panel:#11100c;
+  --egl-gold:#d4af37;
+  --egl-gold-2:#ffd76a;
+  --egl-gold-3:#fff0ad;
+  --egl-text:#f8f5eb;
+  --egl-muted:#a9a394;
+}
+
+body.eknx-genesis-live-active{
+  padding-bottom:118px;
+}
+
+#eknxGenesisLive{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:99990;
+  color:var(--egl-text);
+  font-family:inherit;
+}
+
+.egl-shell{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid rgba(255,215,106,.42);
+  background:
+    radial-gradient(circle at 15% 0%,rgba(212,175,55,.16),transparent 26%),
+    radial-gradient(circle at 85% 100%,rgba(255,215,106,.10),transparent 30%),
+    linear-gradient(105deg,#050505 0%,#0c0a06 48%,#050505 100%);
+  box-shadow:
+    0 -18px 55px rgba(0,0,0,.72),
+    0 -1px 25px rgba(212,175,55,.12);
+  backdrop-filter:blur(18px);
+}
+
+.egl-shell:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255,232,156,.08) 49%,
+      rgba(255,232,156,.18) 50%,
+      rgba(255,232,156,.08) 51%,
+      transparent 62%
+    );
+  transform:translateX(-120%);
+  animation:eglSweep 8s linear infinite;
+}
+
+.egl-shell:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.30;
+  background-image:
+    radial-gradient(circle,rgba(255,223,118,.55) 0 1px,transparent 1.5px);
+  background-size:71px 61px;
+  mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);
+}
+
+.egl-main{
+  position:relative;
+  z-index:2;
+  max-width:1500px;
+  margin:auto;
+  padding:12px 22px 9px;
+  display:grid;
+  grid-template-columns:minmax(205px,1.15fr) repeat(4,minmax(105px,.78fr)) minmax(190px,1.2fr) auto;
+  gap:12px;
+  align-items:center;
+}
+
+.egl-brand{
+  min-width:0;
+}
+
+.egl-live{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--egl-gold-2);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.egl-dot{
+  width:8px;
+  height:8px;
+  flex:0 0 auto;
+  border-radius:50%;
+  background:#ffda60;
+  box-shadow:
+    0 0 0 4px rgba(255,210,80,.09),
+    0 0 18px rgba(255,210,80,.9);
+  animation:eglPulse 1.7s ease-in-out infinite;
+}
+
+.egl-title{
+  display:block;
+  margin-top:3px;
+  font-size:1.02rem;
+  line-height:1.05;
+  font-weight:950;
+  letter-spacing:.03em;
+  white-space:nowrap;
+}
+
+.egl-title strong{
+  color:var(--egl-gold-2);
+}
+
+.egl-stat{
+  min-width:0;
+  padding:5px 10px;
+  border-left:1px solid rgba(255,215,106,.14);
+}
+
+.egl-stat span{
+  display:block;
+  margin-bottom:2px;
+  color:var(--egl-muted);
+  font-size:.60rem;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.egl-stat b{
+  display:block;
+  overflow:hidden;
+  color:#fff7d7;
+  font-size:.89rem;
+  line-height:1.2;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-shadow:0 0 18px rgba(212,175,55,.16);
+}
+
+.egl-stat-price b{
+  color:var(--egl-gold-2);
+}
+
+.egl-last b{
+  font-size:.77rem;
+}
+
+.egl-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 18px;
+  border:1px solid rgba(255,225,131,.65);
+  border-radius:11px;
+  background:
+    linear-gradient(135deg,#f7d56b 0%,#b98a19 50%,#ffe48e 100%);
+  color:#080704;
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  white-space:nowrap;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.65),
+    0 0 25px rgba(212,175,55,.20);
+  transition:.22s ease;
+}
+
+.egl-action:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.8),
+    0 0 34px rgba(255,210,80,.34);
+}
+
+.egl-progress-wrap{
+  position:relative;
+  z-index:2;
+  height:4px;
+  background:rgba(255,255,255,.045);
+}
+
+.egl-progress{
+  width:0;
+  height:100%;
+  background:
+    linear-gradient(90deg,#8d6812,#f0c84c,#fff0a3,#d4af37);
+  box-shadow:
+    0 0 14px rgba(255,211,76,.65);
+  transition:width .7s ease;
+}
+
+.egl-error .egl-dot{
+  background:#cf9c30;
+  box-shadow:0 0 12px rgba(207,156,48,.45);
+}
+
+@keyframes eglPulse{
+  0%,100%{opacity:.55;transform:scale(.82)}
+  50%{opacity:1;transform:scale(1.14)}
+}
+
+@keyframes eglSweep{
+  to{transform:translateX(120%)}
+}
+
+@media(max-width:1100px){
+  body.eknx-genesis-live-active{
+    padding-bottom:142px;
+  }
+
+  .egl-main{
+    grid-template-columns:1.25fr repeat(3,1fr) auto;
+  }
+
+  .egl-reserve,
+  .egl-last{
+    display:none;
+  }
+}
+
+@media(max-width:720px){
+  body.eknx-genesis-live-active{
+    padding-bottom:164px;
+  }
+
+  .egl-main{
+    padding:10px 12px 8px;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:6px;
+  }
+
+  .egl-title{
+    font-size:.80rem;
+    white-space:normal;
+  }
+
+  .egl-live{
+    font-size:.56rem;
+  }
+
+  .egl-stat{
+    padding:4px 5px;
+  }
+
+  .egl-stat span{
+    font-size:.52rem;
+  }
+
+  .egl-stat b{
+    font-size:.72rem;
+  }
+
+  .egl-buyers,
+  .egl-reserve,
+  .egl-last{
+    display:none;
+  }
+
+  .egl-action{
+    grid-column:1 / -1;
+    width:100%;
+    min-height:34px;
+    margin-top:2px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .egl-shell:before,
+  .egl-dot{
+    animation:none;
+  }
+
+  .egl-progress{
+    transition:none;
+  }
+}
+
+
+/* =========================================================
+   EKNX GENESIS TICKER + COIN · 2026
+   ========================================================= */
+
+.market-launch-banner-2026{
+  display:block !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  position:relative;
+}
+
+.eureka-genesis-ticker-viewport{
+  width:100%;
+  overflow:hidden;
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #000 5%,
+      #000 95%,
+      transparent
+    );
+}
+
+.eureka-genesis-ticker-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  animation:
+    eurekaGenesisTicker 30s linear infinite;
+  will-change:transform;
+}
+
+.eureka-genesis-ticker-segment{
+  flex:none;
+  padding:15px 55px;
+  color:#ffd65b;
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.075em;
+  white-space:nowrap;
+  text-shadow:
+    0 0 16px rgba(255,205,70,.20);
+}
+
+.market-launch-banner-2026:hover
+.eureka-genesis-ticker-track{
+  animation-play-state:paused;
+}
+
+@keyframes eurekaGenesisTicker{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+
+/* Genesis section */
+
+#market .section-head.genesis-head-2026{
+  display:grid !important;
+  grid-template-columns:
+    minmax(0,1.12fr)
+    minmax(0,.95fr)
+    minmax(220px,310px);
+  gap:38px;
+  align-items:center;
+}
+
+#market .genesis-coin-visual-2026{
+  position:relative;
+  min-height:300px;
+  margin:0;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+
+#market .genesis-coin-visual-2026:before{
+  content:"";
+  position:absolute;
+  width:85%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(143,70,255,.28),
+      rgba(212,175,55,.14) 42%,
+      transparent 72%
+    );
+  filter:blur(18px);
+  z-index:-2;
+}
+
+#market .genesis-coin-orbit{
+  position:absolute;
+  width:92%;
+  aspect-ratio:1;
+  border-radius:50%;
+  border:
+    1px solid rgba(212,175,55,.20);
+  box-shadow:
+    inset 0 0 40px rgba(139,74,255,.07),
+    0 0 45px rgba(212,175,55,.08);
+  animation:
+    genesisOrbitPulse 4.5s ease-in-out infinite;
+}
+
+#market .genesis-coin-visual-2026 img{
+  position:relative;
+  z-index:2;
+  display:block;
+  width:min(100%,285px);
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:50%;
+  filter:
+    drop-shadow(
+      0 24px 36px rgba(0,0,0,.62)
+    )
+    drop-shadow(
+      0 0 22px rgba(161,77,255,.25)
+    )
+    drop-shadow(
+      0 0 18px rgba(212,175,55,.18)
+    );
+  animation:
+    genesisCoinFloat 5.5s ease-in-out infinite;
+}
+
+#market .genesis-coin-visual-2026 span{
+  position:absolute;
+  bottom:-3px;
+  z-index:3;
+  padding:7px 13px;
+  border:
+    1px solid rgba(212,175,55,.28);
+  border-radius:999px;
+  background:
+    rgba(5,5,5,.82);
+  color:#f3c94f;
+  font-size:.61rem;
+  font-weight:950;
+  letter-spacing:.17em;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.40);
+}
+
+#market
+.genesis-coin-visual-2026.coin-image-missing{
+  display:none;
+}
+
+@keyframes genesisCoinFloat{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  50%{
+    transform:
+      translateY(-11px)
+      rotate(1deg);
+  }
+}
+
+@keyframes genesisOrbitPulse{
+
+  0%,100%{
+    transform:scale(.96);
+    opacity:.45;
+  }
+
+  50%{
+    transform:scale(1.035);
+    opacity:.95;
+  }
+}
+
+
+@media(max-width:1050px){
+
+  #market .section-head.genesis-head-2026{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  #market .genesis-coin-visual-2026{
+    grid-column:
+      1 / -1;
+    min-height:260px;
+  }
+
+  #market .genesis-coin-visual-2026 img{
+    width:250px;
+  }
+
+}
+
+
+@media(max-width:720px){
+
+  #market .section-head.genesis-head-2026{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  #market .genesis-coin-visual-2026{
+    min-height:230px;
+  }
+
+  #market .genesis-coin-visual-2026 img{
+    width:215px;
+  }
+
+  .eureka-genesis-ticker-segment{
+    padding:
+      13px 28px;
+    font-size:.65rem;
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  .eureka-genesis-ticker-track,
+  #market .genesis-coin-orbit,
+  #market .genesis-coin-visual-2026 img{
+    animation:none;
+  }
+
+}

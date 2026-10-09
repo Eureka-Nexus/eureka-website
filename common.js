@@ -4,10 +4,10 @@
   const fmt=n=>new Intl.NumberFormat(document.documentElement.lang||'pt-PT').format(Number(n||0));
   const short=a=>a&&a.length>18?`${a.slice(0,8)}…${a.slice(-6)}`:(a||'—');
   const dict={
-    pt:{liveAi:'● LIVE AI',home:'Início',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Rede',company:'Investidores & Equipa',downloads:'Downloads',contracts:'Contratos',comingSoon:'Brevemente',learnMore:'Saber mais',contact:'Contacto',privacy:'Privacidade',terms:'Termos'},
-    en:{liveAi:'● LIVE AI',home:'Home',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Network',company:'Investors & Team',downloads:'Downloads',contracts:'Contracts',comingSoon:'Coming soon',learnMore:'Learn more',contact:'Contact',privacy:'Privacy',terms:'Terms'},
-    es:{liveAi:'● LIVE AI',home:'Inicio',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Red',company:'Inversores y Equipo',downloads:'Descargas',contracts:'Contratos',comingSoon:'Próximamente',learnMore:'Saber más',contact:'Contacto',privacy:'Privacidad',terms:'Términos'},
-    fr:{liveAi:'● LIVE AI',home:'Accueil',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Réseau',company:'Investisseurs & Équipe',downloads:'Téléchargements',contracts:'Contrats',comingSoon:'Bientôt',learnMore:'En savoir plus',contact:'Contact',privacy:'Confidentialité',terms:'Conditions'},
+    pt:{home:'Início',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Rede',company:'Investidores & Equipa',downloads:'Downloads',contracts:'Contratos',comingSoon:'Brevemente',learnMore:'Saber mais',contact:'Contacto',privacy:'Privacidade',terms:'Termos'},
+    en:{home:'Home',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Network',company:'Investors & Team',downloads:'Downloads',contracts:'Contracts',comingSoon:'Coming soon',learnMore:'Learn more',contact:'Contact',privacy:'Privacy',terms:'Terms'},
+    es:{home:'Inicio',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Red',company:'Inversores y Equipo',downloads:'Descargas',contracts:'Contratos',comingSoon:'Próximamente',learnMore:'Saber más',contact:'Contacto',privacy:'Privacidad',terms:'Términos'},
+    fr:{home:'Accueil',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Réseau',company:'Investisseurs & Équipe',downloads:'Téléchargements',contracts:'Contrats',comingSoon:'Bientôt',learnMore:'En savoir plus',contact:'Contact',privacy:'Confidentialité',terms:'Conditions'},
     de:{home:'Start',ai:'Eureka AI',agent:'Agent',capital:'Capital',miner:'Miner',network:'Netzwerk',company:'Investoren & Team',downloads:'Downloads',contracts:'Verträge',comingSoon:'Demnächst',learnMore:'Mehr erfahren',contact:'Kontakt',privacy:'Datenschutz',terms:'Bedingungen'}
   };
   const supported=['pt','en'];

@@ -1,0 +1,839 @@
+<!doctype html>
+
+<html lang="pt">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1">
+
+  <meta
+    name="theme-color"
+    content="#050505">
+
+  <meta
+    name="description"
+    content="EKNX Genesis Market on BNB Smart Chain. Live bonding curve and on-chain EKNX acquisition.">
+
+  <link
+    rel="canonical"
+    href="https://eurekanexus.pt/market.html">
+
+  <link
+    rel="icon"
+    href="assets/logo.png">
+
+  <link
+    rel="stylesheet"
+    href="styles.css">
+
+  <link
+    rel="stylesheet"
+    href="market.css?v=20261009-7">
+
+  <title>
+    EKNX Genesis Market · Eureka Nexus
+  </title>
+
+</head>
+
+
+<body data-page="market">
+
+<canvas id="space"></canvas>
+<div class="aurora"></div>
+
+
+<header class="topbar">
+
+  <div class="shell nav-wrap">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Eureka Nexus">
+
+      <img
+        src="assets/logo.png"
+        alt="Eureka Nexus">
+
+      <span>
+
+        <b>
+          EUREKA NEXUS
+        </b>
+
+        <small>
+          EKNX · GENESIS MARKET
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      id="menuBtn"
+      class="menu-btn"
+      aria-label="Menu">
+      ☰
+    </button>
+
+
+    <nav
+      id="nav"
+      class="navlinks">
+
+      <a
+        href="index.html"
+        data-common="home">
+        Início
+      </a>
+
+      <a
+        href="index.html#miner">
+        Mining
+      </a>
+
+      <a
+        href="network.html">
+        Network
+      </a>
+
+      <a
+        class="active"
+        href="market.html">
+        Genesis Market
+      </a>
+
+      <a
+        href="tokenomics.html">
+        Tokenomics
+      </a>
+
+      <a
+        href="contracts.html"
+        data-common="contracts">
+        Contratos
+      </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+      <select
+        id="langSelect"
+        class="lang"
+        aria-label="Language">
+
+        <option value="pt">
+          PT 🇵🇹
+        </option>
+
+        <option value="en">
+          EN 🇬🇧
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="market-hero">
+
+  <div class="shell market-hero-grid">
+
+
+    <div class="market-copy">
+
+      <span
+        class="market-live-label"
+        data-mk="live">
+        ● EKNX GENESIS · LIVE ON-CHAIN
+      </span>
+
+
+      <h1 data-mk="title">
+        Compra EKNX diretamente
+        através da Genesis Curve.
+      </h1>
+
+
+      <p
+        class="market-lead"
+        data-mk="lead">
+
+        O Genesis Market está ativo na BNB Smart Chain.
+        A quantidade escolhida é cotada diretamente pelo
+        smart contract antes da confirmação na tua carteira.
+
+      </p>
+
+
+      <div class="market-proof-row">
+
+        <span>
+          BNB SMART CHAIN
+        </span>
+
+        <span>
+          CHAIN ID 56
+        </span>
+
+        <span data-mk="onchain">
+          SMART CONTRACT ON-CHAIN
+        </span>
+
+      </div>
+
+
+      <div class="market-contract">
+
+        <span data-mk="marketContract">
+          Genesis Market Contract
+        </span>
+
+        <a
+          href="https://bscscan.com/address/0x837dBE1D3b67e8315127c36a119E163e713ee73D"
+          target="_blank"
+          rel="noopener">
+
+          0x837d...ee73D ↗
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <figure class="market-coin">
+
+      <div class="market-coin-aura"></div>
+
+      <img
+        src="assets/eknx-genesis-coin.png"
+        alt="EKNX Eureka Nexus">
+
+      <figcaption>
+        EKNX · GENESIS
+      </figcaption>
+
+    </figure>
+
+
+  </div>
+
+</section>
+
+
+
+<section class="market-dashboard">
+
+  <div class="shell">
+
+
+    <div class="market-status-grid">
+
+
+      <article class="market-stat">
+
+        <span data-mk="currentPrice">
+          PREÇO ATUAL · 1 EKNX
+        </span>
+
+        <strong id="marketCurrentPrice">
+          A carregar…
+        </strong>
+
+      </article>
+
+
+      <article class="market-stat">
+
+        <span data-mk="sold">
+          EKNX ADQUIRIDOS
+        </span>
+
+        <strong id="marketSold">
+          —
+        </strong>
+
+      </article>
+
+
+      <article class="market-stat">
+
+        <span data-mk="reserve">
+          RESERVA GENESIS
+        </span>
+
+        <strong id="marketReserve">
+          —
+        </strong>
+
+      </article>
+
+
+      <article class="market-stat">
+
+        <span data-mk="remaining">
+          DISPONÍVEIS NA CURVE
+        </span>
+
+        <strong id="marketRemaining">
+          —
+        </strong>
+
+      </article>
+
+
+    </div>
+
+
+    <div class="market-progress-card">
+
+      <div class="market-progress-head">
+
+        <span data-mk="progress">
+          Progresso da Genesis Curve
+        </span>
+
+        <b id="marketProgressText">
+          0%
+        </b>
+
+      </div>
+
+      <div class="market-progress-track">
+
+        <div
+          id="marketProgressBar"
+          class="market-progress-bar">
+        </div>
+
+      </div>
+
+      <div class="market-progress-foot">
+
+        <span>
+          0 EKNX
+        </span>
+
+        <span>
+          650.000 EKNX · 25 BNB
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<section class="market-trade-section">
+
+  <div class="shell market-trade-grid">
+
+
+    <div class="market-buy-card">
+
+
+      <div class="market-card-head">
+
+        <div>
+
+          <span class="market-step">
+            01
+          </span>
+
+          <h2 data-mk="buyTitle">
+            Comprar EKNX
+          </h2>
+
+        </div>
+
+
+        <span
+          id="marketStateBadge"
+          class="market-state-badge">
+
+          LIVE
+
+        </span>
+
+      </div>
+
+
+
+      <label
+        class="market-label"
+        for="buyAmount"
+        data-mk="amountLabel">
+
+        Quantidade EKNX
+
+      </label>
+
+
+      <div class="market-input-wrap">
+
+        <input
+          id="buyAmount"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="100">
+
+        <button
+          id="maxAvailableBtn"
+          type="button">
+          MAX
+        </button>
+
+      </div>
+
+
+      <div class="market-quick">
+
+        <button
+          type="button"
+          data-quick="10">
+          10
+        </button>
+
+        <button
+          type="button"
+          data-quick="100">
+          100
+        </button>
+
+        <button
+          type="button"
+          data-quick="1000">
+          1.000
+        </button>
+
+        <button
+          type="button"
+          data-quick="10000">
+          10.000
+        </button>
+
+      </div>
+
+
+
+      <div class="market-quote">
+
+
+        <div>
+
+          <span data-mk="quote">
+            Cotação on-chain
+          </span>
+
+          <b id="buyQuote">
+            —
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span data-mk="maxPayment">
+            Máximo enviado
+          </span>
+
+          <b id="buyMaxPayment">
+            —
+          </b>
+
+        </div>
+
+
+        <small data-mk="refundInfo">
+
+          O contrato devolve automaticamente qualquer
+          BNB enviado acima do custo final da compra.
+
+        </small>
+
+
+      </div>
+
+
+
+      <button
+        id="connectWalletBtn"
+        class="market-primary-btn"
+        type="button"
+        data-mk="connect">
+
+        LIGAR CARTEIRA
+
+      </button>
+
+
+
+      <div
+        id="walletPanel"
+        class="market-wallet-panel"
+        hidden>
+
+
+        <div>
+
+          <span data-mk="wallet">
+            Carteira
+          </span>
+
+          <b id="walletAddress">
+            —
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            BNB
+          </span>
+
+          <b id="walletBnb">
+            —
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            EKNX
+          </span>
+
+          <b id="walletEknx">
+            —
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span data-mk="curvePosition">
+            Posição Genesis
+          </span>
+
+          <b id="walletCurvePosition">
+            —
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Rede
+          </span>
+
+          <b id="walletNetwork">
+            BNB Smart Chain · 56
+          </b>
+
+        </div>
+
+
+        <button
+          id="disconnectWalletBtn"
+          class="wallet-disconnect-btn"
+          type="button">
+
+          DESLIGAR CARTEIRA
+
+        </button>
+
+
+      </div>
+
+
+
+      <label class="market-confirmation">
+
+        <input
+          id="mainnetConfirm"
+          type="checkbox">
+
+        <span data-mk="mainnetConfirm">
+
+          Compreendo que esta operação é realizada
+          na BNB Smart Chain Mainnet e utiliza BNB real.
+
+        </span>
+
+      </label>
+
+
+
+      <button
+        id="buyEknxBtn"
+        class="market-buy-btn"
+        type="button"
+        disabled
+        data-mk="buyButton">
+
+        COMPRAR EKNX
+
+      </button>
+
+
+
+      <div
+        id="tradeStatus"
+        class="market-trade-status"
+        aria-live="polite">
+      </div>
+
+
+      <a
+        id="tradeTxLink"
+        class="market-tx-link"
+        href="#"
+        target="_blank"
+        rel="noopener"
+        hidden>
+
+        BscScan ↗
+
+      </a>
+
+
+    </div>
+
+
+
+    <aside class="market-info-card">
+
+
+      <span class="market-step">
+        02
+      </span>
+
+
+      <h2 data-mk="howTitle">
+        Como funciona
+      </h2>
+
+
+      <div class="market-how-step">
+
+        <b>
+          01
+        </b>
+
+        <p data-mk="how1">
+
+          Escolhe a quantidade de EKNX.
+          A cotação vem diretamente do contrato.
+
+        </p>
+
+      </div>
+
+
+      <div class="market-how-step">
+
+        <b>
+          02
+        </b>
+
+        <p data-mk="how2">
+
+          Liga uma carteira compatível com
+          BNB Smart Chain.
+
+        </p>
+
+      </div>
+
+
+      <div class="market-how-step">
+
+        <b>
+          03
+        </b>
+
+        <p data-mk="how3">
+
+          Confirma a transação na própria carteira.
+          O site nunca recebe a tua chave privada.
+
+        </p>
+
+      </div>
+
+
+      <div class="market-how-step">
+
+        <b>
+          04
+        </b>
+
+        <p data-mk="how4">
+
+          Depois da confirmação on-chain,
+          os EKNX são transferidos diretamente
+          pelo Genesis Market para a tua carteira.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="market-allocation">
+
+        <h3 data-mk="structure">
+          Estrutura Genesis
+        </h3>
+
+
+        <div>
+
+          <span>
+            Genesis Curve
+          </span>
+
+          <b>
+            650.000 EKNX · 65%
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            DEX Liquidity
+          </span>
+
+          <b>
+            350.000 EKNX · 35%
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Graduation
+          </span>
+
+          <b>
+            25 BNB
+          </b>
+
+        </div>
+
+
+      </div>
+
+
+      <p
+        class="market-risk"
+        data-mk="risk">
+
+        EKNX é um criptoativo e o seu valor pode variar.
+        Consulta os termos e informação de risco
+        antes de participar.
+
+      </p>
+
+
+      <div class="market-links">
+
+        <a href="tokenomics.html">
+          Tokenomics
+        </a>
+
+        <a href="contracts.html">
+          Contracts
+        </a>
+
+        <a href="terms.html">
+          Terms
+        </a>
+
+        <a href="legal.html">
+          Legal
+        </a>
+
+      </div>
+
+
+    </aside>
+
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+  <div class="shell footer-bottom">
+
+    <span>
+      © 2026 Eureka Nexus
+    </span>
+
+    <span>
+      BNB Smart Chain · EKNX
+    </span>
+
+  </div>
+
+</footer>
+
+
+
+<script src="site-config.js"></script>
+<script src="common.js"></script>
+
+<script
+  src="market.js?v=20261009-7">
+</script>
+
+<script
+  src="genesis-live.js?v=20261009-12">
+</script>
+
+</body>
+
+</html>

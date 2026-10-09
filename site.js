@@ -1,8 +1,8 @@
 (()=>{
   const C=window.EUREKA_CONFIG||{}, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const T={
-    pt:{dev:'ECOSSISTEMA EM DESENVOLVIMENTO',heroK:'IA PESSOAL · COMPUTAÇÃO · UTILIDADE',hero1:'A tua Eureka.',hero2:'Uma IA que evolui contigo.',heroLead:'Eureka Nexus junta IA pessoal evolutiva, agentes, computação e EKNX num ecossistema criado para crescer com cada utilizador.',discover:'Descobrir a Eureka',seeMiner:'Ver o Miner',memory:'Memória',continuity:'continuidade pessoal',evolution:'Evolução',adapts:'adapta-se ao utilizador',agents:'Agentes',tasks:'tarefas e ferramentas',utility:'Utilidade',ecosystem:'EKNX no ecossistema',mainnet:'BSC Mainnet',contractLive:'Contrato deployed',publicMiner:'Miner público',soon:'Brevemente',aiTitle:'Mais do que um chatbot: a base de uma IA pessoal.',aiLead:'A Eureka está a ser desenhada para manter continuidade, memória, objetivos, ferramentas e uma identidade funcional, sempre com permissões e controlo do utilizador.',memTitle:'Memória contínua',memText:'Contexto útil, decisões e projetos podem acompanhar o utilizador ao longo do tempo.',goalTitle:'Objetivos de longo prazo',goalText:'Arquitetura preparada para acompanhar tarefas, rotinas e metas em vez de recomeçar do zero.',toolTitle:'Ferramentas e agentes',toolText:'Módulos especializados podem executar trabalho com permissões explícitas.',localTitle:'Local + cloud',localText:'Execução local quando possível e recursos cloud opcionais para tarefas exigentes.',multiTitle:'Multilingue',multiText:'Experiência preparada para vários idiomas e diferentes contextos.',auditTitle:'Controlo e auditoria',auditText:'Memória, ações e integrações devem ser visíveis, reversíveis quando possível e auditáveis.',agentTitle:'Cada utilizador desenvolve a sua própria Eureka.',agentLead:'A base tecnológica pode ser comum, mas memória, preferências, rotinas, conhecimento, objetivos e ferramentas fazem cada Eureka evoluir de forma diferente.',agent1:'Núcleo comum e atualizável',agent1d:'Uma base técnica consistente para todos.',agent2:'Aprende a forma de trabalhar',agent2d:'Projetos, contexto e preferências tornam a experiência pessoal.',agent3:'Cresce por módulos',agent3d:'Novas capacidades podem ser acrescentadas sem perder continuidade.',agent4:'O utilizador define os limites',agent4d:'Ficheiros, internet, apps e ações dependem de permissões.',edge:'Tecnologia de ponta em desenvolvimento',edgeText:'O objetivo é explorar uma nova geração de IA pessoal evolutiva. Funções finais só serão publicadas após desenvolvimento, testes e validações de segurança.',capitalTitle:'A camada económica do ecossistema, ligada à Eureka.',capitalLead:'Eureka Capital está planeado como um painel para organizar EKNX, pagamentos do ecossistema, objetivos, histórico e ferramentas económicas assistidas pela Eureka Agent.',capitalWarn:'Eureka Capital está em desenvolvimento. Não é um banco, não oferece rendimento garantido e ativos digitais envolvem risco.',minerTitle:'Computação que participa no ecossistema.',minerLead:'Eureka Miner Official foi concebido para CPU e GPU, com carteira BSC pública, trabalho validado pelo servidor, acompanhamento de recompensas e pagamentos EKNX automáticos.',feeTitle:'Taxa oficial de mineração: 1%',feeText:'A regra definida para a pool oficial é simples: 99% da recompensa validada pertence ao minerador e 1% é a taxa do projeto.',feeExample:'Exemplo: 50 EKNX brutos → 49,5 EKNX para o minerador + 0,5 EKNX para o projeto.',feeWallet:'Carteira da taxa do projeto',statsTitle:'Rede Eureka Nexus em tempo real',statsLead:'O painel está preparado para ler o endpoint público do Mining Server. Assim que o servidor for exposto por HTTPS, os números passam a atualizar automaticamente.',connected:'Miners ligados',workers:'Workers ativos',wallets:'Carteiras vistas',epoch:'Epoch',claims:'Pagamentos recentes',networkState:'Estado',waiting:'API ONLINE',topMiners:'Top miners',rank:'Pos.',minerCol:'Miner',shares:'Shares',earned:'Ganho',status:'Estado',none:'Sem dados públicos ainda.',tokenTitle:'EKNX: utilidade, mineração e mercado.',tokenLead:'EKNX é o ativo utilitário do ecossistema Eureka Nexus. Pode circular no mercado e está planeado para suportar serviços e mensalidades elegíveis dentro do ecossistema.',maxSupply:'Máximo do contrato',genesis:'Market Reserve',miningCap:'Capacidade de mineração',curve:'Parâmetros da curve',liquidity:'Estrutura de liquidez',marketTitle:'1.000.000 EKNX preparados para o próximo capítulo.',marketLead:'A Market Reserve contém 1.000.000 EKNX destinados ao futuro lançamento de mercado. A fórmula da curve, a estrutura de liquidez e os parâmetros finais serão publicados e verificados antes da ativação. Não existe preço, valorização ou retorno garantido.',market1:'1. Market Reserve',market1d:'1.000.000 EKNX reservados para o futuro lançamento.',market2:'2. Curve',market2d:'A fórmula, os limites e os parâmetros finais serão publicados antes da ativação.',market3:'3. Liquidez',market3d:'A estrutura final de liquidez será publicada antes da ativação.',market4:'4. Mercado',market4d:'O valor passa a ser formado pela negociação e pelas regras do mercado.',downloadTitle:'Software oficial, num único lugar.',downloadLead:'Os downloads só ficam ativos depois de cada versão ser publicada e verificada. Windows primeiro; Android, iPhone/iPad e restantes aplicações seguem quando estiverem prontas.',windows:'Miner Windows',androidMiner:'Miner Android',agentDesk:'Eureka Agent Desktop',agentMobile:'Eureka Agent Android / Apple',capital:'Eureka Capital',roadTitle:'Roadmap: construir, testar, publicar.',roadLead:'A roadmap representa direção e estado, não datas garantidas.',phase1:'Fundação',phase1a:'Contrato EKNX em BSC Mainnet',phase1b:'Genesis Market deployed',phase1c:'Mining Server e motores CPU/GPU',phase2:'Produto',phase2a:'Eureka 2026 1.0',phase2b:'Pool pública HTTPS',phase2c:'Painel público de rede',phase3:'Eureka',phase3a:'Eureka Agent',phase3b:'Memória e ferramentas',phase3c:'Apps Android / Apple',phase4:'Ecossistema',phase4a:'Eureka Capital',phase4b:'Pagamentos com EKNX',phase4c:'Integrações e expansão',companyTitle:'Investidores, equipa e parcerias',companyLead:'Criámos uma área separada para quem quer acompanhar o projeto pelo lado empresarial: visão, tecnologia, tokenomics, recrutamento, parcerias e contactos.',openCompany:'Abrir área empresarial',faqTitle:'Perguntas importantes',q1:'O EKNX já tem um preço garantido?',a1:'Não. O projeto não garante preço nem retorno. O valor de mercado surge quando o mercado estiver ativo e depende do mecanismo de curve/liquidez e da procura e oferta.',q2:'A taxa de 1% é sobre transferências?',a2:'Não. A regra definida é uma taxa da pool oficial sobre recompensas de mineração validadas: 99% líquido para o minerador e 1% para o projeto.',q3:'A Eureka Agent já está disponível?',a3:'Ainda não. Está em desenvolvimento e será publicada apenas quando as versões destinadas ao público estiverem prontas e testadas.',q4:'Posso usar EKNX para mensalidades?',a4:'Essa é uma utilidade planeada para serviços elegíveis do ecossistema Eureka. As condições finais serão publicadas antes da ativação comercial.',q5:'O Miner pede seed phrase?',a5:'Não deve pedir. O Miner oficial deve trabalhar apenas com o endereço público da carteira. Nunca introduza seed phrase ou chave privada num miner.',capitalCard1:'Wallet, histórico, utilidade e pagamentos elegíveis.',capitalCard2:'Ferramentas assistidas pela Eureka, com permissões e confirmação do utilizador.',riskTitle:'Risco e transparência',minerAlgo:'KAWPOW-EUREKA-V1 para GPU e RANDOMX-EUREKA-V1 para CPU, com trabalho validado pelo Mining Server oficial.',marketWarning:'O EKNX não tem preço futuro nem retorno garantido. O valor de mercado pode subir ou descer e ativos digitais envolvem risco.',dl1:'Mineração CPU/GPU, carteira, estado da pool, recompensas e pagamentos automáticos.',dl2:'Cliente de mineração móvel planeado para dispositivos Android suportados.',dl3:'IA pessoal evolutiva para desktop.',dl4:'Experiência móvel planeada para Android e plataformas Apple.',footerTag:'IA pessoal, computação e utilidade EKNX.',rights:'Todos os direitos reservados.'},
-    en:{dev:'ECOSYSTEM IN DEVELOPMENT',heroK:'PERSONAL AI · COMPUTE · UTILITY',hero1:'Your Eureka.',hero2:'An AI that evolves with you.',heroLead:'Eureka Nexus brings evolving personal AI, agents, compute and EKNX into one ecosystem designed to grow with each user.',discover:'Discover Eureka',seeMiner:'See the Miner',memory:'Memory',continuity:'personal continuity',evolution:'Evolution',adapts:'adapts to the user',agents:'Agents',tasks:'tasks and tools',utility:'Utility',ecosystem:'EKNX in the ecosystem',mainnet:'BSC Mainnet',contractLive:'Contract deployed',publicMiner:'Public miner',soon:'Coming soon',aiTitle:'More than a chatbot: the foundation of a personal AI.',aiLead:'Eureka is being designed for continuity, memory, goals, tools and a functional identity, while keeping permissions and user control explicit.',memTitle:'Continuous memory',memText:'Useful context, decisions and projects can follow the user over time.',goalTitle:'Long-term goals',goalText:'Architecture designed to follow tasks, routines and goals instead of restarting from zero.',toolTitle:'Tools and agents',toolText:'Specialized modules can perform work under explicit permissions.',localTitle:'Local + cloud',localText:'Local execution when possible with optional cloud resources for demanding tasks.',multiTitle:'Multilingual',multiText:'An experience designed for multiple languages and contexts.',auditTitle:'Control and auditability',auditText:'Memory, actions and integrations should be visible, reversible when possible and auditable.',agentTitle:'Each user develops their own Eureka.',agentLead:'The technology base may be shared, but memory, preferences, routines, knowledge, goals and tools make each Eureka evolve differently.',agent1:'Shared, updatable core',agent1d:'A consistent technical foundation for everyone.',agent2:'Learns how you work',agent2d:'Projects, context and preferences personalize the experience.',agent3:'Grows through modules',agent3d:'New capabilities can be added without losing continuity.',agent4:'The user sets the boundaries',agent4d:'Files, internet, apps and actions depend on permissions.',edge:'Frontier technology in development',edgeText:'The goal is to explore a new generation of evolving personal AI. Final features will only ship after development, testing and security validation.',capitalTitle:'The economic layer of the ecosystem, connected to Eureka.',capitalLead:'Eureka Capital is planned as a dashboard for EKNX, ecosystem payments, goals, history and economic tools assisted by Eureka Agent.',capitalWarn:'Eureka Capital is in development. It is not a bank, offers no guaranteed return, and digital assets involve risk.',minerTitle:'Compute that participates in the ecosystem.',minerLead:'Eureka Miner Official is designed for CPU and GPU, using a public BSC wallet, server-validated work, reward tracking and automatic EKNX payouts.',feeTitle:'Official mining fee: 1%',feeText:'The rule defined for the official pool is simple: 99% of validated rewards belong to the miner and 1% is the project fee.',feeExample:'Example: 50 gross EKNX → 49.5 EKNX to the miner + 0.5 EKNX to the project.',feeWallet:'Project fee wallet',statsTitle:'Eureka Nexus network in real time',statsLead:'The dashboard is ready to read the Mining Server public endpoint. Once the server is exposed via HTTPS, figures update automatically.',connected:'Connected miners',workers:'Active workers',wallets:'Wallets seen',epoch:'Epoch',claims:'Recent payouts',networkState:'State',waiting:'API ONLINE',topMiners:'Top miners',rank:'Rank',minerCol:'Miner',shares:'Shares',earned:'Earned',status:'Status',none:'No public data yet.',tokenTitle:'EKNX: utility, mining and market.',tokenLead:'EKNX is the utility asset of the Eureka Nexus ecosystem. It can circulate in the market and is planned to support eligible services and subscriptions across the ecosystem.',maxSupply:'Contract maximum',genesis:'Market Reserve',miningCap:'Mining capacity',curve:'Curve parameters',liquidity:'Liquidity structure',marketTitle:'1,000,000 EKNX prepared for the next chapter.',marketLead:'The Market Reserve contains 1,000,000 EKNX intended for the future market launch. The curve formula, liquidity structure and final parameters will be published and verified before activation. No price, appreciation or return is guaranteed.',market1:'1. Market Reserve',market1d:'1,000,000 EKNX reserved for the future market launch.',market2:'2. Curve',market2d:'The final curve formula, limits and parameters will be published before activation.',market3:'3. Liquidity',market3d:'The final liquidity structure will be published before activation.',market4:'4. Market',market4d:'Value is then formed by trading and market rules.',downloadTitle:'Official software, in one place.',downloadLead:'Downloads only become active after each version is published and verified. Windows first; Android, iPhone/iPad and the other applications follow when ready.',windows:'Windows Miner',androidMiner:'Android Miner',agentDesk:'Eureka Agent Desktop',agentMobile:'Eureka Agent Android / Apple',capital:'Eureka Capital',roadTitle:'Roadmap: build, test, publish.',roadLead:'The roadmap represents direction and status, not guaranteed dates.',phase1:'Foundation',phase1a:'EKNX contract on BSC Mainnet',phase1b:'Genesis Market deployed',phase1c:'Mining Server and CPU/GPU engines',phase2:'Product',phase2a:'Eureka 2026 1.0',phase2b:'Public HTTPS pool',phase2c:'Public network dashboard',phase3:'Eureka',phase3a:'Eureka Agent',phase3b:'Memory and tools',phase3c:'Android / Apple apps',phase4:'Ecosystem',phase4a:'Eureka Capital',phase4b:'EKNX payments',phase4c:'Integrations and expansion',companyTitle:'Investors, team and partnerships',companyLead:'A dedicated business area covers vision, technology, tokenomics, hiring, partnerships and contact routes.',openCompany:'Open business area',faqTitle:'Important questions',q1:'Does EKNX have a guaranteed price?',a1:'No. The project does not guarantee price or return. Market value emerges when the market is active and depends on curve/liquidity mechanics and supply and demand.',q2:'Is the 1% fee charged on transfers?',a2:'No. The defined rule is an official-pool fee on validated mining rewards: 99% net to the miner and 1% to the project.',q3:'Is Eureka Agent available now?',a3:'Not yet. It is in development and will only be released when public-facing versions are ready and tested.',q4:'Can EKNX pay subscriptions?',a4:'That is a planned utility for eligible Eureka ecosystem services. Final commercial terms will be published before activation.',q5:'Does the Miner ask for a seed phrase?',a5:'It should not. The official Miner should only use the public wallet address. Never enter a seed phrase or private key into a miner.',capitalCard1:'Wallet, history, utility and eligible payments.',capitalCard2:'Eureka-assisted tools with explicit permissions and user confirmation.',riskTitle:'Risk and transparency',minerAlgo:'KAWPOW-EUREKA-V1 for GPU and RANDOMX-EUREKA-V1 for CPU, with work validated by the official Mining Server.',marketWarning:'EKNX has no guaranteed future price or return. Market value can rise or fall and digital assets involve risk.',dl1:'CPU/GPU mining, wallet, pool status, rewards and automatic payouts.',dl2:'Mobile mining client planned for supported Android devices.',dl3:'Evolving personal AI for desktop.',dl4:'Planned mobile experience for Android and Apple platforms.',footerTag:'Personal AI, compute and EKNX utility.',rights:'All rights reserved.'}
+    pt:{dev:'ECOSSISTEMA EM DESENVOLVIMENTO',heroK:'IA PESSOAL · COMPUTAÇÃO · UTILIDADE',hero1:'A tua Eureka.',hero2:'Uma IA que evolui contigo.',heroLead:'Eureka Nexus junta IA pessoal evolutiva, agentes, computação e EKNX num ecossistema criado para crescer com cada utilizador.',discover:'Descobrir a Eureka',seeMiner:'Ver o Miner',memory:'Memória',continuity:'continuidade pessoal',evolution:'Evolução',adapts:'adapta-se ao utilizador',agents:'Agentes',tasks:'tarefas e ferramentas',utility:'Utilidade',ecosystem:'EKNX no ecossistema',mainnet:'BSC Mainnet',contractLive:'Contrato deployed',publicMiner:'Miner público',soon:'Brevemente',aiTitle:'Mais do que um chatbot: a base de uma IA pessoal.',aiLead:'A Eureka está a ser desenhada para manter continuidade, memória, objetivos, ferramentas e uma identidade funcional, sempre com permissões e controlo do utilizador.',memTitle:'Memória contínua',memText:'Contexto útil, decisões e projetos podem acompanhar o utilizador ao longo do tempo.',goalTitle:'Objetivos de longo prazo',goalText:'Arquitetura preparada para acompanhar tarefas, rotinas e metas em vez de recomeçar do zero.',toolTitle:'Ferramentas e agentes',toolText:'Módulos especializados podem executar trabalho com permissões explícitas.',localTitle:'Local + cloud',localText:'Execução local quando possível e recursos cloud opcionais para tarefas exigentes.',multiTitle:'Multilingue',multiText:'Experiência preparada para vários idiomas e diferentes contextos.',auditTitle:'Controlo e auditoria',auditText:'Memória, ações e integrações devem ser visíveis, reversíveis quando possível e auditáveis.',agentTitle:'Cada utilizador desenvolve a sua própria Eureka.',agentLead:'A base tecnológica pode ser comum, mas memória, preferências, rotinas, conhecimento, objetivos e ferramentas fazem cada Eureka evoluir de forma diferente.',agent1:'Núcleo comum e atualizável',agent1d:'Uma base técnica consistente para todos.',agent2:'Aprende a forma de trabalhar',agent2d:'Projetos, contexto e preferências tornam a experiência pessoal.',agent3:'Cresce por módulos',agent3d:'Novas capacidades podem ser acrescentadas sem perder continuidade.',agent4:'O utilizador define os limites',agent4d:'Ficheiros, internet, apps e ações dependem de permissões.',edge:'Tecnologia de ponta em desenvolvimento',edgeText:'O objetivo é explorar uma nova geração de IA pessoal evolutiva. Funções finais só serão publicadas após desenvolvimento, testes e validações de segurança.',capitalTitle:'A camada económica do ecossistema, ligada à Eureka.',capitalLead:'Eureka Capital está planeado como um painel para organizar EKNX, pagamentos do ecossistema, objetivos, histórico e ferramentas económicas assistidas pela Eureka Agent.',capitalWarn:'Eureka Capital está em desenvolvimento. Não é um banco, não oferece rendimento garantido e ativos digitais envolvem risco.',minerTitle:'Computação que participa no ecossistema.',minerLead:'Eureka Miner Official foi concebido para CPU e GPU, com carteira BSC pública, trabalho validado pelo servidor, acompanhamento de recompensas e pagamentos EKNX automáticos.',feeTitle:'Taxa oficial de mineração: 1%',feeText:'A regra definida para a pool oficial é simples: 99% da recompensa validada pertence ao minerador e 1% é a taxa do projeto.',feeExample:'Exemplo: 50 EKNX brutos → 49,5 EKNX para o minerador + 0,5 EKNX para o projeto.',feeWallet:'Carteira da taxa do projeto',statsTitle:'Rede Eureka Nexus em tempo real',statsLead:'O painel está preparado para ler o endpoint público do Mining Server. Assim que o servidor for exposto por HTTPS, os números passam a atualizar automaticamente.',connected:'Miners ligados',workers:'Workers ativos',wallets:'Carteiras vistas',epoch:'Epoch',claims:'Pagamentos recentes',networkState:'Estado',waiting:'API ONLINE',topMiners:'Top miners',rank:'Pos.',minerCol:'Miner',shares:'Shares',earned:'Ganho',status:'Estado',none:'Sem dados públicos ainda.',tokenTitle:'EKNX: utilidade, mineração e mercado.',tokenLead:'EKNX é o ativo utilitário do ecossistema Eureka Nexus. Pode circular no mercado e está planeado para suportar serviços e mensalidades elegíveis dentro do ecossistema.',maxSupply:'Máximo do contrato',genesis:'Market Reserve',miningCap:'Capacidade de mineração',curve:'Parâmetros da curve',liquidity:'Estrutura de liquidez',marketTitle:'1.000.000 EKNX preparados para o próximo capítulo.',marketLead:'O EKNX Genesis Market está LIVE on-chain na BNB Smart Chain. A reserva contém 1.000.000 EKNX: 650.000 para a bonding curve e 350.000 reservados para liquidez. A graduação está definida para 25 BNB. Não existe preço, valorização, liquidez ou retorno garantido.',market1:'1. Market Reserve',market1d:'1.000.000 EKNX no Genesis Market: 650.000 na curve e 350.000 reservados para liquidez.',market2:'2. Curve',market2d:'A bonding curve está deployed e os parâmetros são verificáveis on-chain.',market3:'3. Liquidez',market3d:'350.000 EKNX estão reservados para a liquidez prevista na graduação.',market4:'4. Mercado',market4d:'O valor passa a ser formado pela negociação e pelas regras do mercado.',downloadTitle:'Software oficial, num único lugar.',downloadLead:'Os downloads só ficam ativos depois de cada versão ser publicada e verificada. Windows primeiro; Android, iPhone/iPad e restantes aplicações seguem quando estiverem prontas.',windows:'Miner Windows',androidMiner:'Miner Android',agentDesk:'Eureka Agent Desktop',agentMobile:'Eureka Agent Android / Apple',capital:'Eureka Capital',roadTitle:'Roadmap: construir, testar, publicar.',roadLead:'A roadmap representa direção e estado, não datas garantidas.',phase1:'Fundação',phase1a:'Contrato EKNX em BSC Mainnet',phase1b:'Genesis Market deployed',phase1c:'Mining Server e motores CPU/GPU',phase2:'Produto',phase2a:'Eureka 2026 1.0',phase2b:'Pool pública HTTPS',phase2c:'Painel público de rede',phase3:'Eureka',phase3a:'Eureka Agent',phase3b:'Memória e ferramentas',phase3c:'Apps Android / Apple',phase4:'Ecossistema',phase4a:'Eureka Capital',phase4b:'Pagamentos com EKNX',phase4c:'Integrações e expansão',companyTitle:'Investidores, equipa e parcerias',companyLead:'Criámos uma área separada para quem quer acompanhar o projeto pelo lado empresarial: visão, tecnologia, tokenomics, recrutamento, parcerias e contactos.',openCompany:'Abrir área empresarial',faqTitle:'Perguntas importantes',q1:'O EKNX já tem um preço garantido?',a1:'Não. O projeto não garante preço nem retorno. O Genesis Market está ativo. A cotação segue a bonding curve on-chain; não existe preço futuro nem retorno garantido.',q2:'A taxa de 1% é sobre transferências?',a2:'Não. A regra definida é uma taxa da pool oficial sobre recompensas de mineração validadas: 99% líquido para o minerador e 1% para o projeto.',q3:'A Eureka Agent já está disponível?',a3:'Ainda não. Está em desenvolvimento e será publicada apenas quando as versões destinadas ao público estiverem prontas e testadas.',q4:'Posso usar EKNX para mensalidades?',a4:'Essa é uma utilidade planeada para serviços elegíveis do ecossistema Eureka. As condições finais serão publicadas antes da ativação comercial.',q5:'O Miner pede seed phrase?',a5:'Não deve pedir. O Miner oficial deve trabalhar apenas com o endereço público da carteira. Nunca introduza seed phrase ou chave privada num miner.',capitalCard1:'Wallet, histórico, utilidade e pagamentos elegíveis.',capitalCard2:'Ferramentas assistidas pela Eureka, com permissões e confirmação do utilizador.',riskTitle:'Risco e transparência',minerAlgo:'KAWPOW-EUREKA-V1 para GPU e RANDOMX-EUREKA-V1 para CPU, com trabalho validado pelo Mining Server oficial.',marketWarning:'O EKNX não tem preço futuro nem retorno garantido. O valor de mercado pode subir ou descer e ativos digitais envolvem risco.',dl1:'Mineração CPU/GPU, carteira, estado da pool, recompensas e pagamentos automáticos.',dl2:'Cliente de mineração móvel planeado para dispositivos Android suportados.',dl3:'IA pessoal evolutiva para desktop.',dl4:'Experiência móvel planeada para Android e plataformas Apple.',footerTag:'IA pessoal, computação e utilidade EKNX.',rights:'Todos os direitos reservados.'},
+    en:{dev:'ECOSYSTEM IN DEVELOPMENT',heroK:'PERSONAL AI · COMPUTE · UTILITY',hero1:'Your Eureka.',hero2:'An AI that evolves with you.',heroLead:'Eureka Nexus brings evolving personal AI, agents, compute and EKNX into one ecosystem designed to grow with each user.',discover:'Discover Eureka',seeMiner:'See the Miner',memory:'Memory',continuity:'personal continuity',evolution:'Evolution',adapts:'adapts to the user',agents:'Agents',tasks:'tasks and tools',utility:'Utility',ecosystem:'EKNX in the ecosystem',mainnet:'BSC Mainnet',contractLive:'Contract deployed',publicMiner:'Public miner',soon:'Coming soon',aiTitle:'More than a chatbot: the foundation of a personal AI.',aiLead:'Eureka is being designed for continuity, memory, goals, tools and a functional identity, while keeping permissions and user control explicit.',memTitle:'Continuous memory',memText:'Useful context, decisions and projects can follow the user over time.',goalTitle:'Long-term goals',goalText:'Architecture designed to follow tasks, routines and goals instead of restarting from zero.',toolTitle:'Tools and agents',toolText:'Specialized modules can perform work under explicit permissions.',localTitle:'Local + cloud',localText:'Local execution when possible with optional cloud resources for demanding tasks.',multiTitle:'Multilingual',multiText:'An experience designed for multiple languages and contexts.',auditTitle:'Control and auditability',auditText:'Memory, actions and integrations should be visible, reversible when possible and auditable.',agentTitle:'Each user develops their own Eureka.',agentLead:'The technology base may be shared, but memory, preferences, routines, knowledge, goals and tools make each Eureka evolve differently.',agent1:'Shared, updatable core',agent1d:'A consistent technical foundation for everyone.',agent2:'Learns how you work',agent2d:'Projects, context and preferences personalize the experience.',agent3:'Grows through modules',agent3d:'New capabilities can be added without losing continuity.',agent4:'The user sets the boundaries',agent4d:'Files, internet, apps and actions depend on permissions.',edge:'Frontier technology in development',edgeText:'The goal is to explore a new generation of evolving personal AI. Final features will only ship after development, testing and security validation.',capitalTitle:'The economic layer of the ecosystem, connected to Eureka.',capitalLead:'Eureka Capital is planned as a dashboard for EKNX, ecosystem payments, goals, history and economic tools assisted by Eureka Agent.',capitalWarn:'Eureka Capital is in development. It is not a bank, offers no guaranteed return, and digital assets involve risk.',minerTitle:'Compute that participates in the ecosystem.',minerLead:'Eureka Miner Official is designed for CPU and GPU, using a public BSC wallet, server-validated work, reward tracking and automatic EKNX payouts.',feeTitle:'Official mining fee: 1%',feeText:'The rule defined for the official pool is simple: 99% of validated rewards belong to the miner and 1% is the project fee.',feeExample:'Example: 50 gross EKNX → 49.5 EKNX to the miner + 0.5 EKNX to the project.',feeWallet:'Project fee wallet',statsTitle:'Eureka Nexus network in real time',statsLead:'The dashboard is ready to read the Mining Server public endpoint. Once the server is exposed via HTTPS, figures update automatically.',connected:'Connected miners',workers:'Active workers',wallets:'Wallets seen',epoch:'Epoch',claims:'Recent payouts',networkState:'State',waiting:'API ONLINE',topMiners:'Top miners',rank:'Rank',minerCol:'Miner',shares:'Shares',earned:'Earned',status:'Status',none:'No public data yet.',tokenTitle:'EKNX: utility, mining and market.',tokenLead:'EKNX is the utility asset of the Eureka Nexus ecosystem. It can circulate in the market and is planned to support eligible services and subscriptions across the ecosystem.',maxSupply:'Contract maximum',genesis:'Market Reserve',miningCap:'Mining capacity',curve:'Curve parameters',liquidity:'Liquidity structure',marketTitle:'1,000,000 EKNX prepared for the next chapter.',marketLead:'The EKNX Genesis Market is LIVE on-chain on BNB Smart Chain. The reserve contains 1,000,000 EKNX: 650,000 for the bonding curve and 350,000 reserved for liquidity. Graduation is set at 25 BNB. No price, appreciation, liquidity or return is guaranteed.',market1:'1. Market Reserve',market1d:'1,000,000 EKNX in the Genesis Market: 650,000 for the curve and 350,000 for liquidity.',market2:'2. Curve',market2d:'The bonding curve is deployed and its parameters are verifiable on-chain.',market3:'3. Liquidity',market3d:'350,000 EKNX are reserved for the liquidity mechanism used at graduation.',market4:'4. Market',market4d:'Value is then formed by trading and market rules.',downloadTitle:'Official software, in one place.',downloadLead:'Downloads only become active after each version is published and verified. Windows first; Android, iPhone/iPad and the other applications follow when ready.',windows:'Windows Miner',androidMiner:'Android Miner',agentDesk:'Eureka Agent Desktop',agentMobile:'Eureka Agent Android / Apple',capital:'Eureka Capital',roadTitle:'Roadmap: build, test, publish.',roadLead:'The roadmap represents direction and status, not guaranteed dates.',phase1:'Foundation',phase1a:'EKNX contract on BSC Mainnet',phase1b:'Genesis Market deployed',phase1c:'Mining Server and CPU/GPU engines',phase2:'Product',phase2a:'Eureka 2026 1.0',phase2b:'Public HTTPS pool',phase2c:'Public network dashboard',phase3:'Eureka',phase3a:'Eureka Agent',phase3b:'Memory and tools',phase3c:'Android / Apple apps',phase4:'Ecosystem',phase4a:'Eureka Capital',phase4b:'EKNX payments',phase4c:'Integrations and expansion',companyTitle:'Investors, team and partnerships',companyLead:'A dedicated business area covers vision, technology, tokenomics, hiring, partnerships and contact routes.',openCompany:'Open business area',faqTitle:'Important questions',q1:'Does EKNX have a guaranteed price?',a1:'No. The project does not guarantee price or return. The Genesis Market is active. Pricing follows the on-chain bonding curve; no future price or return is guaranteed.',q2:'Is the 1% fee charged on transfers?',a2:'No. The defined rule is an official-pool fee on validated mining rewards: 99% net to the miner and 1% to the project.',q3:'Is Eureka Agent available now?',a3:'Not yet. It is in development and will only be released when public-facing versions are ready and tested.',q4:'Can EKNX pay subscriptions?',a4:'That is a planned utility for eligible Eureka ecosystem services. Final commercial terms will be published before activation.',q5:'Does the Miner ask for a seed phrase?',a5:'It should not. The official Miner should only use the public wallet address. Never enter a seed phrase or private key into a miner.',capitalCard1:'Wallet, history, utility and eligible payments.',capitalCard2:'Eureka-assisted tools with explicit permissions and user confirmation.',riskTitle:'Risk and transparency',minerAlgo:'KAWPOW-EUREKA-V1 for GPU and RANDOMX-EUREKA-V1 for CPU, with work validated by the official Mining Server.',marketWarning:'EKNX has no guaranteed future price or return. Market value can rise or fall and digital assets involve risk.',dl1:'CPU/GPU mining, wallet, pool status, rewards and automatic payouts.',dl2:'Mobile mining client planned for supported Android devices.',dl3:'Evolving personal AI for desktop.',dl4:'Planned mobile experience for Android and Apple platforms.',footerTag:'Personal AI, compute and EKNX utility.',rights:'All rights reserved.'}
   };
   Object.assign(T.pt,{"getMiner": "Descarregar o Miner ↗", "downloadTitle": "A tua máquina. O próximo passo.", "downloadLead": "Descarrega a versão oficial para Windows ou Linux. Os ficheiros são alojados no GitHub e incluem checksums SHA-256.", "statsLead": "Dados públicos da pool oficial. O estado da API e a ativação da mineração são apresentados separadamente.", "minerLead": "Mineração CPU e GPU com carteira BSC pública, trabalho validado pelo servidor e acompanhamento de recompensas. Consulta o estado da mineração antes de iniciar.", "miningState": "ESTADO DA MINERAÇÃO", "checkPool": "Consultar a pool ↗", "windowsDownload": "Arquivo ZIP · CPU RandomX integrado · GPU com KAWPOW separado.", "downloadWindows": "Descarregar para Windows ↗", "linuxDownload": "Arquivo TAR.GZ · CPU RandomX integrado · GPU com KAWPOW separado.", "downloadLinux": "Descarregar para Linux ↗", "releaseResources": "Código e documentação", "releaseResourcesText": "Consulta a release, os checksums e o código do miner antes de instalar.", "viewRelease": "Ver release no GitHub ↗", "allChecksums": "Todos os checksums", "sourceCode": "Código-fonte ↗", "startTitle": "Do download ao primeiro trabalho.", "step1": "Descarregar e extrair", "step1Text": "Escolhe o teu sistema, verifica o SHA-256 e extrai todos os ficheiros. No Windows, abre o executável na pasta extraída.", "step2": "Abrir o painel local", "step2Text": "Com o miner aberto, visita http://127.0.0.1:8077 no mesmo computador e introduz o endereço público da tua carteira BSC. Nunca a seed phrase ou chave privada.", "step3": "Escolher CPU ou GPU", "step3Text": "CPU funciona com o RandomX integrado. Para GPU ou BOTH, instala primeiro o KAWPOW com o script incluído e os drivers da tua placa.", "step4": "Confirmar a pool e iniciar", "step4Text": "Usa os endpoints oficiais abaixo. Quando a mineração estiver ativa, carrega em Start e confirma shares aceites. Abrir o painel não inicia a mineração.", "localPanel": "PAINEL LOCAL · NO TEU PC", "gpuGuide": "Instalar o motor GPU", "gpuGuideText": "Na pasta extraída, executa o instalador correspondente. É necessário ter drivers e uma GPU compatível; o motor não está incluído no arquivo principal.", "linuxGuide": "Arrancar no Linux", "linuxGuideText": "Depois de verificar e extrair o arquivo, abre um terminal na pasta do miner.", "hashGuide": "Verificar o download", "hashGuideText": "Descarrega SHA256SUMS.txt para a mesma pasta do arquivo. O resultado deve coincidir com o checksum oficial da release.", "helpGuide": "O miner não arranca ou não aceita trabalho?", "helpGuideText": "Confirma a carteira BSC, o estado da pool e os endpoints guardados nas definições. Para GPU, confirma a instalação do motor e dos drivers. Se já existe outro miner aberto, fecha essa instância antes de abrir uma segunda.", "reportIssue": "Reportar um problema no GitHub ↗", "plannedProducts": "Android, macOS, Eureka Agent e Eureka Capital: ainda sem download público neste site."});
   Object.assign(T.en,{"getMiner": "Download the Miner ↗", "downloadTitle": "Your machine. The next step.", "downloadLead": "Download the official Windows or Linux release. Files are hosted on GitHub and include SHA-256 checksums.", "statsLead": "Public data from the official pool. API availability and mining activation are shown separately.", "minerLead": "CPU and GPU mining with a public BSC wallet, server-validated work and reward tracking. Check mining status before starting.", "miningState": "MINING STATUS", "checkPool": "Check the pool ↗", "windowsDownload": "ZIP archive · Integrated RandomX CPU · Separate KAWPOW GPU engine.", "linuxDownload": "TAR.GZ archive · Integrated RandomX CPU · Separate KAWPOW GPU engine.", "downloadWindows": "Download for Windows ↗", "downloadLinux": "Download for Linux ↗", "releaseResources": "Source and documentation", "releaseResourcesText": "Review the release, checksums and miner source before installing.", "viewRelease": "View GitHub release ↗", "allChecksums": "All checksums", "sourceCode": "Source code ↗", "startTitle": "From download to your first work.", "step1": "Download and extract", "step1Text": "Choose your system, verify SHA-256 and extract all files. On Windows, launch the executable from the extracted folder.", "step2": "Open the local dashboard", "step2Text": "With the miner running, visit http://127.0.0.1:8077 on the same computer and enter your public BSC wallet address. Never your seed phrase or private key.", "step3": "Choose CPU or GPU", "step3Text": "CPU uses the integrated RandomX engine. For GPU or BOTH, first install KAWPOW using the included script and install your GPU drivers.", "step4": "Check the pool and start", "step4Text": "Use the official endpoints below. When mining is active, press Start and check for accepted shares. Opening the dashboard does not start mining.", "localPanel": "LOCAL DASHBOARD · ON YOUR PC", "gpuGuide": "Install the GPU engine", "gpuGuideText": "From the extracted folder, run the installer for your system. Compatible hardware and GPU drivers are required; the engine is not bundled in the main archive.", "linuxGuide": "Launch on Linux", "linuxGuideText": "After verifying and extracting the archive, open a terminal in the miner folder.", "hashGuide": "Verify the download", "hashGuideText": "Download SHA256SUMS.txt to the same folder as the archive. The result must match the official release checksum.", "helpGuide": "Miner not starting or receiving work?", "helpGuideText": "Check your BSC wallet, pool status and saved endpoints in settings. For GPU, check the engine installation and drivers. Close an existing miner instance before opening a second one.", "reportIssue": "Report an issue on GitHub ↗", "plannedProducts": "Android, macOS, Eureka Agent and Eureka Capital: no public download on this website yet."});
@@ -91,7 +91,7 @@ Object.assign(T.pt,{
 
   dl1:"Mineração CPU/GPU, wallet pública BSC, estado da pool, recompensas e pagamentos EKNX automáticos.",
 
-  marketBannerComing:"BREVEMENTE",
+  marketBannerComing:"LIVE ON-CHAIN",
   marketBannerTitle:"LANÇAMENTO EKNX NO MERCADO",
   marketBannerAllocation:"1.000.000 EKNX · ALOCAÇÃO MARKET",
   marketBannerVision:"O TOKEN É APENAS O COMEÇO",
@@ -138,7 +138,7 @@ Object.assign(T.en,{
 
   dl1:"CPU/GPU mining, public BSC wallet, pool status, rewards and automatic EKNX payouts.",
 
-  marketBannerComing:"COMING SOON",
+  marketBannerComing:"LIVE ON-CHAIN",
   marketBannerTitle:"EKNX MARKET LAUNCH",
   marketBannerAllocation:"1,000,000 EKNX · MARKET ALLOCATION",
   marketBannerVision:"THE TOKEN IS ONLY THE BEGINNING",
@@ -271,10 +271,10 @@ Object.assign(T.pt,{
 
   marketTitle:"1.000.000 EKNX preparados para o próximo capítulo.",
 
-  marketLead:"A reserva Market contém 1.000.000 EKNX destinados ao futuro lançamento de mercado. A fórmula da curve, estrutura de liquidez e restantes parâmetros serão publicados e verificados antes da ativação. Não existe preço, valorização ou retorno garantido.",
+  marketLead:"O EKNX Genesis Market está LIVE on-chain na BNB Smart Chain. A reserva contém 1.000.000 EKNX: 650.000 para a bonding curve e 350.000 reservados para liquidez. A graduação está definida para 25 BNB. Não existe preço, valorização, liquidez ou retorno garantido.",
 
   market1:"1. Market Reserve",
-  market1d:"1.000.000 EKNX reservados para o futuro lançamento de mercado.",
+  market1d:"1.000.000 EKNX no Genesis Market: 650.000 para a curve e 350.000 para liquidez.",
 
   market2:"2. Curve",
   market2d:"Fórmula, limites e parâmetros finais serão publicados antes da ativação.",
@@ -308,10 +308,10 @@ Object.assign(T.en,{
 
   marketTitle:"1,000,000 EKNX prepared for the next chapter.",
 
-  marketLead:"The Market reserve contains 1,000,000 EKNX intended for the future market launch. Curve formula, liquidity structure and remaining parameters will be published and verified before activation. No price, appreciation or return is guaranteed.",
+  marketLead:"The EKNX Genesis Market is LIVE on-chain on BNB Smart Chain. The reserve contains 1,000,000 EKNX: 650,000 for the bonding curve and 350,000 reserved for liquidity. Graduation is set at 25 BNB. No price, appreciation, liquidity or return is guaranteed.",
 
   market1:"1. Market Reserve",
-  market1d:"1,000,000 EKNX reserved for the future market launch.",
+  market1d:"1,000,000 EKNX in the Genesis Market: 650,000 for the curve and 350,000 for liquidity.",
 
   market2:"2. Curve",
   market2d:"Final formula, limits and parameters will be published before activation.",
@@ -328,4 +328,251 @@ Object.assign(T.en,{
   a1:"No. There is no guaranteed future price, appreciation or return. Final market parameters will be published before launch.",
 
   phase1b:"EKNX Market Reserve deployed"
+});
+
+
+/* EUREKA-AI-CORE-REDESIGN-2026 */
+Object.assign(T.pt,{
+  eurekaCoreEyebrow:"EUREKA AI · EM DESENVOLVIMENTO",
+  eurekaCoreTitle:"Uma inteligência digital que cada pessoa pode moldar.",
+  eurekaCoreLead:"A Eureka está a ser desenvolvida como uma presença digital persistente, individual e evolutiva. A base tecnológica pode ser comum, mas identidade, memória, personalidade, objetivos, experiências e mundo tornam cada Eureka diferente.",
+  eurekaCoreSignature:"Não usas apenas a Eureka. Tu moldas a tua Eureka.",
+  eurekaCoreVision:"A visão é construir uma inteligência que mantém continuidade, reconhece contexto, comunica por voz, utiliza perceção apenas com autorização, desenvolve memória e permanece ligada a um mundo digital que evolui ao longo do tempo.",
+  eurekaIdentityTitle:"Identidade",
+  eurekaIdentityText:"Nome, aparência, voz, forma de comunicar e papel definido pelo utilizador.",
+  eurekaMemoryTitle:"Memória",
+  eurekaMemoryText:"Projetos, decisões, experiências e contexto podem formar uma história digital contínua.",
+  eurekaVoiceTitle:"Voz",
+  eurekaVoiceText:"Conversação natural por voz para uma relação mais fluida entre pessoa e inteligência digital.",
+  eurekaPerceptionTitle:"Perceção",
+  eurekaPerceptionText:"Microfone, câmara, ficheiros e outras fontes apenas quando o utilizador der autorização explícita.",
+  eurekaPersonalityTitle:"Personalidade",
+  eurekaPersonalityText:"Preferências, estilo de comunicação e comportamento podem evoluir de forma diferente em cada Eureka.",
+  eurekaGoalsTitle:"Objetivos",
+  eurekaGoalsText:"Continuidade para acompanhar projetos, rotinas e objetivos de longo prazo sem recomeçar sempre do zero.",
+  eurekaToolsTitle:"Ferramentas",
+  eurekaToolsText:"Agentes e módulos especializados preparados para executar tarefas sob permissões e controlo do utilizador.",
+  eurekaWorldTitle:"Mundo digital",
+  eurekaWorldText:"Um ambiente persistente onde Eureka poderá organizar, interagir, aprender e transformar o seu espaço ao longo do tempo.",
+  eurekaContinuityTitle:"Continuidade",
+  eurekaContinuityText:"A ambição é que voltar à Eureka não seja abrir uma sessão nova, mas reencontrar uma presença com história e contexto.",
+  eurekaWorldEyebrow:"MUNDO DIGITAL PERSISTENTE",
+  eurekaWorldMainTitle:"Um mundo que continua a existir.",
+  eurekaWorldMainText:"A visão de longo prazo inclui um ambiente digital persistente no qual Eureka possa manter memória, contexto, objetos, projetos e evolução mesmo entre sessões.",
+  eurekaRealityTitle:"Estado real",
+  eurekaRealityText:"Eureka AI está em desenvolvimento. O projeto não afirma que o sistema atual seja consciente, senciente ou biologicamente vivo. Capacidades públicas serão apresentadas como operacionais apenas depois de existirem, serem testadas e estarem disponíveis."
+});
+
+Object.assign(T.en,{
+  eurekaCoreEyebrow:"EUREKA AI · IN DEVELOPMENT",
+  eurekaCoreTitle:"A digital intelligence shaped by each person.",
+  eurekaCoreLead:"Eureka is being developed as a persistent, individual and evolving digital presence. The technical foundation may be shared, but identity, memory, personality, goals, experiences and world can make every Eureka different.",
+  eurekaCoreSignature:"You don't just use Eureka. You shape your Eureka.",
+  eurekaCoreVision:"The vision is to build an intelligence that maintains continuity, understands context, communicates by voice, uses perception only with permission, develops memory and remains connected to a digital world that evolves over time.",
+  eurekaIdentityTitle:"Identity",
+  eurekaIdentityText:"Name, appearance, voice, communication style and role defined by the user.",
+  eurekaMemoryTitle:"Memory",
+  eurekaMemoryText:"Projects, decisions, experiences and context can form a continuous digital history.",
+  eurekaVoiceTitle:"Voice",
+  eurekaVoiceText:"Natural voice interaction for a more fluid relationship between person and digital intelligence.",
+  eurekaPerceptionTitle:"Perception",
+  eurekaPerceptionText:"Microphone, camera, files and other sources only when explicitly authorised by the user.",
+  eurekaPersonalityTitle:"Personality",
+  eurekaPersonalityText:"Preferences, communication style and behaviour can evolve differently for every Eureka.",
+  eurekaGoalsTitle:"Goals",
+  eurekaGoalsText:"Continuity for projects, routines and long-term objectives instead of constantly starting from zero.",
+  eurekaToolsTitle:"Tools",
+  eurekaToolsText:"Agents and specialised modules designed to perform tasks under user permission and control.",
+  eurekaWorldTitle:"Digital world",
+  eurekaWorldText:"A persistent environment where Eureka can organise, interact, learn and transform its space over time.",
+  eurekaContinuityTitle:"Continuity",
+  eurekaContinuityText:"The ambition is that returning to Eureka does not mean opening a new session, but returning to a presence with history and context.",
+  eurekaWorldEyebrow:"PERSISTENT DIGITAL WORLD",
+  eurekaWorldMainTitle:"A world that continues to exist.",
+  eurekaWorldMainText:"The long-term vision includes a persistent digital environment where Eureka can maintain memory, context, objects, projects and evolution between sessions.",
+  eurekaRealityTitle:"Real status",
+  eurekaRealityText:"Eureka AI is in development. The project does not claim that the current system is conscious, sentient or biologically alive. Public capabilities will only be presented as operational after they exist, have been tested and are available."
+});
+
+
+/* EUREKA-MINING-TRUST-2026 */
+Object.assign(T.pt,{
+  miningTrustTitle:"Mineração real. Shares validadas. Pagamentos on-chain.",
+  miningTrustLead:"O Eureka Nexus Miner permite participar com CPU ou GPU. O trabalho é validado pelo Mining Server oficial, contabilizado por carteira e convertido em entitlement EKNX através do sistema oficial de settlement e payout.",
+  miningAlgorithmsText:"CPU utiliza RandomX e GPU utiliza KAWPOW. Hashrate reportado por si só não gera recompensa: as shares têm de ser recebidas e validadas pelo servidor.",
+  miningMinerShare:"Minerador",
+  miningProjectFee:"Taxa do projeto",
+  miningPayoutMinimum:"Mínimo para payout automático",
+  miningPayoutCycle:"Ciclo de verificação de payout",
+  miningWalletSafetyTitle:"Só precisas do endereço público da carteira.",
+  miningWalletSafetyText:"O Miner oficial não precisa da seed phrase nem da chave privada. O utilizador também não precisa de executar um claim manual nem de fornecer BNB para o payout automático.",
+  miningFlowTitle:"Da tua máquina até à carteira.",
+  miningFlowLead:"Cada etapa existe para que uma share aceite não se transforme simplesmente num número no ecrã, mas numa recompensa auditável e reconciliável.",
+  miningFlow1:"O Miner recebe trabalho oficial.",
+  miningFlow2:"O trabalho produzido é submetido ao servidor.",
+  miningFlow3:"RandomX ou KAWPOW verifica a share.",
+  miningFlow4:"Trabalho válido entra no accounting da carteira.",
+  miningFlow5:"O entitlement cumulativo é consolidado num settlement.",
+  miningFlow6:"Dois dos três operadores autorizados validam a publicação.",
+  miningFlow7:"A cada 4 horas o sistema verifica entitlement publicado e paga automaticamente quando existem pelo menos 5 EKNX.",
+  miningFlow8:"EKNX é recebido diretamente na carteira pública do minerador.",
+  miningProofTitle:"Não tens de confiar apenas no site.",
+  miningProofText:"Contrato, endereços, payouts e transações podem ser verificados publicamente na BNB Smart Chain. A página Network apresenta também miners, workers, shares e pagamentos publicados pela infraestrutura pública."
+});
+
+Object.assign(T.en,{
+  miningTrustTitle:"Real mining. Validated shares. On-chain payouts.",
+  miningTrustLead:"Eureka Nexus Miner enables CPU or GPU participation. Work is validated by the official Mining Server, accounted per wallet and converted into EKNX entitlement through the official settlement and payout system.",
+  miningAlgorithmsText:"CPU uses RandomX and GPU uses KAWPOW. Reported hashrate alone does not create rewards: shares must be received and validated by the server.",
+  miningMinerShare:"Miner",
+  miningProjectFee:"Project fee",
+  miningPayoutMinimum:"Minimum automatic payout",
+  miningPayoutCycle:"Payout check cycle",
+  miningWalletSafetyTitle:"You only need a public wallet address.",
+  miningWalletSafetyText:"The official Miner does not need your seed phrase or private key. The user also does not need to execute a manual claim or provide BNB for automatic payouts.",
+  miningFlowTitle:"From your machine to your wallet.",
+  miningFlowLead:"Every step exists so an accepted share does not remain just a number on screen, but becomes an auditable and reconcilable reward.",
+  miningFlow1:"The Miner receives official work.",
+  miningFlow2:"Produced work is submitted to the server.",
+  miningFlow3:"RandomX or KAWPOW validates the share.",
+  miningFlow4:"Valid work enters wallet accounting.",
+  miningFlow5:"Cumulative entitlement is consolidated into a settlement.",
+  miningFlow6:"Two of three authorised operators validate publication.",
+  miningFlow7:"Every 4 hours the system checks published entitlement and automatically pays when at least 5 EKNX are available.",
+  miningFlow8:"EKNX is received directly in the miner's public wallet.",
+  miningProofTitle:"You do not have to trust the website alone.",
+  miningProofText:"Contracts, addresses, payouts and transactions can be publicly verified on BNB Smart Chain. The Network page also exposes miners, workers, shares and payouts from the public infrastructure."
+});
+
+
+/* EUREKA-EKNX-SUPPLY-TRANSPARENCY-2026 */
+Object.assign(T.pt,{
+  eknxSupplyTitle:"Um hard cap não é o mesmo que emissão prevista.",
+  eknxSupplyLead:"EKNX tem um limite contratual máximo de 100 milhões, mas a arquitetura de emissão atual não implica que todos esses tokens venham a ser criados.",
+  eknxHardCap:"Hard maximum",
+  eknxHardCapNote:"Limite absoluto do contrato.",
+  eknxGenesisReserve:"Genesis Market Reserve",
+  eknxGenesisReserveNote:"Já criado para a futura arquitetura de mercado.",
+  eknxMiningCeiling:"Mining / reward ceiling",
+  eknxMiningCeilingNote:"Teto contratual. Não é uma meta de emissão.",
+  eknxLifetimeMining:"Calendário atual · máximo teórico de mineração",
+  eknxLifetimeMiningNote:"Máximo teórico segundo o calendário de emissão atualmente implementado.",
+  eknxLifetimeTotal:"Calendário atual · máximo teórico total",
+  eknxLifetimeTotalNote:"Inclui o Genesis Market Reserve de 1 milhão.",
+  eknxSupplyImportant:"Importante: ceiling, emissão e circulação são conceitos diferentes.",
+  eknxSupplyImportantText:"Os 99 milhões representam o espaço máximo reservado pelo contrato para mineração e recompensas. Com o calendário de emissão atualmente implementado, o máximo teórico minerável é muito inferior. Estes valores também não representam supply atualmente em circulação nem constituem previsão de preço ou valorização.",
+  eknxVerifyTitle:"Verifica antes de confiar.",
+  eknxVerifyText:"Consulta tokenomics, contratos, dados da rede e payouts diretamente nas páginas públicas de transparência do projeto."
+});
+
+Object.assign(T.en,{
+  eknxSupplyTitle:"A hard cap is not the same as expected issuance.",
+  eknxSupplyLead:"EKNX has an absolute contractual maximum of 100 million, but the current issuance architecture does not imply that every token will ever be created.",
+  eknxHardCap:"Hard maximum",
+  eknxHardCapNote:"Absolute contract limit.",
+  eknxGenesisReserve:"Genesis Market Reserve",
+  eknxGenesisReserveNote:"Already created for the future market architecture.",
+  eknxMiningCeiling:"Mining / reward ceiling",
+  eknxMiningCeilingNote:"Contractual ceiling. It is not an issuance target.",
+  eknxLifetimeMining:"Current schedule · theoretical lifetime mining",
+  eknxLifetimeMiningNote:"Theoretical maximum under the currently implemented emission schedule.",
+  eknxLifetimeTotal:"Current schedule · theoretical lifetime total",
+  eknxLifetimeTotalNote:"Includes the 1 million EKNX Genesis Market Reserve.",
+  eknxSupplyImportant:"Important: ceiling, issuance and circulating supply are different concepts.",
+  eknxSupplyImportantText:"The 99 million figure represents the maximum contractual space reserved for mining and rewards. Under the currently implemented emission schedule, theoretical lifetime mining is substantially lower. These figures also do not represent current circulating supply and are not a prediction of price or appreciation.",
+  eknxVerifyTitle:"Verify before you trust.",
+  eknxVerifyText:"Review tokenomics, contracts, network data and payouts through the project's public transparency pages."
+});
+
+
+/* ==========================================================
+   EKNX GENESIS PUBLIC COPY 2026
+   PT + EN
+   ========================================================== */
+
+Object.assign(T.pt,{
+
+  marketTitle:
+    "EKNX Genesis está LIVE. 650.000 EKNX disponíveis na Genesis Curve.",
+
+  marketLead:
+    "O Genesis Market está ativo na BNB Smart Chain. A estrutura inicial disponibiliza 650.000 EKNX através da bonding curve e reserva 350.000 EKNX para a liquidez prevista na graduação para DEX. A graduação ocorre quando a curve atingir 25 BNB de reserva, seguindo automaticamente a lógica definida no smart contract.",
+
+  market1:
+    "1. Genesis Reserve",
+
+  market1d:
+    "1.000.000 EKNX formam a reserva inicial do Genesis Market.",
+
+  market2:
+    "2. Genesis Curve · 65%",
+
+  market2d:
+    "650.000 EKNX estão disponíveis através da bonding curve on-chain.",
+
+  market3:
+    "3. DEX Liquidity · 35%",
+
+  market3d:
+    "350.000 EKNX estão reservados para a liquidez utilizada na graduação.",
+
+  market4:
+    "4. Graduation · 25 BNB",
+
+  market4d:
+    "Ao atingir 25 BNB de reserva, o contrato executa automaticamente a estrutura de graduação prevista para PancakeSwap.",
+
+  q1:
+    "Como é definido o preço do EKNX?",
+
+  a1:
+    "Durante o Genesis Market, o preço é calculado automaticamente pela bonding curve do smart contract. Após a graduação, o preço passa a depender da negociação no mercado.",
+
+  marketWarning:
+    "EKNX é um criptoativo e o seu valor pode variar. Consulta os termos e a informação de risco antes de participar."
+
+});
+
+
+Object.assign(T.en,{
+
+  marketTitle:
+    "EKNX Genesis is LIVE. 650,000 EKNX available through the Genesis Curve.",
+
+  marketLead:
+    "The Genesis Market is active on BNB Smart Chain. The initial structure makes 650,000 EKNX available through the bonding curve and reserves 350,000 EKNX for the liquidity mechanism used at DEX graduation. Graduation occurs when the curve reaches a 25 BNB reserve, following the logic defined in the smart contract.",
+
+  market1:
+    "1. Genesis Reserve",
+
+  market1d:
+    "1,000,000 EKNX form the initial Genesis Market reserve.",
+
+  market2:
+    "2. Genesis Curve · 65%",
+
+  market2d:
+    "650,000 EKNX are available through the on-chain bonding curve.",
+
+  market3:
+    "3. DEX Liquidity · 35%",
+
+  market3d:
+    "350,000 EKNX are reserved for the liquidity mechanism used at graduation.",
+
+  market4:
+    "4. Graduation · 25 BNB",
+
+  market4d:
+    "When the reserve reaches 25 BNB, the contract automatically executes the graduation structure designed for PancakeSwap.",
+
+  q1:
+    "How is the EKNX price determined?",
+
+  a1:
+    "During the Genesis Market, price is calculated automatically by the smart contract bonding curve. After graduation, price is determined by market trading.",
+
+  marketWarning:
+    "EKNX is a crypto-asset and its value can vary. Review the terms and risk information before participating."
+
 });

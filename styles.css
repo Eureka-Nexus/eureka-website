@@ -1579,29 +1579,7 @@ body{background:#070b10;color:var(--text)}
    Existing black / cyan / gold identity preserved.
    ========================================================== */
 
-.live-ai-nav{
-  position:relative;
-  color:var(--cyan,#65dfff) !important;
-  font-weight:800;
-  text-shadow:
-    0 0 16px rgba(101,223,255,.2);
-}
 
-.live-ai-nav::before{
-  content:"";
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  left:4px;
-  top:50%;
-  transform:translateY(-50%);
-  background:var(--cyan,#65dfff);
-  box-shadow:
-    0 0 8px rgba(101,223,255,.9),
-    0 0 18px rgba(101,223,255,.35);
-  animation:liveAiPulse 1.8s ease-in-out infinite;
-}
 
 #ai-experience{
   scroll-margin-top:90px;
@@ -1746,16 +1724,10 @@ body{background:#070b10;color:var(--text)}
     grid-column:1;
   }
 
-  .live-ai-nav{
-    padding-left:17px !important;
-  }
 }
 
 @media(prefers-reduced-motion:reduce){
 
-  .live-ai-nav::before{
-    animation:none;
-  }
 }
 
 

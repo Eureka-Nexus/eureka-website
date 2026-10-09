@@ -1,8 +1,884 @@
-<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#04050a"><meta name="description" content="Eureka Nexus public mining network dashboard."><link rel="canonical" href="https://eurekanexus.pt/network.html"><link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="styles.css"><title>Eureka Nexus · Network</title></head><body data-page="network"><canvas id="space"></canvas><div class="aurora"></div>
-<header class="topbar"><div class="shell nav-wrap"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Eureka Nexus"><span><b>EUREKA NEXUS</b><small>PUBLIC MINING NETWORK</small></span></a><button id="menuBtn" class="menu-btn">☰</button><nav id="nav" class="navlinks"><a class="live-ai-nav" href="index.html#ai-experience" data-common="liveAi">● LIVE AI</a><a href="index.html" data-common="home">Início</a><a href="index.html#miner" data-common="miner">Miner</a><a class="active" href="network.html" data-common="network">Rede</a><a href="contracts.html" data-common="contracts">Contratos</a><a href="company.html" data-common="company">Investidores & Equipa</a></nav><div class="nav-actions"><select id="langSelect" class="lang"><option value="pt">PT 🇵🇹</option><option value="en">EN 🇬🇧</option></select></div></div></header>
-<main><section class="page-hero"><div class="shell reveal"><span class="eyebrow">EUREKA MINING NETWORK</span><h1>Transparent <span class="gradient">network data.</span></h1><p>Public mining statistics are designed to come directly from Eureka Nexus Mining Server Official through a read-only HTTPS endpoint.</p></div></section>
-<section class="section compact section-dark"><div class="shell"><div class="stats-shell reveal"><div class="stats-top"><div><b>PUBLIC POOL</b><div style="color:var(--muted);font-size:.82rem">/v1/public/stats</div></div><span id="networkDot" class="live-dot"><i></i><strong id="networkState">API ONLINE</strong></span></div><div class="stat-grid"><div class="stat"><span>Connected miners</span><b id="sConnected">0</b></div><div class="stat"><span>Active workers</span><b id="sWorkers">0</b></div><div class="stat"><span>Wallets seen</span><b id="sWallets">0</b></div><div class="stat"><span>Epoch</span><b id="sEpoch">—</b></div><div class="stat"><span>Official pool fee</span><b>1%</b></div></div><div class="table-wrap"><table class="table"><thead><tr><th>Rank</th><th>Miner</th><th>Accepted shares</th><th>Earned</th><th>Status</th></tr></thead><tbody id="topMinersBody"><tr><td colspan="5" class="empty">No public data yet.</td></tr></tbody></table></div><div class="table-wrap"><table class="table"><thead><tr><th>Time</th><th>Miner</th><th>Amount</th><th>Day</th><th>Transaction</th></tr></thead><tbody id="payoutsBody"><tr><td colspan="5" class="empty">No automatic payouts yet.</td></tr></tbody></table></div></div></div></section>
-<section class="section"><div class="shell split"><div class="copy reveal"><span class="eyebrow">HOW IT WORKS</span><h2>From validated work to automatic EKNX payout.</h2><div class="points"><div class="point"><i>1</i><div><b>Challenge</b><span>The official server issues time-bounded CPU or GPU mining work.</span></div></div><div class="point"><i>2</i><div><b>Verification</b><span>Submitted shares are checked by the Eureka PoW verifiers. Reported hashrate alone does not create rewards.</span></div></div><div class="point"><i>3</i><div><b>Accounting</b><span>Valid work contributes to the miner's reward allocation. The official pool fee is fixed at 1% and the miner net is 99%.</span></div></div><div class="point"><i>4</i><div><b>Settlement & automatic payout</b><span>Completed mining accounting is consolidated into cumulative settlements and automatic EKNX payouts are processed by the official infrastructure.</span></div></div></div></div><div class="media-card reveal"><img src="assets/miner.png" alt="Eureka Miner"></div></div></section>
-<section class="section section-dark"><div class="shell"><div class="section-head reveal"><div><span class="eyebrow">TRANSPARENCY</span><h2>Public information, private keys stay private.</h2></div><p>The website and public network endpoints should expose statistics and public addresses only. The Miner should never request or store a seed phrase or private key.</p></div><div class="company-grid"><div class="card reveal"><h3>Token contract</h3><div class="address" data-contract></div><div class="contract-actions"><button class="btn mini ghost" data-copy="tokenContract">Copy</button><a class="btn mini ghost" data-link="bscScanToken" target="_blank" rel="noopener">BscScan</a></div></div><div class="card reveal"><h3>Project mining fee wallet</h3><div class="address" data-fee-wallet></div><div class="contract-actions"><button class="btn mini ghost" data-copy="founderRevenueWallet">Copy</button><a class="btn mini ghost" data-link="bscScanFeeWallet" target="_blank" rel="noopener">BscScan</a></div></div><div class="card reveal"><h3>Genesis Market</h3><div class="address" data-genesis-market></div><div class="contract-actions"><button class="btn mini ghost" data-copy="genesisMarket">Copy</button><a class="btn mini ghost" data-link="bscScanMarket" target="_blank" rel="noopener">BscScan</a></div></div></div></div></section>
-</main><footer class="footer"><div class="shell footer-grid"><div><a class="brand" href="index.html"><img src="assets/logo.png" alt=""><span><b>EUREKA NEXUS</b><small>PUBLIC MINING NETWORK</small></span></a></div><div><h4>PROJECT</h4><a href="index.html" data-common="home">Início</a><a href="company.html" data-common="company">Investidores & Equipa</a></div><div><h4>TECH</h4><a href="contracts.html" data-common="contracts">Contratos</a><a data-link="github" target="_blank">GitHub</a></div><div><h4>LEGAL</h4><a href="legal.html">Legal</a> · <a href="privacy.html" data-common="privacy">Privacidade</a><a href="terms.html" data-common="terms">Termos</a></div></div><div class="shell footer-bottom"><span>© 2026 Hélder Costa · Eureka Nexus</span><span>BNB Smart Chain · EKNX</span></div></footer><script src="site-config.js"></script><script src="common.js"></script><script src="page-i18n.js"></script><script src="pool-status.js"></script><script src="network.js"></script>
-</body></html>
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1">
+
+  <meta name="theme-color"
+        content="#04050a">
+
+  <meta name="description"
+        content="Eureka Nexus Network & Proof Center — public mining statistics, EKNX contracts, automatic payouts and verifiable BNB Smart Chain data.">
+
+  <link rel="canonical"
+        href="https://eurekanexus.pt/network.html">
+
+  <link rel="icon"
+        href="assets/logo.png">
+
+  <link rel="stylesheet"
+        href="styles.css">
+
+  <title>
+    Eureka Nexus · Network & Proof
+  </title>
+</head>
+
+<body data-page="network">
+
+<canvas id="space"></canvas>
+<div class="aurora"></div>
+
+
+<header class="topbar">
+
+  <div class="shell nav-wrap">
+
+    <a class="brand"
+       href="index.html">
+
+      <img src="assets/logo.png"
+           alt="Eureka Nexus">
+
+      <span>
+        <b>EUREKA NEXUS</b>
+        <small>NETWORK · PROOF · TRANSPARENCY</small>
+      </span>
+
+    </a>
+
+    <button id="menuBtn"
+            class="menu-btn"
+            aria-label="Menu">
+      ☰
+    </button>
+
+    <nav id="nav"
+         class="navlinks">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#digital-being">
+        Eureka AI
+      </a>
+
+      <a href="index.html#miner">
+        Mining
+      </a>
+
+      <a class="active"
+         href="network.html">
+        Network & Proof
+      </a>
+
+      <a href="contracts.html">
+        Contracts
+      </a>
+
+      <a href="docs.html">
+        Docs
+      </a>
+
+      <a href="company.html">
+        Company
+      </a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+      <select id="langSelect"
+              class="lang"
+              aria-label="Language">
+
+        <option value="pt">
+          PT 🇵🇹
+        </option>
+
+        <option value="en">
+          EN 🇬🇧
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<section class="page-hero">
+
+  <div class="shell reveal">
+
+    <span class="eyebrow">
+      EUREKA NEXUS · NETWORK & PROOF CENTER
+    </span>
+
+    <h1>
+      Don't trust claims.
+      <span class="gradient">
+        Verify the network.
+      </span>
+    </h1>
+
+    <p>
+      Eureka Nexus exposes public mining statistics, contract addresses,
+      accepted work and automatic payout transactions so that core
+      network activity can be independently verified.
+    </p>
+
+    <div class="cta-row">
+
+      <a class="btn"
+         href="#network-data">
+        NETWORK DATA ↓
+      </a>
+
+      <a class="btn ghost"
+         href="#proof">
+        VERIFY PROOF ↓
+      </a>
+
+      <a class="btn ghost"
+         href="contracts.html">
+        CONTRACTS ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section compact section-dark"
+         id="network-data">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          OPERATIONAL MINING NETWORK
+        </span>
+
+        <h2>
+          Public data from the official infrastructure.
+        </h2>
+
+      </div>
+
+      <p>
+        The dashboard reads public HTTPS endpoints from the Eureka Nexus
+        Mining Server. API availability and mining activity are displayed
+        separately from future market status.
+      </p>
+
+    </div>
+
+
+    <div class="stats-shell reveal">
+
+      <div class="stats-top">
+
+        <div>
+          <b>EUREKA NEXUS MINING NETWORK</b>
+          <div style="color:var(--muted);font-size:.82rem">
+            pool.eurekanexus.pt
+          </div>
+        </div>
+
+        <span id="networkDot"
+              class="live-dot">
+
+          <i></i>
+
+          <strong id="networkState">
+            CHECKING API
+          </strong>
+
+        </span>
+
+      </div>
+
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <span>Connected miners</span>
+          <b id="sConnected">0</b>
+        </div>
+
+        <div class="stat">
+          <span>Active workers</span>
+          <b id="sWorkers">0</b>
+        </div>
+
+        <div class="stat">
+          <span>Wallets seen</span>
+          <b id="sWallets">0</b>
+        </div>
+
+        <div class="stat">
+          <span>Epoch</span>
+          <b id="sEpoch">—</b>
+        </div>
+
+        <div class="stat">
+          <span>Miner share</span>
+          <b>99%</b>
+        </div>
+
+        <div class="stat">
+          <span>Project fee</span>
+          <b>1%</b>
+        </div>
+
+        <div class="stat">
+          <span>Auto payout minimum</span>
+          <b>5 EKNX</b>
+        </div>
+
+        <div class="stat">
+          <span>Payout check cycle</span>
+          <b>4 HOURS</b>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          PUBLIC MINING ACTIVITY
+        </span>
+
+        <h2>
+          Accepted work.
+        </h2>
+
+      </div>
+
+      <p>
+        Reported hashrate alone does not create rewards.
+        Accepted shares are validated by the official infrastructure.
+      </p>
+
+    </div>
+
+
+    <div class="table-wrap reveal">
+
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Miner</th>
+            <th>Accepted shares</th>
+            <th>Earned</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="topMinersBody">
+
+          <tr>
+            <td colspan="5"
+                class="empty">
+              Loading public mining data…
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          ON-CHAIN PAYOUT PROOF
+        </span>
+
+        <h2>
+          Automatic EKNX payouts.
+        </h2>
+
+      </div>
+
+      <p>
+        When published entitlement reaches at least 5 EKNX,
+        the automatic payout system can process the payment during
+        its four-hour cycle. Published transactions can be verified
+        independently on BscScan.
+      </p>
+
+    </div>
+
+
+    <div class="table-wrap reveal">
+
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Miner</th>
+            <th>Amount</th>
+            <th>Settlement day</th>
+            <th>Transaction</th>
+          </tr>
+        </thead>
+
+        <tbody id="payoutsBody">
+
+          <tr>
+            <td colspan="5"
+                class="empty">
+              Loading payout history…
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section"
+         id="proof">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          PROOF LAYERS
+        </span>
+
+        <h2>
+          What can be verified.
+        </h2>
+
+      </div>
+
+      <p>
+        Eureka Nexus separates public verification from sensitive
+        infrastructure. Public addresses and network data are exposed;
+        private keys and operator secrets are not.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid"
+         style="grid-template-columns:repeat(2,minmax(0,1fr))">
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          01 · WORK
+        </span>
+
+        <h3>
+          Accepted shares
+        </h3>
+
+        <p>
+          CPU RandomX and GPU KAWPOW work is validated server-side.
+          Invalid or merely reported work does not automatically
+          generate entitlement.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          02 · ACCOUNTING
+        </span>
+
+        <h3>
+          Cumulative entitlement
+        </h3>
+
+        <p>
+          Valid mining work contributes to wallet accounting before
+          it becomes part of a published cumulative settlement.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          03 · SETTLEMENT
+        </span>
+
+        <h3>
+          2-of-3 operator signatures
+        </h3>
+
+        <p>
+          Mining settlement publication requires the contract's
+          operator threshold rather than a single arbitrary signer.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          04 · PAYOUT
+        </span>
+
+        <h3>
+          On-chain transaction
+        </h3>
+
+        <p>
+          Automatic payouts create public BNB Smart Chain transaction
+          evidence linked to the receiving miner wallet.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          05 · SOFTWARE
+        </span>
+
+        <h3>
+          Release verification
+        </h3>
+
+        <p>
+          Official Miner releases are distributed through GitHub with
+          SHA-256 checksums so downloaded files can be verified.
+        </p>
+
+        <a class="text-link"
+           href="index.html#downloads">
+          Official downloads ↗
+        </a>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          06 · SOURCE
+        </span>
+
+        <h3>
+          Public repositories
+        </h3>
+
+        <p>
+          Public code and technical documentation provide another
+          verification layer for the project architecture.
+        </p>
+
+        <a class="text-link"
+           href="https://github.com/Eureka-Nexus"
+           target="_blank"
+           rel="noopener">
+          GitHub ↗
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          OFFICIAL ON-CHAIN IDENTIFIERS
+        </span>
+
+        <h2>
+          Verify the addresses yourself.
+        </h2>
+
+      </div>
+
+      <p>
+        Always compare addresses with official Eureka Nexus sources
+        before interacting with a blockchain asset or service.
+      </p>
+
+    </div>
+
+
+    <div class="company-grid">
+
+      <div class="card reveal">
+
+        <h3>
+          EKNX Token Contract
+        </h3>
+
+        <div class="address"
+             data-contract>
+        </div>
+
+        <div class="contract-actions">
+
+          <button class="btn mini ghost"
+                  data-copy="tokenContract">
+            Copy
+          </button>
+
+          <a class="btn mini ghost"
+             data-link="bscScanToken"
+             target="_blank"
+             rel="noopener">
+            BscScan ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Genesis Market
+        </h3>
+
+        <div class="address"
+             data-genesis-market>
+        </div>
+
+        <div class="contract-actions">
+
+          <button class="btn mini ghost"
+                  data-copy="genesisMarket">
+            Copy
+          </button>
+
+          <a class="btn mini ghost"
+             data-link="bscScanMarket"
+             target="_blank"
+             rel="noopener">
+            BscScan ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Project mining fee wallet
+        </h3>
+
+        <div class="address"
+             data-fee-wallet>
+        </div>
+
+        <div class="contract-actions">
+
+          <button class="btn mini ghost"
+                  data-copy="founderRevenueWallet">
+            Copy
+          </button>
+
+          <a class="btn mini ghost"
+             data-link="bscScanFeeWallet"
+             target="_blank"
+             rel="noopener">
+            BscScan ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          SECURITY
+        </span>
+
+        <h2>
+          Public proof. Private secrets.
+        </h2>
+
+      </div>
+
+      <p>
+        Verification does not require exposing private infrastructure.
+        The official Miner should only require a public BSC wallet address.
+      </p>
+
+    </div>
+
+
+    <div class="note reveal">
+
+      <b>
+        Never provide your seed phrase or private key.
+      </b>
+
+      <span>
+        Eureka Nexus Miner, the website and public support channels
+        should never require a seed phrase, wallet private key or
+        operator signing secret.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <span class="eyebrow">
+          DOCUMENTATION
+        </span>
+
+        <h2>
+          Go deeper.
+        </h2>
+
+      </div>
+
+      <p>
+        Review contracts, technical documentation, tokenomics and the
+        current project roadmap before relying on project information.
+      </p>
+
+    </div>
+
+    <div class="cta-row">
+
+      <a class="btn"
+         href="whitepaper.html">
+        WHITEPAPER ↗
+      </a>
+
+      <a class="btn ghost"
+         href="contracts.html">
+        CONTRACTS ↗
+      </a>
+
+      <a class="btn ghost"
+         href="index.html#roadmap">
+        ROADMAP ↗
+      </a>
+
+      <a class="btn ghost"
+         href="index.html#downloads">
+        DOWNLOAD MINER ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="shell footer-grid">
+
+    <div>
+
+      <a class="brand"
+         href="index.html">
+
+        <img src="assets/logo.png"
+             alt="">
+
+        <span>
+          <b>EUREKA NEXUS</b>
+          <small>NETWORK · PROOF · TRANSPARENCY</small>
+        </span>
+
+      </a>
+
+      <p>
+        Portuguese technology project building persistent digital
+        intelligence, mining infrastructure and EKNX.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>PROJECT</h4>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#digital-being">
+        Eureka AI
+      </a>
+
+      <a href="index.html#miner">
+        Mining
+      </a>
+
+      <a href="network.html">
+        Network & Proof
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>VERIFY</h4>
+
+      <a href="contracts.html">
+        Contracts
+      </a>
+
+      <a href="docs.html">
+        Documentation
+      </a>
+
+      <a href="https://github.com/Eureka-Nexus"
+         target="_blank"
+         rel="noopener">
+        GitHub
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>LEGAL</h4>
+
+      <a href="legal.html">
+        Legal
+      </a>
+
+      <a href="privacy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="shell footer-bottom">
+
+    <span>
+      © 2026 Hélder Costa · Eureka Nexus
+    </span>
+
+    <span>
+      Built in Portugal 🇵🇹 · BNB Smart Chain · EKNX
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="site-config.js"></script>
+<script src="common.js"></script>
+<script src="network.js"></script>
+
+
+<script src="genesis-live.js?v=20261009-12"></script>
+</body>
+</html>

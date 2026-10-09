@@ -16,10 +16,10 @@ window.EUREKA_CONFIG = Object.freeze({
   marketReserveEknx: 1000000,
   miningCapacityEknx: 99000000,
 
-  // Market is not public yet.
-  marketLaunchStatus: "coming-soon",
-  curveParametersStatus: "to-be-announced",
-  liquidityStructureStatus: "to-be-announced",
+  // EKNX Genesis Market is LIVE on BNB Smart Chain.
+  marketLaunchStatus: "live",
+  curveParametersStatus: "live",
+  liquidityStructureStatus: "live",
 
   bscScanToken: "https://bscscan.com/token/0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9",
   bscScanContract: "https://bscscan.com/address/0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9",
@@ -58,6 +58,7 @@ window.EUREKA_CONFIG = Object.freeze({
   publicStatsUrl: "https://pool.eurekanexus.pt/v1/public/stats",
   networkUrl: "https://pool.eurekanexus.pt/v1/network",
   healthUrl: "https://pool.eurekanexus.pt/health",
+  genesisActivityUrl: "https://pool.eurekanexus.pt/v1/genesis/activity",
   statsRefreshMs: 15000,
   minerVersion: "2026.1.0",
   minerLinuxStatus: "live",

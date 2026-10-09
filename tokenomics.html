@@ -13,298 +13,849 @@
 
 <body data-page="tokenomics">
 
+
 <header class="topbar">
-<div class="shell nav-wrap">
+  <div class="shell nav-wrap">
 
-<a class="brand" href="index.html">
-<img src="assets/logo.png" alt="Eureka Nexus">
-<span>
-<b>EUREKA NEXUS</b>
-<small>EKNX · TOKENOMICS</small>
-</span>
-</a>
+    <a class="brand"
+       href="index.html">
 
-<nav id="nav" class="navlinks"><a class="live-ai-nav" href="index.html#ai-experience" data-common="liveAi">● LIVE AI</a>
-<a href="index.html">Home</a>
-<a href="contracts.html">Contracts</a>
-<a href="whitepaper.html">Litepaper</a>
-<a href="legal.html">Legal</a>
-</nav>
-<div class="nav-actions"><select id="langSelect" class="lang" aria-label="Language"><option value="pt">PT 🇵🇹</option><option value="en">EN 🇬🇧</option></select></div>
-</div>
+      <img src="assets/logo.png"
+           alt="Eureka Nexus">
+
+      <span>
+        <b>EUREKA NEXUS</b>
+        <small>EKNX · TOKENOMICS · TRANSPARENCY</small>
+      </span>
+
+    </a>
+
+    <button id="menuBtn"
+            class="menu-btn"
+            aria-label="Menu">
+      ☰
+    </button>
+
+    <nav id="nav"
+         class="navlinks">
+
+      <a href="index.html"
+         data-common="home">
+        Início
+      </a>
+
+      <a href="index.html#miner"
+         data-common="miner">
+        Miner
+      </a>
+
+      <a href="network.html">
+        Network & Proof
+      </a>
+
+      <a href="contracts.html"
+         data-common="contracts">
+        Contratos
+      </a>
+
+      <a href="docs.html">
+        Docs
+      </a>
+
+      <a href="company.html"
+         data-common="company">
+        Company
+      </a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+      <select id="langSelect"
+              class="lang"
+              aria-label="Language">
+
+        <option value="pt">PT 🇵🇹</option>
+        <option value="en">EN 🇬🇧</option>
+
+      </select>
+
+    </div>
+
+  </div>
 </header>
+
+
 
 
 <main>
 
+
 <section class="page-hero">
-<div class="shell">
 
-<span class="eyebrow">
-EKNX · BNB SMART CHAIN · CHAIN 56
-</span>
+  <div class="shell reveal">
 
-<h1>
-One supply.
-<span class="gradient">Two fundamental allocations.</span>
-</h1>
+    <span class="eyebrow">
+      EKNX · BNB SMART CHAIN · CHAIN 56
+    </span>
 
-<p>
-EKNX foi concebido com um máximo absoluto de
-100.000.000 tokens. A arquitetura pública separa a
-reserva Market da capacidade destinada à mineração.
-</p>
+    <h1 data-tx="heroTitle">
+      Hard cap, emissão e circulação não são a mesma coisa.
+    </h1>
 
-</div>
+    <p data-tx="heroLead">
+      Esta página separa o limite absoluto do contrato,
+      a reserva Genesis Market, o teto contratual de mineração
+      e a emissão teórica permitida pelo calendário atualmente implementado.
+    </p>
+
+    <div class="cta-row">
+
+      <a class="btn"
+         href="#supply">
+        SUPPLY ↓
+      </a>
+
+      <a class="btn ghost"
+         href="#market">
+        MARKET PLAN ↓
+      </a>
+
+      <a class="btn ghost"
+         href="network.html">
+        NETWORK & PROOF ↗
+      </a>
+
+    </div>
+
+  </div>
+
 </section>
 
 
-<section class="section section-dark">
-<div class="shell">
+<section id="supply"
+         class="section section-dark">
 
-<div class="token-grid">
+  <div class="shell">
 
-<div class="metric">
-<span>Maximum Supply</span>
-<b>100,000,000 EKNX</b>
-</div>
+    <div class="section-head reveal">
 
-<div class="metric">
-<span>Market Reserve</span>
-<b>1,000,000 EKNX</b>
-</div>
+      <div>
+        <span class="eyebrow">
+          SUPPLY FRAMEWORK
+        </span>
 
-<div class="metric">
-<span>Mining Allocation / Capacity</span>
-<b>99,000,000 EKNX</b>
-</div>
+        <h2 data-tx="supplyTitle">
+          Cinco números. Cinco significados diferentes.
+        </h2>
+      </div>
 
-<div class="metric">
-<span>Decimals</span>
-<b>18</b>
-</div>
+      <p data-tx="supplyLead">
+        O hard cap de 100 milhões não significa que 100 milhões
+        de EKNX tenham sido criados nem que venham necessariamente
+        a entrar em circulação.
+      </p>
 
-<div class="metric">
-<span>Network</span>
-<b>BNB Smart Chain</b>
-</div>
+    </div>
 
-<div class="metric">
-<span>Chain ID</span>
-<b>56</b>
-</div>
 
-</div>
+    <div class="token-grid">
 
-</div>
+      <div class="metric reveal">
+        <span data-tx="hardCap">
+          Hard maximum
+        </span>
+        <b>100,000,000 EKNX</b>
+        <small data-tx="hardCapNote">
+          Limite absoluto do contrato.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span>
+          Genesis Market Reserve
+        </span>
+        <b>1,000,000 EKNX</b>
+        <small data-tx="genesisNote">
+          Reserva criada para a futura arquitetura de mercado.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="miningCeiling">
+          Mining / reward ceiling
+        </span>
+        <b>99,000,000 EKNX</b>
+        <small data-tx="miningCeilingNote">
+          Teto contratual. Não é uma meta de emissão.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="lifetimeMining">
+          Máximo teórico de mineração
+        </span>
+        <b>≈ 24,387,840 EKNX</b>
+        <small data-tx="lifetimeMiningNote">
+          Segundo o calendário de emissão atualmente implementado.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="lifetimeTotal">
+          Máximo teórico total
+        </span>
+        <b>≈ 25,387,840 EKNX</b>
+        <small data-tx="lifetimeTotalNote">
+          Incluindo o Genesis Market Reserve.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="halving">
+          Halving interval
+        </span>
+        <b>4 YEARS</b>
+        <small data-tx="halvingNote">
+          Redução programada do calendário de emissão.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span>
+          Network
+        </span>
+        <b>BNB Smart Chain</b>
+        <small>Chain ID · 56</small>
+      </div>
+
+      <div class="metric reveal">
+        <span>
+          Decimals
+        </span>
+        <b>18</b>
+        <small>BEP-20</small>
+      </div>
+
+    </div>
+
+
+    <div class="callout reveal"
+         style="margin-top:28px">
+
+      <b data-tx="supplyWarningTitle">
+        99 milhões não significa 99 milhões que serão minerados.
+      </b>
+
+      <span data-tx="supplyWarningText">
+        Os 99 milhões representam o espaço máximo que o contrato
+        permite para mining e rewards. O calendário de emissão atual
+        produz um máximo teórico muito inferior. Circulating supply,
+        total supply e mining ceiling devem ser analisados separadamente.
+      </span>
+
+    </div>
+
+  </div>
+
 </section>
 
 
 <section class="section">
-<div class="shell">
 
-<div class="section-head">
-<div>
-<span class="eyebrow">SUPPLY ARCHITECTURE</span>
-<h2>O supply não entra todo em circulação no primeiro dia.</h2>
-</div>
+  <div class="shell">
 
-<p>
-A Market Reserve e a emissão associada à mineração têm
-funções diferentes dentro do ecossistema.
-</p>
-</div>
+    <div class="section-head reveal">
 
+      <div>
+        <span class="eyebrow">
+          SUPPLY ARCHITECTURE
+        </span>
 
-<div class="company-grid">
+        <h2 data-tx="architectureTitle">
+          Ceiling ≠ emissão ≠ circulação.
+        </h2>
+      </div>
 
-<article class="card">
-<h3>1,000,000 EKNX · Market Reserve</h3>
+      <p data-tx="architectureLead">
+        Esta distinção evita apresentar capacidade contratual
+        como se fosse supply já existente.
+      </p>
 
-<p>
-A reserva Market foi criada para suportar o futuro lançamento
-de mercado da EKNX.
-</p>
-
-<p>
-Estar reservada para o Market não significa que exista já
-uma venda pública ativa.
-</p>
-</article>
+    </div>
 
 
-<article class="card">
-<h3>99,000,000 EKNX · Mining</h3>
+    <div class="company-grid">
 
-<p>
-Até 99 milhões de EKNX correspondem à capacidade destinada
-ao modelo de mineração e recompensas.
-</p>
+      <article class="card reveal">
 
-<p>
-Esta parte não deve ser interpretada como 99 milhões de tokens
-já colocados antecipadamente em circulação.
-</p>
-</article>
+        <span class="eyebrow">
+          CONTRACT LIMIT
+        </span>
+
+        <h3>
+          100,000,000 EKNX
+        </h3>
+
+        <p data-tx="contractLimitText">
+          Nenhuma combinação da Market Reserve e da emissão de mining
+          pode ultrapassar o hard maximum definido pelo contrato.
+        </p>
+
+      </article>
 
 
-<article class="card">
-<h3>100,000,000 EKNX · Hard Maximum</h3>
+      <article class="card reveal">
 
-<p>
-A soma da reserva Market e da capacidade máxima destinada
-à mineração define o limite máximo do modelo EKNX.
-</p>
-</article>
+        <span class="eyebrow">
+          MARKET RESERVE
+        </span>
 
-</div>
+        <h3>
+          1,000,000 EKNX
+        </h3>
 
-</div>
+        <p data-tx="marketReserveText">
+          Esta reserva pertence à arquitetura Genesis Market.
+          O mercado público continua não ativo.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          MINING CEILING
+        </span>
+
+        <h3>
+          99,000,000 EKNX
+        </h3>
+
+        <p data-tx="ceilingText">
+          É uma barreira máxima de segurança e alocação,
+          não uma previsão de quantos tokens serão efetivamente emitidos.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          CURRENT SCHEDULE
+        </span>
+
+        <h3>
+          ≈ 24.39M MINING
+        </h3>
+
+        <p data-tx="scheduleText">
+          Se o calendário atualmente implementado decorrer durante
+          toda a sua vida matemática, a emissão teórica de mining
+          permanece muito abaixo do ceiling de 99 milhões.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          CIRCULATING SUPPLY
+        </span>
+
+        <h3 data-tx="circulatingTitle">
+          Estado real, não hard cap
+        </h3>
+
+        <p data-tx="circulatingText">
+          Circulating supply depende dos tokens efetivamente emitidos,
+          distribuídos e economicamente disponíveis — não do máximo
+          que o contrato poderia permitir.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          TRANSPARENCY
+        </span>
+
+        <h3 data-tx="verifyTitle">
+          Verifica on-chain
+        </h3>
+
+        <p data-tx="verifyText">
+          Contratos, payouts e atividade pública da rede podem ser
+          verificados através do Proof Center e da BNB Smart Chain.
+        </p>
+
+        <a class="text-link"
+           href="network.html">
+          Network & Proof ↗
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
 </section>
 
 
 <section class="section section-dark">
-<div class="shell">
 
-<div class="section-head">
-<div>
-<span class="eyebrow">MINING ECONOMICS</span>
-<h2>Computação validada. Recompensas transparentes.</h2>
-</div>
-</div>
+  <div class="shell">
 
-<div class="company-grid">
+    <div class="section-head reveal">
 
-<article class="card">
-<h3>GPU</h3>
-<p>
-KAWPOW-EUREKA-V1 com trabalho verificado pela infraestrutura
-oficial.
-</p>
-</article>
+      <div>
+        <span class="eyebrow">
+          MINING ECONOMICS
+        </span>
 
-<article class="card">
-<h3>CPU</h3>
-<p>
-RANDOMX-EUREKA-V1 com validação pelo Mining Server oficial.
-</p>
-</article>
+        <h2 data-tx="miningTitle">
+          Emissão através de trabalho validado.
+        </h2>
+      </div>
 
-<article class="card">
-<h3>Official Pool Fee</h3>
-<p>
-A regra pública da pool oficial é 99% da recompensa validada
-para o minerador e 1% para o projeto.
-</p>
-</article>
+      <p data-tx="miningLead">
+        O saldo mostrado pelo Miner não cria EKNX por si só.
+        O trabalho precisa de ser validado, contabilizado,
+        incluído num settlement e publicado antes do payout.
+      </p>
 
-</div>
+    </div>
 
-</div>
+
+    <div class="token-grid">
+
+      <div class="metric reveal">
+        <span>GPU</span>
+        <b>KAWPOW</b>
+        <small>KAWPOW-EUREKA-V1</small>
+      </div>
+
+      <div class="metric reveal">
+        <span>CPU</span>
+        <b>RandomX</b>
+        <small>RANDOMX-EUREKA-V1</small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="minerNet">
+          Miner net
+        </span>
+        <b>99%</b>
+        <small data-tx="validatedReward">
+          Da recompensa validada.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="projectFee">
+          Project fee
+        </span>
+        <b>1%</b>
+        <small data-tx="poolFee">
+          Pool oficial.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="autoPayoutMin">
+          Automatic payout minimum
+        </span>
+        <b>5 EKNX</b>
+        <small data-tx="claimableMinimum">
+          Entitlement publicado e disponível.
+        </small>
+      </div>
+
+      <div class="metric reveal">
+        <span data-tx="payoutCycle">
+          Payout check cycle
+        </span>
+        <b>4 HOURS</b>
+        <small data-tx="schedulerText">
+          Scheduler automático.
+        </small>
+      </div>
+
+    </div>
+
+
+    <div class="note reveal"
+         style="margin-top:28px">
+
+      <b data-tx="settlementTitle">
+        Settlement e payout não são a mesma coisa.
+      </b>
+
+      <span data-tx="settlementText">
+        O accounting é consolidado em settlements cumulativos.
+        O scheduler de payout verifica periodicamente entitlement
+        já publicado e apenas paga quando as condições estão satisfeitas.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="market"
+         class="section">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+        <span class="eyebrow">
+          EKNX GENESIS MARKET · LIVE ON-CHAIN
+        </span>
+
+        <h2 data-tx="marketTitle">
+          Launch Curve primeiro. DEX depois.
+        </h2>
+      </div>
+
+      <p data-tx="marketLead">
+        A arquitetura de mercado abaixo representa o plano atual
+        e atualmente integra o Genesis Market ativo on-chain.
+      </p>
+
+    </div>
+
+
+    <div class="market-flow">
+
+      <div class="flow-step reveal">
+
+        <em>01</em>
+
+        <b>
+          1,000,000 EKNX
+        </b>
+
+        <span data-tx="marketStep1">
+          Genesis Market Reserve.
+        </span>
+
+      </div>
+
+
+      <div class="flow-step reveal">
+
+        <em>02</em>
+
+        <b>
+          650,000 EKNX
+        </b>
+
+        <span data-tx="marketStep2">
+          Alocação planeada para a Launch Curve.
+        </span>
+
+      </div>
+
+
+      <div class="flow-step reveal">
+
+        <em>03</em>
+
+        <b>
+          350,000 EKNX
+        </b>
+
+        <span data-tx="marketStep3">
+          Reserva planeada para futura fase DEX / liquidez.
+        </span>
+
+      </div>
+
+
+      <div class="flow-step reveal">
+
+        <em>04</em>
+
+        <b>
+          CURVE → DEX
+        </b>
+
+        <span data-tx="marketStep4">
+          Migração apenas depois das condições técnicas,
+          de segurança e legais aplicáveis.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="company-grid"
+         style="margin-top:28px">
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          LIVE BONDING CURVE
+        </span>
+
+        <h3 data-tx="curveTitle">
+          Curva contínua e progressiva
+        </h3>
+
+        <p data-tx="curveText">
+          O desenho atual evita patamares artificiais de preço.
+          A intenção é uma curva contínua cujo preço progride
+          à medida que a alocação é adquirida.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          LIVE GENESIS PRICE
+        </span>
+
+        <h3>
+          PRICE · CALCULATED LIVE ON-CHAIN
+        </h3>
+
+        <p data-tx="startingText">
+          Referência inicial planeada. Não representa garantia
+          de preço futuro, valorização ou liquidez.
+        </p>
+
+      </article>
+
+
+      <article class="card reveal">
+
+        <span class="eyebrow">
+          GRADUATION STRUCTURE
+        </span>
+
+        <h3>
+          21 BNB · 3 BNB · 1 BNB
+        </h3>
+
+        <p data-tx="proceedsText">
+          Na graduação, 21 BNB e 350.000 EKNX são destinados à liquidez; 3 BNB seguem para operações e 1 BNB para a carteira founder, conforme a lógica do contrato deployed.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="note reveal"
+         style="margin-top:28px">
+
+      <b data-tx="marketInactiveTitle">
+        Genesis Market · LIVE ON-CHAIN
+      </b>
+
+      <span data-tx="marketInactiveText">
+        O Genesis Market está ativo on-chain na BNB Smart Chain. Os parâmetros económicos utilizados pelo Market são públicos e verificáveis diretamente no contrato.
+      </span>
+
+    </div>
+
+
+    <div class="callout reveal"
+         style="margin-top:18px">
+
+      <b data-tx="riskTitle">
+        Sem promessa de valorização.
+      </b>
+
+      <span data-tx="riskText">
+        Eureka Nexus não garante preço de lançamento,
+        valorização, rendimento, liquidez ou retorno futuro de EKNX.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div class="shell">
+
+    <div class="section-head reveal">
+
+      <div>
+        <span class="eyebrow">
+          OFFICIAL IDENTIFIERS
+        </span>
+
+        <h2 data-tx="officialTitle">
+          Confirma os endereços antes de interagir.
+        </h2>
+      </div>
+
+      <p data-tx="officialLead">
+        Nunca uses um endereço de contrato recebido apenas
+        através de mensagens, comentários ou redes sociais.
+      </p>
+
+    </div>
+
+
+    <div class="company-grid">
+
+      <div class="card reveal">
+
+        <h3>
+          EKNX Token Contract
+        </h3>
+
+        <div class="address"
+             data-contract>
+        </div>
+
+        <div class="contract-actions">
+
+          <button class="btn mini ghost"
+                  data-copy="tokenContract">
+            Copy
+          </button>
+
+          <a class="btn mini ghost"
+             data-link="bscScanToken"
+             target="_blank"
+             rel="noopener">
+            BscScan ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Genesis Market
+        </h3>
+
+        <div class="address"
+             data-genesis-market>
+        </div>
+
+        <div class="contract-actions">
+
+          <button class="btn mini ghost"
+                  data-copy="genesisMarket">
+            Copy
+          </button>
+
+          <a class="btn mini ghost"
+             data-link="bscScanMarket"
+             target="_blank"
+             rel="noopener">
+            BscScan ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3 data-tx="proofCenter">
+          Proof Center
+        </h3>
+
+        <p data-tx="proofCenterText">
+          Consulta payouts, miners, shares, contratos
+          e informação pública da infraestrutura.
+        </p>
+
+        <a class="btn mini ghost"
+           href="network.html">
+          VERIFY NETWORK ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
 <section class="section">
-<div class="shell">
 
-<div class="section-head">
-<div>
-<span class="eyebrow">MARKET · COMING SOON</span>
-<h2>O mercado ainda não está ativado.</h2>
-</div>
+  <div class="shell">
 
-<p>
-O código não substitui uma decisão final sobre os parâmetros
-económicos e jurídicos do lançamento.
-</p>
-</div>
+    <div class="section-head reveal">
 
-<div class="market-flow">
+      <div>
+        <span class="eyebrow">
+          DOCUMENTATION
+        </span>
 
-<div class="flow-step">
-<em>01</em>
-<b>Market Reserve</b>
-<span>1.000.000 EKNX reservados para o lançamento.</span>
-</div>
+        <h2 data-tx="docsTitle">
+          Não dependas de uma única página.
+        </h2>
+      </div>
 
-<div class="flow-step">
-<em>02</em>
-<b>Curve</b>
-<span>Fórmula e parâmetros finais: A ANUNCIAR.</span>
-</div>
+      <p data-tx="docsLead">
+        Consulta contratos, documentação técnica,
+        riscos e arquitetura antes de tomar decisões relacionadas com EKNX.
+      </p>
 
-<div class="flow-step">
-<em>03</em>
-<b>Liquidity</b>
-<span>Estrutura final de liquidez: A ANUNCIAR.</span>
-</div>
+    </div>
 
-<div class="flow-step">
-<em>04</em>
-<b>Activation</b>
-<span>Somente após documentação e validação final.</span>
-</div>
 
-</div>
+    <div class="cta-row">
 
-<div class="note" style="margin-top:28px">
+      <a class="btn"
+         href="whitepaper.html">
+        LITEPAPER ↗
+      </a>
 
-<b>Sem promessa de valorização</b>
+      <a class="btn ghost"
+         href="contracts.html">
+        CONTRACTS ↗
+      </a>
 
-<span>
-Eureka Nexus não garante preço de lançamento, valorização,
-liquidez, rendimento ou retorno futuro de EKNX.
-</span>
+      <a class="btn ghost"
+         href="network.html">
+        NETWORK & PROOF ↗
+      </a>
 
-</div>
+      <a class="btn ghost"
+         href="legal.html">
+        LEGAL & RISK ↗
+      </a>
 
-</div>
+    </div>
+
+  </div>
+
 </section>
-
-
-<section class="section section-dark">
-<div class="shell">
-
-<div class="section-head">
-<div>
-<span class="eyebrow">OFFICIAL CONTRACT</span>
-<h2>Verifica. Não confies apenas no texto.</h2>
-</div>
-</div>
-
-<div class="card">
-
-<p><b>EKNX Contract</b></p>
-
-<div class="address">
-0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9
-</div>
-
-<div class="contract-actions">
-
-<a class="btn mini ghost"
-href="https://bscscan.com/token/0xF54913A8d5E2AEBD0B62c6411cCf1b5B4aB069c9"
-target="_blank"
-rel="noopener">
-Verify on BscScan ↗
-</a>
-
-<a class="btn mini ghost"
-href="contracts.html">
-Official Contracts
-</a>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-
 
 
 </main>
+
 
 
 <footer class="footer">
@@ -326,6 +877,10 @@ Official Contracts
 </footer>
 
 <script src="site-config.js"></script>
-<script src="common.js"></script><script src="page-i18n.js"></script>
+<script src="common.js"></script>
+<script src="page-i18n.js"></script>
+<script src="tokenomics-extra.js"></script>
+
+<script src="genesis-live.js?v=20261009-12"></script>
 </body>
 </html>

@@ -1,0 +1,955 @@
+:root{
+  --mk-black:#050505;
+  --mk-panel:#0d0d0b;
+  --mk-panel2:#11110e;
+  --mk-gold:#d4af37;
+  --mk-gold2:#ffd96a;
+  --mk-purple:#a64dff;
+  --mk-text:#f7f4e9;
+  --mk-muted:#aaa596;
+  --mk-line:rgba(212,175,55,.20);
+}
+
+
+.market-hero{
+  position:relative;
+  padding:72px 0 42px;
+  overflow:hidden;
+}
+
+.market-hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(149,67,255,.15),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(212,175,55,.09),
+      transparent 28%
+    );
+}
+
+.market-hero-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 390px;
+  gap:60px;
+  align-items:center;
+}
+
+.market-live-label{
+  display:inline-flex;
+  color:var(--mk-gold2);
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.14em;
+}
+
+.market-copy h1{
+  max-width:850px;
+  margin:18px 0 20px;
+  color:#fff;
+  font-size:clamp(2.8rem,5vw,5.5rem);
+  line-height:.98;
+  letter-spacing:-.05em;
+}
+
+.market-lead{
+  max-width:760px;
+  color:#bbb6a8;
+  font-size:1.08rem;
+  line-height:1.8;
+}
+
+.market-proof-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:27px;
+}
+
+.market-proof-row span{
+  padding:7px 10px;
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:999px;
+  background:rgba(212,175,55,.05);
+  color:#e5d7a1;
+  font-size:.64rem;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+
+.market-contract{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.market-contract span{
+  color:#777;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.market-contract a{
+  color:var(--mk-gold2);
+  text-decoration:none;
+  font-family:ui-monospace,monospace;
+  font-size:.82rem;
+}
+
+.market-coin{
+  position:relative;
+  min-height:380px;
+  display:grid;
+  place-items:center;
+  margin:0;
+}
+
+.market-coin-aura{
+  position:absolute;
+  width:95%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(143,64,255,.30),
+      rgba(212,175,55,.15) 42%,
+      transparent 70%
+    );
+  filter:blur(22px);
+}
+
+.market-coin img{
+  position:relative;
+  width:min(100%,350px);
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:50%;
+  filter:
+    drop-shadow(0 30px 50px rgba(0,0,0,.72))
+    drop-shadow(0 0 22px rgba(170,73,255,.26))
+    drop-shadow(0 0 18px rgba(212,175,55,.18));
+  animation:marketCoinFloat 5s ease-in-out infinite;
+}
+
+.market-coin figcaption{
+  position:absolute;
+  bottom:2px;
+  padding:8px 14px;
+  border:1px solid var(--mk-line);
+  border-radius:999px;
+  background:rgba(5,5,5,.82);
+  color:var(--mk-gold2);
+  font-size:.65rem;
+  font-weight:950;
+  letter-spacing:.16em;
+}
+
+
+.market-dashboard{
+  padding:22px 0 18px;
+}
+
+.market-status-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.market-stat{
+  min-height:108px;
+  padding:20px;
+  border:1px solid var(--mk-line);
+  border-radius:17px;
+  background:
+    linear-gradient(
+      140deg,
+      rgba(18,18,15,.95),
+      rgba(7,7,6,.96)
+    );
+}
+
+.market-stat span{
+  display:block;
+  color:#8d887b;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.10em;
+}
+
+.market-stat strong{
+  display:block;
+  margin-top:8px;
+  color:#fff1b6;
+  font-size:1.15rem;
+}
+
+.market-progress-card{
+  margin-top:12px;
+  padding:17px 20px;
+  border:1px solid var(--mk-line);
+  border-radius:17px;
+  background:rgba(10,10,8,.86);
+}
+
+.market-progress-head,
+.market-progress-foot{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.market-progress-head{
+  margin-bottom:11px;
+  color:#ddd4b6;
+}
+
+.market-progress-foot{
+  margin-top:8px;
+  color:#777;
+  font-size:.65rem;
+}
+
+.market-progress-track{
+  height:7px;
+  overflow:hidden;
+  border-radius:99px;
+  background:#17150f;
+}
+
+.market-progress-bar{
+  width:0;
+  height:100%;
+  border-radius:99px;
+  background:
+    linear-gradient(
+      90deg,
+      #927017,
+      #e7bf41,
+      #fff0a0
+    );
+  box-shadow:0 0 16px rgba(229,190,62,.42);
+  transition:width .4s ease;
+}
+
+
+.market-trade-section{
+  padding:26px 0 110px;
+}
+
+.market-trade-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(330px,.75fr);
+  gap:22px;
+  align-items:start;
+}
+
+.market-buy-card,
+.market-info-card{
+  border:1px solid var(--mk-line);
+  border-radius:25px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,17,14,.97),
+      rgba(7,7,6,.98)
+    );
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+
+.market-buy-card{
+  padding:29px;
+}
+
+.market-info-card{
+  padding:27px;
+}
+
+.market-card-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:27px;
+}
+
+.market-card-head h2,
+.market-info-card h2{
+  margin:6px 0 0;
+  color:#fff;
+}
+
+.market-step{
+  color:var(--mk-gold2);
+  font-size:.64rem;
+  font-weight:950;
+  letter-spacing:.12em;
+}
+
+.market-state-badge{
+  padding:7px 12px;
+  border:1px solid rgba(212,175,55,.32);
+  border-radius:999px;
+  color:var(--mk-gold2);
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.10em;
+}
+
+.market-label{
+  display:block;
+  margin-bottom:8px;
+  color:#aaa;
+  font-size:.74rem;
+  font-weight:800;
+}
+
+.market-input-wrap{
+  display:flex;
+  overflow:hidden;
+  border:1px solid rgba(212,175,55,.29);
+  border-radius:15px;
+  background:#070706;
+}
+
+.market-input-wrap input{
+  flex:1;
+  min-width:0;
+  padding:17px 18px;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  font-size:1.4rem;
+  font-weight:800;
+}
+
+.market-input-wrap button{
+  width:74px;
+  border:0;
+  border-left:1px solid rgba(212,175,55,.18);
+  background:rgba(212,175,55,.07);
+  color:var(--mk-gold2);
+  font-weight:900;
+  cursor:pointer;
+}
+
+.market-quick{
+  display:flex;
+  gap:7px;
+  margin:10px 0 21px;
+}
+
+.market-quick button{
+  flex:1;
+  padding:8px 7px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:9px;
+  background:#0c0c0a;
+  color:#bbb;
+  cursor:pointer;
+}
+
+.market-quick button:hover{
+  border-color:rgba(212,175,55,.35);
+  color:#fff0af;
+}
+
+.market-quote{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding:17px;
+  margin-bottom:16px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:15px;
+  background:rgba(255,255,255,.018);
+}
+
+.market-quote span{
+  display:block;
+  color:#817d72;
+  font-size:.63rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.market-quote b{
+  display:block;
+  margin-top:5px;
+  color:#fff0b4;
+}
+
+.market-quote small{
+  grid-column:1/-1;
+  color:#777267;
+  line-height:1.5;
+}
+
+.market-primary-btn,
+.market-buy-btn{
+  width:100%;
+  min-height:52px;
+  border-radius:13px;
+  cursor:pointer;
+  font-weight:950;
+  letter-spacing:.06em;
+}
+
+.market-primary-btn{
+  border:1px solid rgba(212,175,55,.42);
+  background:#11100c;
+  color:#f4d56e;
+}
+
+.market-buy-btn{
+  margin-top:13px;
+  border:1px solid #ffe697;
+  background:
+    linear-gradient(
+      135deg,
+      #f5d466,
+      #b88716 52%,
+      #ffe897
+    );
+  color:#070603;
+  box-shadow:0 0 28px rgba(212,175,55,.20);
+}
+
+.market-buy-btn:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+  filter:grayscale(.5);
+}
+
+.market-wallet-panel{
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:12px;
+  padding:13px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:13px;
+  background:rgba(255,255,255,.018);
+}
+
+.market-wallet-panel:not([hidden]){
+  display:grid;
+}
+
+.market-wallet-panel span{
+  display:block;
+  color:#777;
+  font-size:.62rem;
+}
+
+.market-wallet-panel b{
+  display:block;
+  overflow:hidden;
+  margin-top:3px;
+  color:#e7e1cc;
+  font-size:.76rem;
+  text-overflow:ellipsis;
+}
+
+.market-confirmation{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:17px 0 0;
+  color:#aaa497;
+  font-size:.77rem;
+  line-height:1.5;
+}
+
+.market-confirmation input{
+  margin-top:3px;
+  accent-color:var(--mk-gold);
+}
+
+.market-trade-status{
+  min-height:24px;
+  margin-top:13px;
+  color:#c9b971;
+  font-size:.80rem;
+  line-height:1.5;
+}
+
+.market-trade-status.ok{
+  color:#80dca4;
+}
+
+.market-trade-status.error{
+  color:#ff8d92;
+}
+
+.market-tx-link{
+  display:inline-block;
+  margin-top:5px;
+  color:#f1ca55;
+  text-decoration:none;
+}
+
+.market-how-step{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:10px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.market-how-step b{
+  color:var(--mk-gold2);
+  font-size:.73rem;
+}
+
+.market-how-step p{
+  margin:0;
+  color:#9e998d;
+  line-height:1.6;
+}
+
+.market-allocation{
+  margin-top:22px;
+  padding:17px;
+  border:1px solid rgba(212,175,55,.14);
+  border-radius:14px;
+  background:rgba(212,175,55,.025);
+}
+
+.market-allocation h3{
+  margin:0 0 12px;
+}
+
+.market-allocation div{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:7px 0;
+  color:#999387;
+  font-size:.78rem;
+}
+
+.market-allocation b{
+  color:#eee0aa;
+}
+
+.market-risk{
+  margin-top:18px;
+  color:#79756c;
+  font-size:.72rem;
+  line-height:1.55;
+}
+
+.market-links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+.market-links a{
+  color:#d6bb61;
+  font-size:.72rem;
+}
+
+
+@keyframes marketCoinFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-1deg);
+  }
+  50%{
+    transform:translateY(-12px) rotate(1deg);
+  }
+}
+
+
+@media(max-width:980px){
+
+  .market-hero-grid,
+  .market-trade-grid{
+    grid-template-columns:1fr;
+  }
+
+  .market-coin{
+    min-height:300px;
+  }
+
+  .market-coin img{
+    width:270px;
+  }
+
+  .market-status-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+
+@media(max-width:620px){
+
+  .market-hero{
+    padding-top:48px;
+  }
+
+  .market-copy h1{
+    font-size:2.55rem;
+  }
+
+  .market-status-grid{
+    grid-template-columns:1fr;
+  }
+
+  .market-trade-section{
+    padding-bottom:160px;
+  }
+
+  .market-buy-card,
+  .market-info-card{
+    padding:18px;
+  }
+
+  .market-quote{
+    grid-template-columns:1fr;
+  }
+
+  .market-quote small{
+    grid-column:auto;
+  }
+
+  .market-wallet-panel:not([hidden]){
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  .market-coin img{
+    animation:none;
+  }
+
+}
+
+/* Só mostrar BscScan depois de existir uma transação real */
+.market-tx-link[hidden]{
+  display:none !important;
+}
+
+
+
+/* =========================================================
+   EUREKA WALLET SELECTOR · EIP-6963
+   ========================================================= */
+
+body.wallet-modal-open{
+  overflow:hidden;
+}
+
+.eureka-wallet-modal[hidden]{
+  display:none !important;
+}
+
+.eureka-wallet-modal{
+  position:fixed;
+  inset:0;
+  z-index:100500;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+.eureka-wallet-backdrop{
+  position:absolute;
+  inset:0;
+  background:
+    rgba(0,0,0,.78);
+  backdrop-filter:
+    blur(11px);
+}
+
+.eureka-wallet-dialog{
+  position:relative;
+  z-index:2;
+  width:min(100%,520px);
+  max-height:min(720px,90vh);
+  overflow:auto;
+  padding:24px;
+  border:
+    1px solid rgba(212,175,55,.30);
+  border-radius:24px;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(150,64,255,.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #11100d,
+      #070706
+    );
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.72),
+    0 0 42px rgba(212,175,55,.08);
+}
+
+.eureka-wallet-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.eureka-wallet-kicker{
+  color:#ffd760;
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.16em;
+}
+
+.eureka-wallet-head h2{
+  margin:7px 0 5px;
+  color:#fff;
+  font-size:1.55rem;
+}
+
+.eureka-wallet-head p{
+  margin:0;
+  color:#888277;
+  line-height:1.55;
+}
+
+.eureka-wallet-close{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border:
+    1px solid rgba(255,255,255,.08);
+  border-radius:11px;
+  background:#0a0a09;
+  color:#aaa;
+  font-size:1.4rem;
+  cursor:pointer;
+}
+
+.eureka-wallet-options{
+  display:grid;
+  gap:9px;
+}
+
+.eureka-wallet-option{
+  width:100%;
+  display:grid;
+  grid-template-columns:48px 1fr 28px;
+  align-items:center;
+  gap:12px;
+  padding:12px 13px;
+  border:
+    1px solid rgba(255,255,255,.075);
+  border-radius:14px;
+  background:
+    rgba(255,255,255,.022);
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.eureka-wallet-option:hover{
+  transform:
+    translateY(-1px);
+  border-color:
+    rgba(212,175,55,.35);
+  background:
+    rgba(212,175,55,.05);
+}
+
+.eureka-wallet-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:12px;
+  background:#080807;
+  border:
+    1px solid rgba(212,175,55,.13);
+  color:#f1ca4e;
+}
+
+.eureka-wallet-icon img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+.eureka-wallet-name{
+  min-width:0;
+}
+
+.eureka-wallet-name b{
+  display:block;
+  color:#f2eee0;
+}
+
+.eureka-wallet-name small{
+  display:block;
+  margin-top:3px;
+  overflow:hidden;
+  color:#777167;
+  font-size:.66rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.eureka-wallet-arrow{
+  color:#cba93f;
+  font-size:1.2rem;
+}
+
+.eureka-wallet-empty{
+  margin:10px 0;
+  padding:18px;
+  border:
+    1px dashed rgba(212,175,55,.22);
+  border-radius:13px;
+  color:#989186;
+  text-align:center;
+}
+
+.eureka-wallet-security{
+  margin-top:18px;
+  padding-top:16px;
+  border-top:
+    1px solid rgba(255,255,255,.06);
+}
+
+.eureka-wallet-security b{
+  display:block;
+  color:#dac574;
+  font-size:.72rem;
+}
+
+.eureka-wallet-security span{
+  display:block;
+  margin-top:4px;
+  color:#706c64;
+  font-size:.68rem;
+  line-height:1.55;
+}
+
+
+@media(max-width:600px){
+
+  .eureka-wallet-dialog{
+    padding:18px;
+    border-radius:19px;
+  }
+
+}
+
+
+/* =========================================================
+   WALLET SELECTOR FINAL
+   ========================================================= */
+
+.eureka-wallet-network{
+  display:grid;
+  grid-template-columns:44px 1fr auto;
+  gap:12px;
+  align-items:center;
+  margin:18px 0 16px;
+  padding:13px;
+  border:1px solid rgba(243,186,47,.22);
+  border-radius:14px;
+  background:rgba(243,186,47,.035);
+}
+
+.wallet-bnb-icon{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#f3ba2f;
+  color:#070706;
+  font-size:.62rem;
+  font-weight:950;
+}
+
+.eureka-wallet-network b{
+  display:block;
+  color:#f0d269;
+  font-size:.76rem;
+}
+
+.eureka-wallet-network small{
+  display:block;
+  margin-top:3px;
+  color:#777167;
+  font-size:.63rem;
+}
+
+.wallet-network-ok{
+  color:#59edaa;
+  text-shadow:0 0 12px #59edaa;
+}
+
+.wallet-missing{
+  opacity:.42;
+  cursor:not-allowed !important;
+}
+
+.wallet-detected
+.eureka-wallet-name small{
+  color:#66dca5;
+}
+
+.wallet-missing
+.eureka-wallet-name small{
+  color:#8e7474;
+}
+
+.other-wallet-block{
+  margin-top:18px;
+}
+
+.other-wallet-title{
+  display:block;
+  margin-bottom:8px;
+  color:#706b62;
+  font-size:.60rem;
+  font-weight:900;
+  letter-spacing:.13em;
+}
+
+.wallet-disconnect-btn{
+  grid-column:1/-1;
+  min-height:38px;
+  margin-top:4px;
+  border:1px solid rgba(255,110,110,.25);
+  border-radius:9px;
+  background:rgba(130,30,30,.08);
+  color:#df9797;
+  font-size:.67rem;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.wallet-disconnect-btn:hover{
+  border-color:rgba(255,110,110,.45);
+  background:rgba(130,30,30,.15);
+}
+

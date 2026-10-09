@@ -1,0 +1,115 @@
+EUREKA NEXUS PROPRIETARY SOURCE-AVAILABLE LICENSE
+
+Copyright © 2026 Hélder Costa.
+All rights reserved.
+
+Project: Eureka Nexus
+
+1. Ownership
+
+Except for third-party materials identified separately, the original
+Eureka Nexus source code, documentation, designs, branding, text,
+interfaces and project materials in this repository are protected by
+applicable intellectual-property law.
+
+No transfer of ownership occurs merely because this repository is
+publicly visible.
+
+2. Source availability
+
+The source code is made publicly visible for transparency, technical
+review, verification, education and project collaboration.
+
+Public availability does not make this repository open-source software.
+
+3. No general licence grant
+
+Unless Hélder Costa / Eureka Nexus provides separate written permission,
+no permission is granted to:
+
+- reproduce substantial parts of the project for redistribution;
+- publish modified or unmodified commercial copies;
+- sell, sublicense or commercially exploit the project;
+- create a competing product substantially derived from Eureka Nexus
+  source code, branding or protected project materials;
+- represent a fork or derivative project as official Eureka Nexus;
+- use Eureka Nexus names, logos or branding in a way that creates
+  confusion regarding origin, sponsorship or endorsement.
+
+4. GitHub platform rights
+
+Nothing in this licence is intended to prevent technical actions that
+are necessarily permitted through the GitHub platform itself under
+GitHub's applicable terms, such as viewing or platform-supported
+forking of a public repository.
+
+Such platform functionality does not create a broader commercial or
+redistribution licence from Eureka Nexus.
+
+5. Personal technical review
+
+You may inspect the publicly available source for security review,
+interoperability research, learning and evaluation, subject to
+applicable law.
+
+Any broader use requires prior written permission unless otherwise
+permitted by mandatory law.
+
+6. Contributions
+
+Submission of a contribution does not automatically transfer ownership
+of unrelated pre-existing work.
+
+By intentionally submitting code or documentation for inclusion in
+Eureka Nexus, the contributor confirms that they have the right to
+submit it and grants Hélder Costa / Eureka Nexus a worldwide,
+perpetual, irrevocable, royalty-free licence to use, reproduce, modify,
+distribute, sublicense and incorporate that contribution into Eureka
+Nexus products and services.
+
+A contribution may be rejected or removed at the project's discretion.
+
+7. Third-party software
+
+This licence applies only to original Eureka Nexus materials for which
+the project owns or controls the relevant rights.
+
+Third-party libraries, dependencies, fonts, images, frameworks or other
+materials remain subject to their respective licences and copyright
+terms.
+
+Where a third-party licence grants rights that cannot lawfully be
+restricted by this document, that third-party licence prevails for that
+specific material.
+
+8. Branding
+
+Eureka Nexus, EKNX, Eureka AI and associated logos, names and visual
+identity must not be used to imply an official relationship,
+endorsement or affiliation without permission.
+
+This document does not itself constitute a trademark registration.
+
+9. No warranty
+
+To the maximum extent permitted by applicable law, publicly available
+project materials are provided without warranties regarding fitness
+for a particular purpose, uninterrupted operation, security or
+commercial suitability.
+
+Nothing in this clause excludes rights or liabilities that cannot
+lawfully be excluded.
+
+10. Contact
+
+Permission and licensing enquiries:
+
+official@eurekanexus.pt
+
+Official website:
+
+https://eurekanexus.pt
+
+Official GitHub:
+
+https://github.com/Eureka-Nexus
