@@ -54,42 +54,33 @@ The Market Reserve contains:
 
 **1,000,000 EKNX**
 
-This allocation is intended for the future EKNX market launch architecture.
+This allocation is used by the deployed EKNX Genesis Market architecture.
 
 The Market Reserve is separate from the mining/reward capacity.
 
-Current market status:
+Current Genesis Market status:
 
-**COMING SOON — NOT ACTIVE**
-
----
-
-# Planned Launch Curve allocation
-
-Current intended architecture:
-
-- Up to **650,000 EKNX** for the Launch Curve
-- **350,000 EKNX** reserved for the future DEX / liquidity stage
-
-These are current planning parameters.
-
-They remain subject to final:
-
-- Smart-contract validation
-- Security review
-- Legal review
-- Regulatory review
-- Accounting review
-- Tax review
-- Launch documentation
-
-before activation.
+**LIVE ON-CHAIN**
 
 ---
 
-# Planned Launch Curve design
+# Genesis Market allocation
 
-The current design intention is to use a continuous progressive pricing curve.
+Current deployed architecture:
+
+- **650,000 EKNX** assigned to the live Genesis bonding curve
+- **350,000 EKNX** reserved for liquidity at graduation
+
+The Genesis Market is active on BNB Smart Chain.
+
+Technical deployment does not replace continuing security, legal,
+regulatory, accounting or tax review.
+
+---
+
+# Genesis bonding curve design
+
+The deployed Genesis Market uses a continuous progressive pricing curve.
 
 The curve is intended to avoid artificial fixed price steps such as:
 
@@ -97,17 +88,18 @@ The curve is intended to avoid artificial fixed price steps such as:
 - €10
 - €15
 
-Instead, the price is intended to progress continuously according to the final curve formula and market state.
+Instead, the price progresses according to the deployed bonding-curve formula and current on-chain market state.
 
 Current pricing model:
 
 **Price is calculated live on-chain by the deployed Genesis bonding curve**
 
-This is a planned launch parameter.
+This is an active Genesis Market parameter.
 
 It is not a guarantee of future market value.
 
-The final mathematical formula, slope, limits and on-chain parameters will be published before activation.
+The deployed contract parameters are subject to independent contract/source
+equivalence verification as part of the project security audit.
 
 ---
 
@@ -124,16 +116,18 @@ The project does not guarantee:
 
 ---
 
-# Planned use of Launch Curve proceeds
+# Genesis Market graduation proceeds
 
-Current planning framework:
+Under the deployed Genesis Market contract, graduation occurs when the
+bonding curve reaches its **25 BNB** reserve target.
 
-- **70% — liquidity / future DEX market structure**
-- **30% — Eureka Nexus development, infrastructure and operations**
+At graduation, the deployed contract logic routes:
 
-The 70% allocation is intended to help support the future liquidity and DEX transition architecture.
+- **21 BNB + 350,000 EKNX** to DEX liquidity
+- **3 BNB** to the operations wallet
+- **1 BNB** to the founder wallet
 
-The 30% allocation is intended to support areas such as:
+The 3 BNB operations allocation may support areas such as:
 
 - Eureka AI development
 - Servers
@@ -184,27 +178,19 @@ See:
 
 ---
 
-# Planned payment assets
+# Genesis Market payment asset
 
-Because the planned Launch Curve is intended to operate on BNB Smart Chain, payment execution must use assets compatible with that network.
+The currently deployed Genesis Market operates with **BNB** on BNB Smart Chain.
 
-Current planned payment support may include:
+USDT, USDC, ETH-compatible representations, BTC-compatible representations
+or other payment assets are not described here as active Genesis Market
+payment methods.
 
-- BNB
-- USDT on BNB Smart Chain
-- USDC on BNB Smart Chain
-- Compatible BNB Smart Chain representation of ETH
-- Compatible BNB Smart Chain representation of BTC
+Any future additional payment asset must be separately implemented,
+verified and publicly documented before use.
 
-Exact payment-token contract addresses and routing must be verified before activation.
-
-Users must not send:
-
-- Assets from unsupported networks
-- Unsupported token contracts
-- Native assets from another blockchain directly to a BSC contract
-
-Official supported payment assets will be published before launch.
+Users must not send unsupported tokens or assets from another blockchain
+directly to the Genesis Market contract.
 
 ---
 
@@ -270,19 +256,17 @@ Users should verify on-chain information directly.
 
 # Market activation status
 
-Current status:
+Current Genesis Market status:
 
-**NOT ACTIVE**
+**LIVE ON-CHAIN**
 
-Before public Launch Curve activation, the project intends to finalise and publish the applicable:
+Current DEX status:
 
-- Final curve formula
-- Final curve parameters
-- Smart-contract configuration
-- Payment-token contracts
-- Treasury routing
-- Liquidity model
-- DEX transition rules
+**NOT ACTIVE — PENDING GRADUATION**
+
+The project must continue to maintain public and verifiable information
+for the deployed curve parameters, smart-contract configuration, treasury
+routing, liquidity model and DEX graduation rules.
 - Market-specific terms
 - Risk disclosures
 - Legal classification analysis

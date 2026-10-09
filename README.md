@@ -118,24 +118,26 @@ https://github.com/Eureka-Nexus/eureka-miner/releases
 
 Current status:
 
-**COMING SOON — NOT ACTIVE**
+**GENESIS MARKET LIVE ON-CHAIN**
 
-The current planned framework is:
+Current deployed framework:
 
-- 1,000,000 EKNX total Market Reserve
-- Up to 650,000 EKNX intended for the Launch Curve
-- 350,000 EKNX intended for the future DEX/liquidity stage
-- Continuous progressive curve
+- 1,000,000 EKNX Genesis allocation
+- 650,000 EKNX assigned to the live bonding curve
+- 350,000 EKNX reserved for liquidity at graduation
+- Graduation target: 25 BNB reserve
+- Continuous progressive on-chain pricing
 - No artificial fixed price tiers
 - Current pricing model:
   **price calculated live on-chain by the deployed Genesis bonding curve**
 
-The final curve formula and on-chain parameters are not active yet.
+The future DEX stage is not active before graduation.
 
-Current planned use of Launch Curve proceeds:
+According to the deployed Genesis Market contract, at graduation:
 
-- 70% — liquidity / future DEX structure
-- 30% — Eureka Nexus development, infrastructure and operations
+- 21 BNB + 350,000 EKNX are allocated to DEX liquidity
+- 3 BNB are routed to operations
+- 1 BNB is routed to the founder wallet
 
 Read:
 

@@ -154,19 +154,23 @@ This includes:
 
 ---
 
-## Launch Curve security
+## Genesis Market security
 
-The future EKNX Launch Curve must remain disabled until its production configuration has completed the applicable:
+The EKNX Genesis Market is active on BNB Smart Chain.
 
-- Contract validation
+The deployed market must remain subject to continuing:
+
+- Contract/source equivalence verification
 - Security testing
 - Access-control review
-- Payment-token verification
 - Pricing-formula validation
 - Treasury routing validation
-- Liquidity routing validation
-- Emergency response planning
-- Legal launch gate
+- Liquidity and graduation validation
+- Incident-response planning
+- Legal and regulatory review
+
+The future DEX stage must not be represented as active before the
+on-chain graduation conditions and applicable operational gates are met.
 
 No private key or operator secret should ever be placed inside frontend code.
 

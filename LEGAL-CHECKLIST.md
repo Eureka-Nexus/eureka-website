@@ -1,7 +1,10 @@
-# EKNX Market Launch — Legal Readiness Checklist
+# EKNX Genesis Market — Post-Launch Legal & Regulatory Readiness Checklist
 
-The public Market must remain COMING SOON until applicable launch
-requirements are completed.
+The EKNX Genesis Market is LIVE on-chain.
+
+This checklist is an internal/public transparency record. Technical launch
+must not be represented as proof that every legal or regulatory obligation
+has been finally satisfied.
 
 ## Already available
 
@@ -16,7 +19,7 @@ requirements are completed.
 - Public risk disclosure
 - Copyright / ownership notice
 
-## Must be finalised before public Market activation
+## Post-launch items requiring formal confirmation or evidence
 
 - Legal identity of the offeror / relevant entity
 - Registered address where legally required
@@ -38,5 +41,12 @@ requirements are completed.
 
 ## Rule
 
-No BUY, CURVE LIVE, PUBLIC SALE or equivalent action should be enabled
-until the applicable launch gate has been completed.
+The Genesis Market is already active.
+
+Any unresolved legal, regulatory, tax, accounting, consumer-rights,
+privacy or jurisdiction item must remain visible until formally resolved.
+
+Future DEX migration, additional payment assets, new jurisdictions or
+material changes to the sale architecture must not be represented as
+active until their applicable technical, security and legal gates are
+completed.

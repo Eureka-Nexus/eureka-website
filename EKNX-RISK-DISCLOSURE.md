@@ -33,11 +33,15 @@ their seed phrase or private key to Eureka Nexus.
 
 ## Regulatory status
 
-The legal and regulatory framework applicable to any future public
-market launch will be reviewed before activation.
+The EKNX Genesis Market is active on BNB Smart Chain.
 
-Publication of technical information about EKNX does not by itself
-mean that a public token offer or market sale is active.
+Technical activation does not by itself establish that every legal,
+regulatory, tax, accounting or consumer-rights question has been finally
+resolved. Applicable obligations remain subject to continuing review and,
+where appropriate, qualified professional advice.
+
+Users should verify official market status and the relevant on-chain
+contract state before interacting with EKNX.
 
 ## Not financial advice
 
