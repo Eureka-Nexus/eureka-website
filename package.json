@@ -1,0 +1,24 @@
+{
+  "name": "eureka-nexus-website",
+  "version": "1.0.0",
+  "description": "Official Eureka Nexus website and EKNX Genesis Market frontend.",
+  "scripts": {
+    "build:wallet": "esbuild src/eureka-appkit.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=assets/eureka-appkit.bundle.js",
+    "check:market": "node --check market.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eureka-Nexus/eureka-website.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "commonjs",
+  "dependencies": {
+    "@reown/appkit": "1.8.24",
+    "@reown/appkit-adapter-ethers": "1.8.24",
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "private": true
+}

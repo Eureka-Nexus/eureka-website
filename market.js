@@ -2725,53 +2725,160 @@ async function ensureBsc(
 }
 
 
-async function connectWallet(){
 
-  /*
-    A previous wallet-extension error should not
-    remain visible while the user is choosing a
-    wallet for a new connection attempt.
-  */
+function appKitAvailable(){
 
-  setStatus(
-    "",
-    ""
+  return Boolean(
+    window.EurekaAppKit &&
+    typeof window.EurekaAppKit.open ===
+      "function"
   );
-
-
-  /*
-    Refresh discovery each time because a wallet
-    may have been enabled after the page loaded.
-  */
-
-  window.dispatchEvent(
-    new Event(
-      "eip6963:requestProvider"
-    )
-  );
-
-  discoverLegacyWallets();
-
-
-  /*
-    Give EIP-6963 wallets a short moment
-    to announce themselves.
-  */
-
-  await new Promise(
-    resolve=>
-      setTimeout(
-        resolve,
-        120
-      )
-  );
-
-
-  renderWalletSelector();
 
 }
 
-function disconnectWallet(){
+
+async function applyAppKitAccount(
+  detail
+){
+
+  if(
+    !detail?.isConnected ||
+    !detail?.address
+  ){
+
+    return;
+
+  }
+
+
+  try{
+
+    const provider =
+      detail.provider ||
+      await window
+        .EurekaAppKit
+        ?.waitForProvider?.(
+          7000
+        ) ||
+      window
+        .EurekaAppKit
+        ?.getProvider?.();
+
+
+    if(
+      !provider ||
+      typeof provider.request !==
+        "function"
+    ){
+
+      throw new Error(
+        "Wallet connected but provider is not ready"
+      );
+
+    }
+
+
+    walletProvider =
+      provider;
+
+    account =
+      detail.address;
+
+    connectedWalletName =
+      "WalletConnect";
+
+
+    await ensureBsc(
+      walletProvider
+    );
+
+
+    bindWalletEvents(
+      walletProvider
+    );
+
+
+    const connect =
+      document.getElementById(
+        "connectWalletBtn"
+      );
+
+
+    if(connect){
+
+      connect.textContent =
+        tx().connected;
+
+    }
+
+
+    const panel =
+      document.getElementById(
+        "walletPanel"
+      );
+
+
+    if(panel){
+
+      panel.hidden =
+        false;
+
+    }
+
+
+    const network =
+      document.getElementById(
+        "walletNetwork"
+      );
+
+
+    if(network){
+
+      network.textContent =
+        "BNB Smart Chain · Chain ID 56";
+
+    }
+
+
+    setStatus(
+      tx().ready,
+      "ok"
+    );
+
+
+    await refreshWallet();
+
+
+    updateBuyButton();
+
+
+    console.info(
+      "[EKNX APPKIT] Eureka market synchronized:",
+      account
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "[EKNX APPKIT] synchronization failed",
+      error
+    );
+
+
+    setStatus(
+      walletErrorText(
+        error
+      ),
+      "error"
+    );
+
+  }
+
+}
+
+
+function clearConnectedWalletUi(){
 
   account =
     null;
@@ -2790,7 +2897,10 @@ function disconnectWallet(){
 
 
   if(panel){
-    panel.hidden = true;
+
+    panel.hidden =
+      true;
+
   }
 
 
@@ -2815,8 +2925,147 @@ function disconnectWallet(){
 
 
   if(confirm){
-    confirm.checked = false;
+
+    confirm.checked =
+      false;
+
   }
+
+
+  updateBuyButton();
+
+}
+
+
+async function connectWallet(){
+
+  setStatus(
+    "",
+    ""
+  );
+
+
+  /*
+    Primary connector:
+    Reown AppKit / WalletConnect.
+
+    Works with:
+    - desktop browser extensions
+    - QR connection
+    - Android wallet deep links
+    - iOS wallet deep links
+  */
+
+  if(
+    appKitAvailable()
+  ){
+
+    try{
+
+      setStatus(
+        tx().connecting
+      );
+
+
+      await window
+        .EurekaAppKit
+        .open();
+
+
+      return;
+
+
+    }catch(error){
+
+      console.error(
+        "[EKNX APPKIT] open failed",
+        error
+      );
+
+
+      /*
+        AppKit failure must not make the Genesis
+        Market unusable. Keep the proven v12
+        extension selector as fallback.
+      */
+
+      setStatus(
+        lang()==="pt"
+          ? "AppKit indisponível. A usar ligação direta à carteira…"
+          : "AppKit unavailable. Using direct wallet connection…"
+      );
+
+    }
+
+  }
+
+
+  /*
+    v12 desktop fallback.
+  */
+
+  window.dispatchEvent(
+    new Event(
+      "eip6963:requestProvider"
+    )
+  );
+
+
+  discoverLegacyWallets();
+
+
+  await new Promise(
+    resolve=>
+      setTimeout(
+        resolve,
+        120
+      )
+  );
+
+
+  renderWalletSelector();
+
+}
+
+async function disconnectWallet(){
+
+  if(
+    window.EurekaAppKit &&
+    typeof window.EurekaAppKit.disconnect ===
+      "function"
+  ){
+
+    try{
+
+      const state =
+        window
+          .EurekaAppKit
+          .snapshot?.();
+
+
+      if(
+        state?.isConnected
+      ){
+
+        await window
+          .EurekaAppKit
+          .disconnect();
+
+      }
+
+    }catch(error){
+
+      console.warn(
+        "[EKNX APPKIT] disconnect warning",
+        error
+      );
+
+    }
+
+  }
+
+
+  clearConnectedWalletUi();
 
 
   setStatus(
@@ -2826,11 +3075,7 @@ function disconnectWallet(){
     "ok"
   );
 
-
-  updateBuyButton();
-
 }
-
 
 async function refreshWallet(){
 
@@ -3201,6 +3446,59 @@ async function buy(){
 
 function installEvents(){
 
+  window.addEventListener(
+    "eureka:appkit-account",
+    async event=>{
+
+      const detail =
+        event.detail;
+
+
+      if(
+        detail?.isConnected
+      ){
+
+        await applyAppKitAccount(
+          detail
+        );
+
+      }else if(
+        account &&
+        window.EurekaAppKit
+      ){
+
+        clearConnectedWalletUi();
+
+      }
+
+    }
+  );
+
+
+  window.addEventListener(
+    "eureka:appkit-ready",
+    async ()=>{
+
+      const detail =
+        window
+          .EurekaAppKit
+          ?.snapshot?.();
+
+
+      if(
+        detail?.isConnected
+      ){
+
+        await applyAppKitAccount(
+          detail
+        );
+
+      }
+
+    }
+  );
+
+
   document
     .getElementById(
       "connectWalletBtn"
@@ -3356,6 +3654,24 @@ async function boot(){
   applyLanguage();
 
   installEvents();
+
+
+  const appKitState =
+    window
+      .EurekaAppKit
+      ?.snapshot?.();
+
+
+  if(
+    appKitState?.isConnected
+  ){
+
+    await applyAppKitAccount(
+      appKitState
+    );
+
+  }
+
 
   await refreshState();
 
