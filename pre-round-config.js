@@ -1,5 +1,7 @@
 window.EUREKA_PREROUND = Object.freeze({
-  enabled: true,
+  enabled: false,
+  transactionIntakeEnabled: false,
+  status: "LEGAL_STRUCTURING",
 
   roundName: "Eureka Nexus Founding Pre-Round",
   roundYear: 2026,
@@ -16,14 +18,13 @@ window.EUREKA_PREROUND = Object.freeze({
   network: "BNB Smart Chain Mainnet",
   chainId: 56,
 
-  receivingWallet:
-    "0x42F58c8a09Bce3A00Faf553AAC60B0daF320858b",
+  receivingWallet: null,
 
   acceptedPaymentScope:
-    "BNB and BEP-20 tokens on BNB Smart Chain",
+    "DISABLED_DURING_LEGAL_STRUCTURING",
 
-  nativeBnbSupported: true,
-  bep20Supported: true,
+  nativeBnbSupported: false,
+  bep20Supported: false,
 
   unknownTokenPolicy:
     "MANUAL_REVIEW_AND_VALUATION",
@@ -38,7 +39,7 @@ window.EUREKA_PREROUND = Object.freeze({
   termsVersion: "PREROUND-TERMS-2026-10-05-v1",
   privacyVersion: "PREROUND-PRIVACY-2026-10-05-v1",
 
-  apiBaseUrl: "https://pool.eurekanexus.pt/invest-api",
+  apiBaseUrl: null,
 
   raisedEur: 0
 });

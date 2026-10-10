@@ -846,6 +846,11 @@
   }
 
   window.sendBnbInvestment = async function () {
+    const gate = window.EUREKA_PREROUND;
+
+    if (!gate || gate.transactionIntakeEnabled !== true) {
+      throw new Error("A Founding Pre-Round não está a aceitar pagamentos.");
+    }
     const C = window.EUREKA_PREROUND;
     const status = el("paymentStatus");
     const btn = el("sendBnbBtn");
