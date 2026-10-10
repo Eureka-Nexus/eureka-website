@@ -283,12 +283,12 @@ Object.assign(T.pt,{
   market3d:"350.000 EKNX estão reservados para a liquidez utilizada na graduação.",
 
   market4:"4. Mercado",
-  market4d:"Depois da ativação, o valor dependerá da mecânica de mercado, liquidez, procura e oferta.",
+  market4d:"Durante o Genesis Market, o preço segue a bonding curve on-chain; após a graduação, passa a depender da negociação no mercado.",
 
   marketWarning:"EKNX não tem preço futuro, valorização ou retorno garantidos. Criptoativos podem apresentar volatilidade elevada e risco de perda.",
 
   q1:"O EKNX já tem um preço garantido?",
-  a1:"Não. Não existe preço futuro, valorização ou retorno garantido. Antes do lançamento serão publicados os parâmetros finais aplicáveis ao mercado.",
+  a1:"Não. O projeto não garante preço nem retorno. O Genesis Market está ativo. A cotação segue a bonding curve on-chain; não existe preço futuro nem retorno garantido.",
 
   phase1b:"Market Reserve EKNX deployed"
 });
@@ -320,12 +320,12 @@ Object.assign(T.en,{
   market3d:"350,000 EKNX are reserved for the liquidity mechanism used at graduation.",
 
   market4:"4. Market",
-  market4d:"After activation, value will depend on market mechanics, liquidity and supply and demand.",
+  market4d:"During the Genesis Market, price follows the on-chain bonding curve; after graduation, it depends on market trading.",
 
   marketWarning:"EKNX has no guaranteed future price, appreciation or return. Crypto-assets can be highly volatile and involve risk of loss.",
 
   q1:"Does EKNX have a guaranteed price?",
-  a1:"No. There is no guaranteed future price, appreciation or return. Final market parameters will be published before launch.",
+  a1:"No. The project does not guarantee price or return. The Genesis Market is active. Pricing follows the on-chain bonding curve; no future price or return is guaranteed.",
 
   phase1b:"EKNX Market Reserve deployed"
 });
