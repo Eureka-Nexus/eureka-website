@@ -11,8 +11,8 @@ Eureka Nexus is a Portuguese technology project building an ecosystem around:
 - Eureka 2026 Miner
 - EKNX on BNB Smart Chain
 - Automatic mining rewards
-- Planned EKNX Launch Curve
-- Planned transition to DEX liquidity
+- Live EKNX Genesis Market bonding curve
+- Planned DEX liquidity stage at graduation
 
 Official website:
 
@@ -157,7 +157,7 @@ Eureka Nexus does not guarantee:
 - Yield
 - Liquidity
 - Resale
-- Launch Curve completion
+- Sale of the full 650,000 EKNX Genesis Curve allocation
 - DEX listing price
 - Investment return
 
@@ -169,26 +169,28 @@ Risk disclosure:
 
 ---
 
-## Market launch gate
+## Post-launch legal and regulatory status
 
-The public EKNX Market must remain disabled until applicable technical and legal requirements have been completed.
+The Genesis Market is technically **LIVE ON-CHAIN**.
 
-This includes, where applicable:
+Technical activation does not itself establish regulatory compliance or
+remove legal obligations that may apply to the project or the activity.
 
-- Smart-contract validation
+The project must continue to maintain and validate, where applicable:
+
+- Smart-contract and deployed-source verification
 - Security review
-- Final curve parameters
-- Final liquidity model
-- Market terms
-- Risk disclosures
+- Market terms and risk disclosures
 - Legal classification
 - MiCA analysis
 - Required white paper
 - Required notification/publication
-- Geographic restrictions
+- Geographic or eligibility restrictions
 - Privacy review
 - AML/KYC analysis where applicable
 - Tax/accounting review
+
+The DEX stage remains inactive until the deployed graduation condition is met.
 
 Read:
 

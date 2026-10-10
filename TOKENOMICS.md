@@ -2,7 +2,7 @@
 
 Status:
 
-**PUBLIC FRAMEWORK — MARKET NOT YET ACTIVE**
+**PUBLIC FRAMEWORK — GENESIS MARKET LIVE ON-CHAIN · DEX PENDING GRADUATION**
 
 Network:
 
@@ -103,14 +103,14 @@ equivalence verification as part of the project security audit.
 
 ---
 
-# Launch Curve objective
+# Genesis Curve objective
 
-The current design objective is to allow the Launch Curve allocation to be progressively distributed through market demand before the planned transition toward a decentralised exchange environment.
+The deployed Genesis Curve allows the 650,000 EKNX curve allocation to be progressively distributed according to market demand before automatic graduation toward the configured decentralised-exchange liquidity stage.
 
 The project does not guarantee:
 
 - That all 650,000 EKNX will be purchased
-- That the Launch Curve will complete
+- That the Genesis Curve will fully sell out
 - That market demand will reach any particular level
 - That the future DEX price will be higher than the Launch Curve price
 
@@ -170,7 +170,7 @@ Current design direction:
 
 **Launch Curve → liquidity preparation → DEX**
 
-The DEX transition should not occur until the applicable technical, security and legal launch gates have been completed.
+DEX graduation is executed automatically by the deployed contract when the graduation condition is reached. Technical, security, operational and legally applicable readiness must therefore be maintained before that threshold is reached.
 
 See:
 
@@ -247,7 +247,7 @@ Actual circulating supply depends on:
 - Market Reserve distribution
 - Mining/reward issuance
 - On-chain movements
-- Future market activation
+- Genesis Market distribution and DEX graduation
 - Other legitimate on-chain operations within the project framework
 
 Users should verify on-chain information directly.

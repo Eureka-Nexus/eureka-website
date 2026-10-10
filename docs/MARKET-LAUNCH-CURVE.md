@@ -1,99 +1,143 @@
-# EKNX Market Launch — Planned Launch Curve
+# EKNX Genesis Market — Live Bonding Curve
 
 Status:
 
-**PLANNED — NOT ACTIVE**
+**LIVE ON-CHAIN**
 
-This document describes the current technical and economic design direction.
+Network:
 
-It is not an active public offer and does not activate the EKNX Market.
+**BNB Smart Chain Mainnet · Chain ID 56**
+
+This document describes the current deployed Genesis Market architecture.
+
+It does not guarantee future price, liquidity, demand, resale, DEX price
+or investment return and does not constitute legal or regulatory approval.
 
 ## Market Reserve
 
-Total Market Reserve:
+Total Genesis Market Reserve:
 
 **1,000,000 EKNX**
 
-Current intended architecture:
+Deployed allocation:
 
-- Up to 650,000 EKNX intended for the Launch Curve
-- 350,000 EKNX intended to remain reserved for future DEX liquidity / market transition
+- **650,000 EKNX** assigned to the live Genesis bonding curve
+- **350,000 EKNX** reserved for liquidity at graduation
 
-These parameters remain subject to final technical, economic and legal validation before activation.
+The Genesis Market is currently active on-chain.
 
-## Curve design
+## Bonding curve
 
-The current design intention is a:
+The deployed Genesis Market uses a continuous progressive bonding curve.
 
-- Continuous curve
-- Progressive pricing mechanism
-- No artificial fixed price steps
-- No €5 / €10 / €15 price tiers
-- Price determined continuously by the curve state
+The price is calculated from the on-chain curve state.
 
-The current live on-chain curve price is:
+There are no artificial €5 / €10 / €15 fixed price tiers.
+
+Current pricing model:
 
 **Price is calculated live on-chain by the deployed Genesis bonding curve**
 
-This is a planned launch parameter, not a guarantee of future value.
+The project does not guarantee:
 
-The final mathematical formula and contract parameters have not yet been activated and will be published before launch.
-
-## Curve objective
-
-The present design objective is to allow the Launch Curve allocation to progress through market demand before the transition to a decentralised exchange.
-
-The project does not guarantee that all Launch Curve tokens will be purchased.
-
-## Intended use of Launch Curve proceeds
-
-Current planning framework:
-
-- 70% — liquidity / future DEX market structure
-- 30% — Eureka Nexus project development, infrastructure and operational needs
-
-This allocation remains subject to final legal, accounting and launch documentation.
-
-## Supported assets — planned architecture
-
-Because the Launch Curve is intended to operate on BNB Smart Chain, native execution is expected to use compatible BSC assets.
-
-Planned payment support may include:
-
-- BNB
-- USDT
-- USDC
-- Compatible representations of ETH
-- Compatible representations of BTC
-
-Exact contracts, routes and supported assets must be verified and published before activation.
-
-Users must not send unsupported assets or assets from an unsupported network.
-
-## No guaranteed return
-
-The curve must not be interpreted as:
-
-- A promise of appreciation
-- A guaranteed investment return
-- Guaranteed liquidity
+- That all 650,000 EKNX will be purchased
+- That the Genesis Curve will fully sell out
+- Any future EKNX price
+- Appreciation
+- Profit or yield
 - Guaranteed resale
-- Guaranteed DEX price
+- Guaranteed liquidity
+- Any DEX price
 
 Crypto-assets can lose part or all of their market value.
 
-## Launch gate
+## Active payment asset
 
-The Launch Curve must remain disabled until the project completes the applicable:
+The currently deployed Genesis Market operates with:
 
-- Smart-contract validation
-- Security testing
-- Final tokenomics
+**BNB**
+
+on BNB Smart Chain.
+
+USDT, USDC, ETH-compatible assets, BTC-compatible assets or other tokens
+must not be represented as active Genesis Market payment methods unless a
+separate supported implementation is deployed, verified and publicly documented.
+
+Users must not send unsupported tokens or assets from another blockchain
+directly to the Genesis Market contract.
+
+## Graduation
+
+The deployed Genesis Market graduates when the bonding-curve reserve reaches:
+
+**25 BNB**
+
+According to the deployed contract logic, graduation routes:
+
+- **21 BNB + 350,000 EKNX** to DEX liquidity
+- **3 BNB** to the operations wallet
+- **1 BNB** to the founder wallet
+
+The DEX stage is therefore:
+
+**NOT ACTIVE — PENDING GRADUATION**
+
+## DEX transition
+
+Graduation is part of the deployed smart-contract logic.
+
+It is not described as a manual future market-launch switch.
+
+Technical, security, operational and legally applicable readiness should
+therefore be maintained before the graduation threshold is reached.
+
+See:
+
+`DEX-MIGRATION.md`
+
+## Risk and legal status
+
+Technical deployment does not itself establish regulatory compliance.
+
+The project must continue to review and document, where applicable:
+
+- Deployed-contract / source equivalence
+- Security
 - Market terms
 - Risk disclosures
-- Legal classification analysis
-- MiCA analysis
-- Applicable notification/publication process
-- Geographic/eligibility analysis
-- Privacy requirements
-- Accounting/tax review
+- Legal classification
+- MiCA applicability
+- White-paper requirements
+- Notification / publication requirements
+- Geographic or eligibility restrictions
+- Privacy
+- AML/KYC requirements
+- Tax and accounting treatment
+
+See:
+
+`MICA-READINESS.md`
+
+`../LEGAL-CHECKLIST.md`
+
+`../EKNX-RISK-DISCLOSURE.md`
+
+## Verification principle
+
+Do not rely only on descriptive documentation.
+
+Users, reviewers and auditors should verify the current deployed contracts,
+on-chain state, official addresses and published source independently.
+
+## Status vocabulary
+
+Project documentation should use these terms consistently:
+
+- **LIVE ON-CHAIN** — deployed and active on-chain
+- **NOT ACTIVE** — not currently active
+- **PENDING GRADUATION** — dependent on the deployed graduation condition
+- **PLANNED** — future functionality not yet deployed
+
+The Genesis Market bonding curve is **LIVE ON-CHAIN**.
+
+The DEX stage is **NOT ACTIVE — PENDING GRADUATION**.

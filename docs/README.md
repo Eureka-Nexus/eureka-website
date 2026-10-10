@@ -13,7 +13,7 @@ This directory contains the public technical and project documentation for the E
 
 - [EKNX Overview](EKNX.md)
 - [Tokenomics](../TOKENOMICS.md)
-- [Market Launch / Launch Curve](MARKET-LAUNCH-CURVE.md)
+- [Genesis Market / Bonding Curve](MARKET-LAUNCH-CURVE.md)
 - [DEX Migration](DEX-MIGRATION.md)
 - [Smart Contracts](SMART-CONTRACTS.md)
 - [Mining Network](MINING.md)
@@ -30,8 +30,17 @@ This directory contains the public technical and project documentation for the E
 
 ## Important status
 
-EKNX Market / Launch Curve is **not currently active**.
+The EKNX Genesis Market is **LIVE ON-CHAIN** on BNB Smart Chain.
 
-Documentation describing the future Launch Curve and DEX migration represents the current technical plan and does not constitute an active public offer.
+Current deployed Genesis architecture:
 
-Final economic, technical and legally applicable conditions will be published and verified before activation.
+- 650,000 EKNX assigned to the active bonding curve
+- 350,000 EKNX reserved for liquidity at graduation
+- 25 BNB graduation target
+- BNB as the active Genesis Market payment asset
+
+The DEX stage is not active before graduation.
+
+Documentation in this repository describes technical state and project
+documentation. It does not constitute regulatory approval, legal advice
+or a guarantee of price, liquidity or return.

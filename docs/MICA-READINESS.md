@@ -2,42 +2,60 @@
 
 Status:
 
-**PRE-LAUNCH COMPLIANCE WORKING DOCUMENT**
+**POST-LAUNCH REGULATORY WORKING DOCUMENT**
 
-This file is not a legal opinion and does not claim that EKNX has completed regulatory classification or notification.
+The EKNX Genesis Market is technically active on-chain on BNB Smart Chain.
+
+This file is not a legal opinion and does not claim that EKNX, the project,
+the Genesis Market or any related activity has completed regulatory
+classification, notification, authorisation or other legally applicable
+requirements.
+
+Technical activation does not itself establish regulatory compliance.
 
 ## Regulatory classification
 
-Before a public market launch, the project must determine the legal classification applicable to EKNX and the planned activity.
+The project must determine and document the legal classification applicable
+to EKNX and to the activities actually carried out.
 
-This includes determining whether the planned public offer, admission to trading or related activity is subject to Regulation (EU) 2023/1114 (MiCA) or another applicable regime.
+This includes determining whether any public offer, admission to trading,
+crypto-asset service or related activity is subject to Regulation
+(EU) 2023/1114 (MiCA) or another applicable regime.
+
+That assessment must be validated by qualified professional advisers.
 
 ## White paper
 
-Where a MiCA crypto-asset white paper is legally required, the final document must comply with the applicable requirements, including information relating to:
+Where a MiCA crypto-asset white paper is legally required, the final document
+must comply with the applicable requirements, including information relating to:
 
-- Offeror / issuer
+- Offeror / issuer where applicable
 - Project
-- Public offer or admission to trading
+- Public offer or admission to trading where applicable
 - Crypto-asset
 - Rights and obligations
 - Underlying technology
 - Risks
-- Environmental / climate impacts required by the applicable framework
+- Environmental / climate information required by the applicable framework
 
-The final document must use the applicable required statements and warnings.
+The final document must use any legally required statements and warnings.
 
-It must not contain prohibited claims regarding future crypto-asset value.
+It must not contain prohibited or misleading claims regarding future
+crypto-asset value.
 
 ## Publication and notification
 
-Where applicable, the project must complete the required notification process before the public offer or admission to trading.
+Where notification, publication or another regulatory process is legally
+required, the project must complete the applicable process and maintain
+the required public documentation.
 
-The publicly published version must match the applicable notified version.
+Any publicly published regulatory document must remain consistent with
+the version legally required or notified, where applicable.
 
 ## Machine-readable format
 
-Where applicable under the current technical standards, the final regulatory white paper must be produced in the required machine-readable format.
+Where required by the applicable technical standards, regulatory documents
+must be produced and published in the required machine-readable format.
 
 ## Marketing
 
@@ -46,16 +64,44 @@ Public marketing material must remain:
 - Fair
 - Clear
 - Not misleading
-- Consistent with final legal disclosures
+- Consistent with applicable legal disclosures
+- Clear about what is LIVE, what is planned and what is still under review
+
+The project must not represent regulatory approval or compliance unless
+that statement has been independently validated and can be evidenced.
+
+## Current on-chain market state
+
+The deployed Genesis Market currently uses:
+
+- BNB Smart Chain Mainnet
+- 1,000,000 EKNX Genesis Market reserve
+- 650,000 EKNX assigned to the live bonding curve
+- 350,000 EKNX reserved for liquidity at graduation
+- 25 BNB graduation target
+- BNB as the active Genesis Market payment asset
+
+The DEX stage is not active before graduation.
+
+These technical facts do not resolve the legal classification of the activity.
 
 ## Current rule
 
-The GitHub technical documentation is not a substitute for:
+GitHub technical documentation is not a substitute for:
 
 - Formal legal classification
-- Regulatory notification
-- Required white-paper format
+- Regulatory notification or publication where applicable
+- A required crypto-asset white paper where applicable
 - Professional legal review
+- Geographic / eligibility analysis
+- Consumer-law analysis where applicable
+- Privacy analysis
+- AML/KYC analysis where applicable
 - Tax/accounting analysis
 
-The EKNX public Market must remain disabled until the applicable launch requirements have been completed.
+The Genesis Market is already technically active on-chain.
+
+The project must therefore maintain accurate public disclosures and continue
+the professional legal and regulatory review of the live activity.
+
+No statement in this repository should be interpreted as regulatory approval.

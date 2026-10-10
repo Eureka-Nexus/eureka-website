@@ -11,8 +11,8 @@ Eureka Nexus é um projeto tecnológico português que junta:
 - Eureka 2026 Miner
 - EKNX na BNB Smart Chain
 - Pagamentos automáticos de mineração
-- Futura Launch Curve EKNX
-- Futura transição para liquidez em DEX
+- Genesis Market EKNX LIVE com bonding curve
+- Futura fase de liquidez em DEX na graduação
 
 Site oficial:
 
@@ -141,52 +141,44 @@ https://github.com/Eureka-Nexus/eureka-miner/releases
 
 ---
 
-## Lançamento EKNX no mercado
+## Genesis Market EKNX
 
 Estado atual:
 
-**BREVEMENTE — AINDA NÃO ATIVO**
+**GENESIS MARKET LIVE ON-CHAIN**
 
-Arquitetura atualmente planeada:
+Arquitetura deployed:
 
 - Market Reserve total: **1.000.000 EKNX**
-- Até **650.000 EKNX** para Launch Curve
-- **350.000 EKNX** preservados para futura fase DEX/liquidez
+- **650.000 EKNX** atribuídos à Genesis bonding curve ativa
+- **350.000 EKNX** reservados para liquidez na graduação
 - Curve contínua e progressiva
-- Sem patamares artificiais de preço
-- Referência inicial atualmente planeada:
-  **primeiras 1.000 EKNX a €0,05 por EKNX**
+- Sem patamares artificiais fixos de preço
+- Preço calculado on-chain pelo estado da bonding curve
+- Graduação quando a reserva da curve atingir **25 BNB**
 
-A fórmula matemática final, limites e parâmetros on-chain ainda não estão ativos.
+O Genesis Market opera atualmente com **BNB** na BNB Smart Chain.
+
+Não existe preço futuro, valorização, liquidez ou retorno garantido.
 
 ---
 
-## Utilização planeada dos fundos da Launch Curve
+## Graduação do Genesis Market
 
-Estrutura atual de planeamento:
+Segundo a lógica do contrato deployed, quando a condição de graduação é atingida:
 
-- **70% — liquidez / futura estrutura DEX**
-- **30% — desenvolvimento, infraestrutura e operação do Eureka Nexus**
+- **21 BNB + 350.000 EKNX** são destinados à liquidez DEX
+- **3 BNB** são encaminhados para operações
+- **1 BNB** é encaminhado para a founder wallet
 
-Esta estrutura continua sujeita à validação final técnica, jurídica, contabilística e fiscal antes do lançamento.
+A fase DEX não está ativa antes da graduação.
+
+A ativação técnica do Genesis Market não substitui revisão jurídica,
+regulatória, fiscal, contabilística ou de segurança.
 
 Ver:
 
 [docs/MARKET-LAUNCH-CURVE.md](docs/MARKET-LAUNCH-CURVE.md)
-
----
-
-## Futura passagem para DEX
-
-Arquitetura planeada:
-
-**Launch Curve → preparação de liquidez → DEX**
-
-Os **350.000 EKNX** reservados destinam-se atualmente à futura fase DEX/liquidez.
-
-A DEX, par de negociação, contratos, pool e mecanismo final ainda não estão ativados.
-
-Ver:
 
 [docs/DEX-MIGRATION.md](docs/DEX-MIGRATION.md)
 
@@ -202,7 +194,7 @@ O Eureka Nexus não garante:
 - Rendimento
 - Liquidez
 - Revenda
-- Venda total da Launch Curve
+- Venda total das 650.000 EKNX da Genesis Curve
 - Preço em DEX
 - Volume de negociação
 - Retorno de investimento
@@ -217,24 +209,29 @@ Ver:
 
 ## Legal e regulamentação
 
-O lançamento público deve permanecer desativado até serem concluídos os requisitos aplicáveis, incluindo quando necessário:
+O Genesis Market está tecnicamente **LIVE ON-CHAIN**.
 
-- Validação dos contratos
+A ativação técnica não constitui, por si só, aprovação regulamentar nem
+elimina obrigações legais que possam ser aplicáveis.
+
+O projeto deve continuar a manter e validar, quando aplicável:
+
+- Equivalência entre contratos deployed e source publicado
 - Revisão de segurança
-- Tokenomics final
 - Termos específicos do mercado
 - Divulgação de riscos
 - Classificação jurídica
 - Análise MiCA
 - White paper regulamentar quando aplicável
 - Notificação/publicação quando aplicável
-- Restrições geográficas
+- Restrições geográficas ou de elegibilidade
 - Privacidade
 - AML/KYC quando aplicável
 - Revisão fiscal e contabilística
 - Revisão das comunicações de marketing
 
-Os documentos deste GitHub não substituem aconselhamento jurídico profissional nem constituem, por si só, aprovação regulamentar.
+Os documentos deste GitHub não substituem aconselhamento jurídico profissional
+nem constituem, por si só, aprovação ou confirmação de conformidade regulamentar.
 
 Ver:
 
