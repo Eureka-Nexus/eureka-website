@@ -1,0 +1,48 @@
+EUREKA NEXUS — SITE BILINGUE 2.1 (PT/EN)
+=======================================
+
+ESTADO:
+Site completo, gerado e testado localmente. NÃO PUBLICADO NESTA ETAPA.
+
+PÁGINAS:
+- Início
+- Eureka AI: inteligência, chat, voz, visão, memória, identidade pessoal
+- Mundo Digital: espaços privados, identidades e futura colaboração
+- Compute Node: CPU/GPU, trabalhos de IA validados, métricas e recompensas futuras
+- Desenvolvimento: roadmap e galeria configurável de capturas/vídeos reais
+- Investidores: apresentação e formulário que prepara email (sem recolha automática)
+- Futura moeda: proposta económica, distribuição ilustrativa e eventual pré-venda futura
+- Contactos: email, GitHub, X e Reddit
+- Privacidade, Termos
+- Versões inglesas em /en/
+
+INSTALAÇÃO NO TEU WINDOWS / WSL:
+1. Extrai este ZIP em C:\EurekaNexus\
+   Deve criar C:\EurekaNexus\Eureka_Nexus_Website_2_1_PT_EN\
+2. No WSL executa:
+   bash /mnt/c/EurekaNexus/Eureka_Nexus_Website_2_1_PT_EN/deployment/install-into-website.sh
+3. O script:
+   - verifica a main original e backup do Git
+   - cria um worktree e branch isolados
+   - substitui os ficheiros antigos apenas NA NOVA BRANCH
+   - testa HTML, links, versões PT/EN e JavaScript
+   - faz commit e push da branch de revisão
+   - NÃO altera a main nem a produção
+4. Consulta o link de comparação que o script indicar.
+5. Abre o novo site localmente em WSL:
+   cd /mnt/c/EurekaNexus/Eureka_AI_Website_2_Bilingual_Preview
+   python3 -m http.server 8765
+   Em Windows, abre http://localhost:8765/ e http://localhost:8765/en/
+6. Rever o conteúdo (jurídico, economia futura e contactos), imagens, vídeo e navegação.
+7. Só depois aprovar merge na branch main, que alimenta GitHub Pages.
+
+MEDIA REAL:
+Vê assets/media/README.md. A galeria está vazia por design:
+não apresenta imagens nem vídeos inventados como demonstrações reais.
+
+IMPORTANTE:
+- Não existe pré-venda ativa.
+- As percentagens da futura moeda são um cenário em estudo, não uma promessa.
+- As páginas de privacidade e condições necessitam de revisão antes de serviços públicos.
+- O script não apaga backups da antiga infraestrutura nem mexe na VPS.
+- O histórico antigo continua no Git; apagar ficheiros da main não apaga commits passados.
